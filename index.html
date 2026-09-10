@@ -1,9 +1,71 @@
 <!DOCTYPE html>
-<html lang="es"></html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify</title>
-    
-
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1">
+    <title>Regi Music</title>
 </head>
+
+<body>
+    <header>
+        <h1>Regi Music</h1>
+        <!-- Espacio disponible para poner lo básico, un logo a lo soundcloud,
+        barrita de busqueda y opciones de sesión y de configuración.-->
+    </header>
+
+    <!-- Damos paso a que el usuario navegue por el sitio con accesos rápidos clásicos. -->
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Artistas</a></li>
+            <li><a href="#">Mi Biblioteca</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Asignamos el main a la página princpal, que el usuario vea lo que suena ultimamente
+    ya sean artistas o canciones. Oye, recuerden que los h son índices, no tipos de tamaño. -->
+
+    <main>
+        <section id="artista-destacado">
+            <h2>Artista Destacado</h2>
+            <p>Revisa quien suena últimamente en Regi Music.</p>
+
+            <!-- Article según el profe es donde algo se explica por si solo,
+            una noticia, comentario, etc, en este caso, hablamos sobre algún artista que suena
+            recientemente o tiene algún hit pegado. -->
+            <article>
+                <h3>Nombre de artista destacado recientemente.</h3>
+                <img src="ruta-de-imagen-del-artista.jpg" alt="Qué aporta la imagen sobre el artista">
+                <p>Descripción del artista, sus logros recientes y a que género suele pertenecer</p>
+                <button type="button">Ver Perfil</button>
+            </article>
+        </section>
+
+        <section id="canciones-populares">
+            <h2>Canciones Populares</h2>
+            <article>
+                <h3>Nombre de canción popular</h3>
+                <img src="ruta-de-imagen-de-la-cancion.jpg" alt="Qué aporta la imagen sobre la canción">
+                <p>Descripción de la canción, su popularidad y a que género pertenece</p>
+                <button type="button">Escuchar</button>
+            </article>
+        </section>
+    </main>
+
+    <!-- Tipo spotify, que el aside sea la barra lateral donde aparece la lista de espera,
+    de paso a la visualización del logo de la canción, etc., de momento solo pongamos lista
+    de espera. -->
+    
+    <aside>
+        <h2>Lista de Espera</h2>
+        <p>De momento se encuentra todo vacío... !Busca algo para alegrar tu día!</p>
+    </aside>
+
+    <!-- El footer contiene información sobre el sitio web, pero podemos ponerle al ser
+    un sitio de música, la típica barra de reproducción.-->
+    <footer>
+        <p>Reproductor de Música</p>
+    </footer>
+</body>
+</html>
