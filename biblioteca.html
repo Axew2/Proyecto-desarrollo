@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1">
+    <title>Mi Biblioteca - Regi Music</title>
+</head>
+<body>
+    <header>
+        <h1>Regi Music</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="artistas.html">Artistas</a></li>
+            <li><a href="biblioteca.html">Mi Biblioteca</a></li>
+            <li><a href="login.html">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="playlists-disponibles">
+            <h2>Mi Biblioteca</h2>
+            <p>Explora tus playlists favoritas en Regi Music.</p>
+
+            <!-- Para hacer estas playlists, me basé en la estructura que sigue el profe en
+            referencia a las tablas (tables), para ser especifico, en el apartado de HTML 5 Semántico
+            página 5: Tablas de datos, para que mantengan el formato de "Canción - Artista - Album - Duración" -->
+        
+            <div class="scroll" tabindex="0">
+                <table>
+                    <caption>Playlist: Canciones Favoritas</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Canción</th>
+                            <th scope="col">Artista</th>
+                            <th scope="col">Álbum</th>
+                            <th scope="col">Duración</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Sola</th>
+                            <td>Hector El Father</td>
+                            <td>The Bad Boy</td>
+                            <td>3:53</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">From The Start</th>
+                            <td>Laufey</td>
+                            <td>Bewitched</td>
+                            <td>2:49</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Maniac</th>
+                            <td>Los 4 Fantásticos</td>
+                            <td>Single</td>
+                            <td>3:15</td>
+                        </tr>
+
+                        <tr class = "total">
+                            <td colspan="3">Duración Total de la Playlist</td>
+                            <td>9:57</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
+    </footer>
+</body>
+</html>
