@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard - Regi Music</title>
+</head>
+
+<body>
+    <header>
+        <h1>Panel de Administrador</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="artistas.html">Artistas</a></li>
+            <li><a href="biblioteca.html">Mi Biblioteca</a></li>
+            <li><a href="login.html">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="seccion-gestion-canciones">
+            <h2>Gestión de Canciones:</h2>
+            <p>Administrador, desde aquí puedes agregar canciones a Regi Music.</p>
+            
+            <form action = "#" method = "post">
+                <p>
+                    <label for = "titulo-cancion">Ingrese el título de la canción: </label><br>
+                    <input type = "text" id = "titulo-cancion" name = "titulo-cancion" required>
+                </p>
+                <p>
+                    <label for = "artista">Ingrese el artista de la canción: </label><br>
+                    <input type = "text" id = "artista" name = "artista" required>
+                </p>
+                <p>
+                    <label for = "album">Ingrese el álbum al que pertenece la canción: </label><br>
+                    <input type = "text" id = "album" name = "album" required>
+                </p>
+                <p>
+                    <label for = "duracion">Ingrese la duración de la canción (mm:ss): </label><br>
+                    <input type = "text" id = "duracion" name = "duracion" required pattern="\d{1,2}:\d{2}">
+                </p>
+                <p>
+                    <label for = "genero">Ingrese el género de la canción: </label><br>
+                    <input type = "text" id = "genero" name = "genero" required>
+                </p>
+                <p>
+                    <label for = "imagen">Ingrese el URL de la imagen (Para la portada): </label><br>
+                    <input type = "url" id = "imagen" name = "imagen" required>
+                </p>
+                <p>
+                    <label for = "archivo-audio">Ingrese el archivo de audio de la canción (.mp3, .wav): </label><br>
+                    <input type = "file" id = "archivo-audio" name = "archivo-audio" required>
+                </p>
+
+                <button type = "submit"> Agregar Canción </button>
+            </form>
+        </section>
+    </main>
+
+
+    <!-- No se me ocurrió nada para poner en el aside, así que se indicará el estado del servidor. O alguna wea, den ideas.-->
+    <aside>
+        <h2>Estado del Servidor</h2>
+        <p>El servidor está en línea y funcionando correctamente.</p>
+    </aside>
+
+    <footer>
+        <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
+    </footer>
+</body>
+</html>
