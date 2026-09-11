@@ -1,10 +1,26 @@
 body{
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav    main   aside"
+        "footer footer footer";
+    grid-template-columns: 220px 1fr 250px;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    margin: 0;
     color: #ffff;
-    background-color: #010d14;
+    background-color: #000000;
 }
 header {
-    background-color: #010d14;
-    padding: 15px 20px;
+    grid-area: header;
+    background-color: #000000;
+    position: flex;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    top: 0;
+    width: 100%;
+    padding: 14px 18px;
 }
 header h1{
     color: #ffff;
@@ -13,7 +29,7 @@ header h1{
 }
 .Barra-busqueda {
     display: flex;
-    align-items: right;
+    align-items: center;
     margin-top: 10px;
     background-color: #2c3236;
     border-radius: 5px;
@@ -37,17 +53,21 @@ header h1{
 .Boton-buscar {
     border: none;
     background: transparent;
+    color: #ffffff;
     cursor: pointer;
     font-size: 12px;
 }
+
 nav {
-    background-color: #010d14;
+    grid-area: nav;
+    background-color: #000000;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: right;
 }
 footer {
+    grid-area: footer;
     background-color: #122631;
     padding: 10px 20px;
     text-align: center;
