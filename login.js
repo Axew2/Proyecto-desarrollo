@@ -11,11 +11,11 @@ botonMostrar.addEventListener("click", function(){
     
     if (contrasenia.type === "password"){
     contrasenia.type = "text"; 
-    contrasenia.textContent = "Ocultar Contraseña";
+    botonMostrar.textContent = "Ocultar Contraseña";
     } 
     else{
     contrasenia.type = "password";}
-    contrasenia.textContent = "Mostrar Contraseña";
+    botonMostrar.textContent = "Mostrar Contraseña";
     
     }
 );
