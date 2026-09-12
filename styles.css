@@ -1,19 +1,209 @@
-body{
+:root{
+    --color-fondo: #000000;
+    --color-texto: #ffff;
+    --color-header: #000000;
+    --color-nav: #000000;
+    --color-footer: #1f495f;
+    --color-busqueda-fondo: #2c3236;
+    --color-busqueda-texto: #ffffff;
+}
+*{
+    margin: 0px;
+    padding: 2px;
+    box-sizing: border-box;
+}
+ body{
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 100vh;
+}
+.inicio {
     display: grid;
     grid-template-areas:
         "header header header"
-        "nav    main   aside"
+        "nav main aside"
         "footer footer footer";
-    grid-template-columns: 220px 1fr 250px;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 2fr 1fr;
+
+}
+
+.login {
+    display: grid;
     min-height: 100vh;
-    margin: 0;
-    color: #ffff;
+    grid-template-areas:
+        "header header header"
+        "nav main main"
+        "footer footer footer";
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr auto;
+}.login nav{
+    grid-area: nav;
+    padding: 10px 10px;
+}
+.login main{
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 20px;
+}
+.login main form, .login main .login-container {
     background-color: #000000;
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--color-busqueda-borde);
+}
+.login h2{
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+.login p{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.login label{
+    display: flex;
+    font-size: 20px;
+}
+.login input[type="email"], .login input[type="password"]{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-busqueda-borde);
+}
+.login button[type="submit"]{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-busqueda-fondo);
+    color: var(--color-busqueda-texto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.biblioteca {
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas:
+        "header header header"
+        "nav main main"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+.biblioteca nav {
+    grid-area: nav;
+    padding: 10px 10px;
+}
+.biblioteca main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    padding: 40px 20px;
+}
+.biblioteca main h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+.biblioteca main p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.scroll{
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: var(--color-texto);
+    font-size: 20px;
+}
+.scroll thead tr{
+    border-bottom: 2px solid var(--color-busqueda-borde);
+} 
+.scroll th{
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.scroll tbody tr{
+    border-bottom: 1px solid #24455c;
+    border-top: 1px solid #24455c;
+}
+.scroll td{
+    padding: 12px 16px;
+}
+
+
+.artistas {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav main main"
+        "footer footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+}
+#repertorio-de-artistas {
+    grid-area: main;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+#repertorio-de-artistas h2, #repertorio-de-artistas > p {
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / -1;
+    width: 100%;
+}
+#repertorio-de-artistas article {
+    background-color: var(--color-busqueda-fondo);
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#repertorio-de-artistas article img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+}
+#repertorio-de-artistas article h2 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+}
+#repertorio-de-artistas article h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+#repertorio-de-artistas article p {
+    font-size: 14px;
+    color: var(--color-busqueda-texto);
+    line-height: 1.4;
+}
+#repertorio-de-artistas article button {
+    padding: 8px 12px;
+    background-color: #5b8578;
+    color: var(--color-busqueda-texto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 header {
     grid-area: header;
-    background-color: #000000;
+    background-color: var(--color-header);
     position: flex;
     display: flex;
     align-items: center;
@@ -21,22 +211,19 @@ header {
     top: 0;
     width: 100%;
     padding: 14px 18px;
+    font-size: 14px;
 }
-header h1{
-    color: #ffff;
-    font-size: 20px;
-    margin: 0; 
-}
+
 .Barra-busqueda {
     display: flex;
     align-items: center;
     margin-top: 10px;
-    background-color: #2c3236;
+    background-color: var(--color-busqueda-fondo);
     border-radius: 5px;
     padding: 5px;
     width: 100%;
     max-width: 400px;
-    border: 1px solid #2a2f33;
+    border: 1px solid var(--color-busqueda-borde);
 }
 .Buscar {
     flex: 1;
@@ -45,30 +232,45 @@ header h1{
     background-color: transparent;
     font-size: 14px;
     width: 100%;
-    color: #ffffff;
+    color: var(--color-busqueda-texto);
 }
 .Buscar::placeholder {
-    color: #ffffff;
+    color: var(--color-busqueda-texto);
 }
 .Boton-buscar {
     border: none;
     background: transparent;
-    color: #ffffff;
+    color: var(--color-busqueda-texto);
     cursor: pointer;
     font-size: 12px;
 }
-
+input{
+    outline: none;
+}
 nav {
     grid-area: nav;
-    background-color: #000000;
-    padding: 10px 20px;
+    background-color: var(--color-nav);
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
-    align-items: right;
+}
+
+nav ul{
+    list-style: none;
+}
+nav a{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 10px;
+    display: block;
+}
+nav a:hover{
+    background-color: #1f495f;
+    color: #ffffff;
 }
 footer {
     grid-area: footer;
-    background-color: #122631;
+    background-color: var(--color-footer);
     padding: 10px 20px;
     text-align: center;
 }
