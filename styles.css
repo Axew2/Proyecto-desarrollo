@@ -69,12 +69,19 @@
     display: flex;
     font-size: 20px;
 }
-.login input[type="email"], .login input[type="password"]{
+.login input[type="email"], .login #password{
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid var(--color-busqueda-borde);
+}
+.Boton-mostrar{
+    color: var(--color-busqueda-texto);
+    background-color: var(--color-busqueda-fondo);
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
 }
 .login button[type="submit"]{
     width: 100%;
