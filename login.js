@@ -6,12 +6,15 @@ botonMostrar.textContent = "Mostrar Contraseña";
 
 contrasenia.after(botonMostrar);
 
-botonMostrar.addEventListener("click", function(event){
+botonMostrar.addEventListener("click", function(){
     
     if (contrasenia.type === "password"){
     contrasenia.type = "text"; 
+    contrasenia.textContent = "Ocultar Contraseña";
     } 
     else{
-    contrasenia.type = "password";
+    contrasenia.type = "password";}
+    contrasenia.textContent = "Mostrar Contraseña";
+    
     }
-});
+);
