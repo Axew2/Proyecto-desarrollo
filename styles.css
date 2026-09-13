@@ -28,6 +28,74 @@
 
 }
 
+.inicio aside{
+    grid-area: aside;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}.inicio aside p{
+    font-size: 18px;
+    margin-bottom: 10px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+#artistas-destacados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+    gap: 30px;
+    padding: 20px;
+}
+#artistas-destacados article {
+    max-width: 320px;
+    width:100%
+}
+#artistas-destacados h2{
+    grid-column: 1 / -1;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+#artistas-destacados p{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+#canciones-destacadas{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+#canciones-populares h2{
+    grid-column: 1 / -1;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+article {
+    background-color: var(--color-busqueda-fondo);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+article img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 5px;
+}
+article button {
+    padding: 8px 12px;
+    background-color: #5b8578;
+    color: var(--color-busqueda-texto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .login {
     display: grid;
     min-height: 100vh;
@@ -148,7 +216,6 @@
     padding: 12px 16px;
 }
 
-
 .artistas {
     display: grid;
     grid-template-areas:
@@ -172,9 +239,7 @@
     width: 100%;
 }
 #repertorio-de-artistas article {
-    background-color: var(--color-busqueda-fondo);
     padding: 10px;
-    border-radius: 10px;
     width: 400px;
     text-align: center;
     gap: 10px;
@@ -200,14 +265,7 @@
     color: var(--color-busqueda-texto);
     line-height: 1.4;
 }
-#repertorio-de-artistas article button {
-    padding: 8px 12px;
-    background-color: #5b8578;
-    color: var(--color-busqueda-texto);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 header {
     grid-area: header;
     background-color: var(--color-header);
