@@ -63,6 +63,14 @@ Ruta:
 
 Formulario de inicio de sesión a travez de un correo electrónico y contraseña.
 
+### Dashboard
+
+Ruta: 
+
+`/dashboard.html`
+
+Pagina de administradores, que contiene un formulario para subir canciones.
+
 ## JavaScript
 
 El proyecto utiliza JavaScript básico para agregar interactividad mediante manipulación del DOM.
