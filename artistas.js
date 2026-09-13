@@ -37,3 +37,18 @@ boton4Fantastico.addEventListener("click", function() {
     }
 });
 
+const inputBusqueda = document.querySelector(".Buscar");
+const botonBusqueda = document.querySelector(".Boton-buscar");
+const artistas = document.querySelectorAll("#repertorio-de-artistas article");
+
+botonBusqueda.addEventListener("click", function() {
+    const terminoBusqueda = inputBusqueda.value.trim().toLowerCase();
+    artistas.forEach(function(artista) {
+        const nombreArtista = artista.querySelector("h3").textContent.toLowerCase();
+        if (nombreArtista.includes(terminoBusqueda)) {
+            artista.style.display = "block";
+        } else {
+            artista.style.display = "none";
+        }
+    });
+});
