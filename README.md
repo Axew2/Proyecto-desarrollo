@@ -23,9 +23,9 @@ Este proyecto corresponde a la Entrega 1 de Desarrollo Web y Móvil.
 
 ## Servidor
 
-IP pública: 100.27.227.213
+IP pública: 32.199.184.82
 
-http://100.27.227.213
+http://32.199.184.82
 
 La aplicación está desplegada en una instancia EC2 y es servida mediante nginx.
 
