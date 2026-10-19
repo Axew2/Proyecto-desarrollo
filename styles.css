@@ -6,6 +6,8 @@
     --color-footer: #1f495f;
     --color-busqueda-fondo: #2c3236;
     --color-busqueda-texto: #ffffff;
+    --color-de-recuadro:#007e2a73;
+    --color-boton-articulo: #1b642e;
 }
 *{
     margin: 0px;
@@ -73,7 +75,7 @@
     margin-bottom: 10px;
 }
 article {
-    background-color: var(--color-busqueda-fondo);
+    background-color: var(--color-de-recuadro);
     padding: 10px;
     border-radius: 10px;
     text-align: center;
@@ -91,8 +93,8 @@ article img {
 }
 article button {
     padding: 8px 12px;
-    background-color: #5b8578;
-    color: var(--color-busqueda-texto);
+    background-color: var(--color-boton-articulo);
+    color: var(--color-articulo-boton-texto);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -330,17 +332,19 @@ header {
 
 .Barra-busqueda {
     display: flex;
+    left: 50%;
     align-items: center;
     margin-top: 10px;
     background-color: var(--color-busqueda-fondo);
     border-radius: 5px;
     padding: 5px;
     width: 100%;
+    transform: translateX(50%);
     max-width: 400px;
     border: 1px solid var(--color-busqueda-borde);
 }
 .Buscar {
-    flex: 1;
+    flex: 2;
     padding: 5px;
     border: none;
     background-color: transparent;
