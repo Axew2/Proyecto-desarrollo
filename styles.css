@@ -6,6 +6,7 @@
     --color-footer: #1f495f;
     --color-busqueda-fondo: #2c3236;
     --color-busqueda-texto: #ffffff;
+    --color-busqueda-borde: #5b8578;
 }
 *{
     margin: 0px;
@@ -438,4 +439,35 @@ footer {
 
 .reproducir-botones button:hover {
     background-color: #486e63;
+}
+
+/* Parte del css de plpaylists */
+
+.playlists .formulario-playlist {
+    margin-top: 30px;
+    max-width: 400px;
+}
+
+.playlists .formulario-playlist form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: var(--color-busqueda-fondo);
+    border-radius: 10px;
+}
+
+.playlists .formulario-playlist input {
+    padding: 10px;
+    border: 1px solid var(--color-busqueda-borde);
+    border-radius: 5px;
+}
+
+.playlists .formulario-playlist button {
+    padding: 10px;
+    background-color: #5b8578;
+    color: var(--color-busqueda-texto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
