@@ -11,10 +11,16 @@
     
     <header>
         <h1>Regi Music</h1>
-        <div class="Barra-busqueda">
-            <input type="text" placeholder="Buscar artistas, canciones..." class="Buscar">
-            <button type="button" class="Boton-buscar">Buscar</button>
-        </div>
+        
+<div class="Barra-busqueda">
+    <label for="buscar-biblioteca" class="visual-oculto">
+        Buscar música
+    </label>
+
+    <input type="text" id="buscar-biblioteca" placeholder="Buscar artistas, canciones..." class="Buscar">
+    <button type="button" class="Boton-buscar">Buscar</button>
+</div>
+
     </header>
 
     <nav>
@@ -32,21 +38,21 @@
     <main>
         <section id="playlists-disponibles">
             <h2>Mi Biblioteca</h2>
-            <p>Explora tus playlists favoritas en Regi Music.</p>
+            <p>Explora tus canciones favoritas en Regi Music.</p>
 
             <!-- Para hacer estas playlists, me basé en la estructura que sigue el profe en
             referencia a las tablas (tables), para ser especifico, en el apartado de HTML 5 Semántico
             página 5: Tablas de datos, para que mantengan el formato de "Canción - Artista - Album - Duración" -->
         
             <table class="scroll" tabindex="0">
-                    <caption>Playlist: Canciones Favoritas</caption>
+                    <caption> Canciones disponibles</caption>
                     <thead>
                         <tr>
                             <th scope="col">Canción</th>
                             <th scope="col">Artista</th>
                             <th scope="col">Álbum</th>
                             <th scope="col">Duración</th>
-                            <th scope="col">Estado</th>
+                            <th scope="col">Favoritos</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +63,7 @@
                             <td>3:53</td>
                             <td>
                                 <button type="button" id="boton-sola">Marcar como escuchada</button>
+                                <button type="button" id="boton-sola-favorito">Agregar a favoritos</button>
                             </td>
                         </tr>
                             <tr id="cancion-from-the-start">
@@ -66,6 +73,7 @@
                             <td>2:49</td>
                             <td>
                                 <button type="button" id="boton-from-the-start">Marcar como escuchada</button>
+                                <button type="button" id="boton-from-the-start-favorito">Agregar a favoritos</button>
                             </td>
                         </tr>
                             <tr id="cancion-maniac">
@@ -75,12 +83,14 @@
                             <td>3:15</td>
                             <td>
                                 <button type="button" id="boton-maniac">Marcar como escuchada</button>
+                                <button type="button" id="boton-maniac-favorito">Agregar a favoritos</button>
                             </td>
                         </tr>
 
                         <tr class = "total">
-                            <td colspan="3">Duración Total de la Playlist</td>
+                            <td colspan="3">Duración Total de las canciones:</td>
                             <td>9:57</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
