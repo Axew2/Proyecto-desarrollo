@@ -15,11 +15,11 @@ const botonFromTheStart = document.querySelector("#boton-from-the-start");
 
 botonFromTheStart.addEventListener("click", function(){
 
-    if (botonFromTheStart.textContent === "Marcar como escuchada"){
-        botonFromTheStart.textContent = "Escuchada";
+    if (botonFromTheStart.textContent === "Agregar a favoritos"){
+        botonFromTheStart.textContent = "Quitar de favoritos";
     }
     else{
-        botonFromTheStart.textContent = "Marcar como escuchada";
+        botonFromTheStart.textContent = "Agregar a favoritos";
     }
 
 });
@@ -27,10 +27,10 @@ botonFromTheStart.addEventListener("click", function(){
 const botonManiac = document.querySelector("#boton-maniac");
 
 botonManiac.addEventListener("click", function(){
-    if(botonManiac.textContent === "Marcar como escuchada"){
-        botonManiac.textContent = "Escuchada";
+    if(botonManiac.textContent === "Agregar a favoritos"){
+        botonManiac.textContent = "Quitar de favoritos";
     }
     else{
-        botonManiac.textContent = "Marcar como escuchada";
+        botonManiac.textContent = "Agregar a favoritos";
     }
 });
