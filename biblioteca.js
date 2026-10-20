@@ -2,11 +2,11 @@ const botonSola = document.querySelector("#boton-sola");
 
 botonSola.addEventListener("click", function(){
 
-    if (botonSola.textContent === "Marcar como escuchada"){
-        botonSola.textContent = "Escuchada";
+    if (botonSola.textContent === "Agregar a favoritos"){
+        botonSola.textContent = "Quitar de favoritos";
     }
     else{
-        botonSola.textContent = "Marcar como escuchada";
+        botonSola.textContent = "Agregar a favoritos";
     }
 
 });
