@@ -19,8 +19,11 @@
     </header>
 
     <!-- Damos paso a que el usuario navegue por el sitio con accesos rápidos clásicos. -->
-    <nav>
-        <ul>
+    <nav >
+        <input type="checkbox" id="menu-movil" class="menu-toggle">
+        <label for="menu-movil" class="boton-menu">☰ Menú</label>  
+        <ul id="opciones-menu" :class="{ 'menu-abierto': abierto}">
+
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
