@@ -430,6 +430,89 @@ footer {
     padding: 10px 20px;
     text-align: center;
 }
+
+
+/* Cambios por Claudito para el reproductor de música. */
+
+.inicio {
+    padding-bottom: 180px;
+}
+
+.inicio .reproductor {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    background-color: var(--color-footer);
+    color: var(--color-texto);
+    padding: 12px 20px;
+    text-align: left;
+}
+
+.reproducir-cancion {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.reproducir-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.reproducir-botones button {
+    padding: 10px 15px;
+    background-color: #5b8578;
+    color: var(--color-busqueda-texto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reproducir-botones button:hover {
+    background-color: #486e63;
+}
+
+/* Parte del css de plpaylists */
+
+.playlists .formulario-playlist {
+    margin-top: 30px;
+    max-width: 400px;
+}
+
+.playlists .formulario-playlist form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: var(--color-busqueda-fondo);
+    border-radius: 10px;
+}
+
+.playlists .formulario-playlist input {
+    padding: 10px;
+    border: 1px solid var(--color-busqueda-borde);
+    border-radius: 5px;
+}
+
+.playlists .formulario-playlist button {
+    padding: 10px;
+    background-color: #5b8578;
+    color: var(--color-busqueda-texto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 @media (min-width:768px){
     .inicio{
         grid-template-areas:

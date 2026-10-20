@@ -12,10 +12,16 @@
         <h1>Regi Music</h1>
         <!-- Espacio disponible para poner lo básico, un logo a lo soundcloud,
         barrita de busqueda y opciones de sesión y de configuración.-->
-        <div class="Barra-busqueda">
-            <input type="text" placeholder="Buscar artistas, canciones..." class="Buscar">
-            <button type="button" class="Boton-buscar">Buscar</button>
-        </div>
+        
+<div class="Barra-busqueda">
+    <label for="buscar-inicio" class="visual-oculto">
+        Buscar música
+    </label>
+
+    <input type="text" id="buscar-inicio" placeholder="Buscar artistas, canciones..." class="Buscar">
+    <button type="button" class="Boton-buscar">Buscar</button>
+</div>
+
     </header>
 
     <!-- Damos paso a que el usuario navegue por el sitio con accesos rápidos clásicos. -->
@@ -28,6 +34,9 @@
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
             <li><a href="login.html">Iniciar Sesión</a></li>
+            <li><a href="playlists.html">Playlists</a></li>
+            <li><a href="historial.html">Historial</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
         </ul>
     </nav>
     
@@ -73,8 +82,17 @@
 
     <!-- El footer contiene información sobre el sitio web, pero podemos ponerle al ser
     un sitio de música, la típica barra de reproducción.-->
-    <footer>
-        <p>Reproductor de Música</p>
+   <footer class="reproductor">
+        <div class="reproducir-cancion">
+            <p>Enrolar - Fantastic Four Remix</p>
+            <p>Los 4F</p>
+        </div>
+    
+        <div class="reproducir-botones">
+            <button type="button"> Reproducir </button>
+            <button type="button"> Pausar </button>
+            <button type="button"> Siguiente </button>
+        </div>    
     </footer>
 
 </body>
