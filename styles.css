@@ -23,10 +23,14 @@
 .inicio {
     display: grid;
     grid-template-areas:
-        "header header header"
-        "nav main aside"
-        "footer footer footer";
-    grid-template-columns: 1fr 2fr 1fr;
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: minmax(0,1fr);
+    gap: 12px
 
 }
 
@@ -257,7 +261,7 @@ article button {
     font-size: 18px;
 }
 .dashboard button[type="submit"]{
-width: 100%;
+    width: 100%;
     padding: 10px;
     background-color: var(--color-busqueda-fondo);
     color: var(--color-busqueda-texto);
@@ -391,4 +395,15 @@ footer {
     background-color: var(--color-footer);
     padding: 10px 20px;
     text-align: center;
+}
+@media (min-width: 1024px){
+ .inicio {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+}
 }
