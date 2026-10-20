@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Historial - Regi Music</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="biblioteca">
+
+    <header>
+        <h1>Regi Music</h1>
+        <div class="Barra-busqueda">
+            <label for="buscar-historial" class="que-no-se-vea">
+                Buscar música
+            </label>
+            <input type="text" id="buscar-historial"
+                   placeholder="Buscar artistas, canciones..."
+                   class="Buscar">
+            <button type="button" class="Boton-buscar">Buscar</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="artistas.html">Artistas</a></li>
+            <li><a href="biblioteca.html">Mi Biblioteca</a></li>
+            <li><a href="playlists.html">Playlists</a></li>
+            <li><a href="historial.html">Historial</a></li>
+            <li><a href="login.html">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Historial de reproducción</h2>
+            <p>Consulta las canciones que has escuchado anteriormente.</p>
+
+            <table class="scroll">
+                <caption>Canciones escuchadas</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">Canción</th>
+                        <th scope="col">Artista</th>
+                        <th scope="col">Álbum</th>
+                        <th scope="col">Fecha</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row">Sola</th>
+                        <td>Héctor El Father</td>
+                        <td>The Bad Boy</td>
+                        <td>20/10/2026</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">From The Start</th>
+                        <td>Laufey</td>
+                        <td>Bewitched</td>
+                        <td>19/10/2026</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Maniac</th>
+                        <td>Los 4 Fantásticos</td>
+                        <td>Single</td>
+                        <td>18/10/2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
+    </footer>
+
+</body>
+</html>
