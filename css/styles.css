@@ -555,45 +555,10 @@ footer {
     grid-template-rows: auto 1fr auto;
     }
 }
-.inicio nav {
-    flex-direction: column;
-    padding: 10px;
-}
-.inicio .menu-toggle {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-}
 
-.inicio .boton-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 44px;
-    padding: 10px 14px;
-    border-radius: 6px;
-    color: #fff;
-    background: var(--color-boton-articulo);
-    cursor: pointer;
-}
 
-.inicio .menu-toggle:focus-visible + .boton-menu {
-    outline: 2px solid white;
-    outline-offset: 3px;
-}
 
-.inicio nav .enlaces-menu {
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-    margin-top: 8px;
-}
 
-.inicio .menu-toggle:checked ~ .enlaces-menu {
-    display: flex;
-}
 
 /* Desde tablet: menú lateral tradicional, siempre visible. */
 @media (min-width: 768px) {
