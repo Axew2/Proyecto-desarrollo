@@ -23,7 +23,20 @@ botonSolaFav.addEventListener("click", function(){
 
 });
 
+
 const botonFromTheStart = document.querySelector("#boton-from-the-start");
+const botonFromTheStartFav = document.querySelector("#boton-from-the-start-favorito");
+
+botonFromTheStartFav.addEventListener("click", function(){
+
+    if (botonFromTheStartFav.textContent === "Agregar a favoritos"){
+        botonFromTheStartFav.textContent = "Quitar de favoritos";
+    }
+    else{
+        botonFromTheStartFav.textContent = "Agregar a favoritos";
+    }
+
+});
 
 botonFromTheStart.addEventListener("click", function(){
 
@@ -36,7 +49,18 @@ botonFromTheStart.addEventListener("click", function(){
 
 });
 
+
 const botonManiac = document.querySelector("#boton-maniac");
+const botonManiacFav = document.querySelector("#boton-maniac-favorito");
+
+botonManiacFav.addEventListener("click", function(){
+    if(botonManiacFav.textContent === "Agregar a favoritos"){
+        botonManiacFav.textContent = "Quitar de favoritos";
+    }
+    else{
+        botonManiacFav.textContent = "Agregar a favoritos";
+    }
+});
 
 botonManiac.addEventListener("click", function(){
     if(botonManiac.textContent === "Marcar como escuchada"){
