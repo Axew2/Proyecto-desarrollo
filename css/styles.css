@@ -20,7 +20,19 @@
     font-family: 'Times New Roman', Times, serif;
     min-height: 100vh;
 }
+.inicio {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+    grid-template-rows:auto auto 1fr auto auto;
+    grid-template-columns: minmax(0,1fr);
+    gap: 12px
 
+}
 .inicio main, 
 .inicio aside, 
 .inicio nav{
@@ -543,18 +555,18 @@ footer {
     grid-template-rows: auto 1fr auto;
     }
 }
-nav {
+.inicio nav {
     flex-direction: column;
     padding: 10px;
 }
-.menu-toggle {
+.inicio .menu-toggle {
     position: absolute;
     width: 1px;
     height: 1px;
     opacity: 0;
 }
 
- .boton-menu {
+.inicio .boton-menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -566,12 +578,12 @@ nav {
     cursor: pointer;
 }
 
-.menu-toggle:focus-visible + .boton-menu {
+.inicio .menu-toggle:focus-visible + .boton-menu {
     outline: 2px solid white;
     outline-offset: 3px;
 }
 
-nav .enlaces-menu {
+.inicio nav .enlaces-menu {
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -579,7 +591,7 @@ nav .enlaces-menu {
     margin-top: 8px;
 }
 
-.menu-toggle:checked ~ .enlaces-menu {
+.inicio .menu-toggle:checked ~ .enlaces-menu {
     display: flex;
 }
 
