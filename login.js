@@ -14,8 +14,8 @@ botonMostrar.addEventListener("click", function(){
     botonMostrar.textContent = "Ocultar Contraseña";
     } 
     else{
-    contrasenia.type = "password";}
-    botonMostrar.textContent = "Mostrar Contraseña";
+    contrasenia.type = "password";
+    botonMostrar.textContent = "Mostrar Contraseña";}
     
     }
 );
