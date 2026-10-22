@@ -183,8 +183,8 @@ article img {
         "header header"
         "nav main"
         "footer footer";
-    grid-template-rows:auto auto 1fr auto auto;
-    grid-template-columns: minmax(0,1fr);
+    grid-template-rows:auto 1fr auto ;
+    grid-template-columns:  160px minmax(0,1fr);
 
 }
     .inicio{
