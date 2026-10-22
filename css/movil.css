@@ -134,6 +134,73 @@ nav .enlaces-menu {
 nav .menu-toggle:checked ~ .enlaces-menu {
     display: flex;
 }
+article {
+    max-width: 100%;
+    min-width: 0;
+}
+article img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+@media (min-width:768px){
+
+    .inicio{
+
+        grid-template-areas:
+            "header header"
+            "nav main"
+            "aside aside"
+            "footer footer";
+        grid-template-columns: 100px minmax(0,1fr);
+
+        grid-template-rows: auto 1fr auto auto;
+
+        gap: 12px;
+
+    }
+
+        .inicio header {
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+    }
+
+
+
+    .inicio header h1 {
+
+        text-align: left;
+
+    }
+
+
+
+    .inicio nav ul {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        justify-content: flex-start;
+
+    }
+
+
+
+    .inicio nav a {
+
+        justify-content: flex-start;
+
+    }
+
+}
+
 @media (min-width: 1024px){
     .inicio{
         grid-template-areas:
