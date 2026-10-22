@@ -6,3 +6,8 @@ formuPlaylists.addEventListener("submit", function(event) {
     console.log("Nombre de la playlist:", nombrePlaylist);
 
 });
+
+const tablaPlaylistsBody = document.querySelector("#tabla-playlists-body");
+console.log(tablaPlaylistsBody);
+
+
