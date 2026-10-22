@@ -142,61 +142,87 @@ article img {
     max-width: 100%;
     height: auto;
 }
+#artistas-destacados, #cancione-destacadas{
+    grid-template-columns: minmax(0,1fr);
+}
+#repertorio-de-artistas article{
+    width: 100%;
+    max-width: 400px;
+}
+.inicio main section + section{
+    margin-top: 24px;
+}
+.scroll-contenedor{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+.biblioteca main{
+    align-items:  stretch;
+}
+.scroll{
+    font-size: 16px;
+}
+.scroll th, .scroll td{
+    padding: 8px;
+}
 
 
 @media (min-width:768px){
 
-    .inicio{
+.inicio, 
+.biblioteca,
+.dashboard, 
+.estadisticas,
+.historial,
+.artistas,
+.playlist,
+.login{ 
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "footer footer";
+    grid-template-rows:auto auto 1fr auto auto;
+    grid-template-columns: minmax(0,1fr);
 
+}
+    .inicio{
         grid-template-areas:
             "header header"
             "nav main"
-            "aside aside"
+            "nav aside"
             "footer footer";
         grid-template-columns: 100px minmax(0,1fr);
-
         grid-template-rows: auto 1fr auto auto;
-
         gap: 12px;
 
     }
-
-        .inicio header {
-
+    header {
         flex-direction: row;
-
         align-items: center;
-
         justify-content: space-between;
 
     }
 
-
-
-    .inicio header h1 {
-
+    header h1 {
         text-align: left;
-
     }
-
-
-
-    .inicio nav ul {
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        justify-content: flex-start;
-
+    .Barra-busqueda{
+        margin: 0 auto;
     }
-
-
-
-    .inicio nav a {
-
-        justify-content: flex-start;
-
+    nav {
+        padding: 10px;
+    }
+    nav .boton-menu{
+        display: none;
+    }
+    nav .enlaces-menu {
+        display: flex;
+        margin-top: 0;
+    }
+    #artistas-destacados, #cancione-destacadas{
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px),1fr));
     }
 
 }
@@ -210,7 +236,13 @@ article img {
         grid-template-columns: 200px 1fr;
         grid-template-rows: auto 1fr auto;
     }
-    .biblioteca{
+    .biblioteca,
+    .login,
+    .dashboard, 
+    .estadisticas,
+    .historial,
+    .artistas,
+    .playlist{
         grid-template-areas:
             "header header header"
             "nav main main"

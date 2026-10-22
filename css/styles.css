@@ -247,55 +247,6 @@ article button {
 }
 
 
-.artistas {
-    display: grid;
-    grid-template-areas:
-        "header header header"
-        "nav main main"
-        "footer footer footer";
-    grid-template-columns: 1fr 2fr 1fr;
-}
-#repertorio-de-artistas {
-    grid-area: main;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-#repertorio-de-artistas h2, #repertorio-de-artistas > p {
-    display: flex;
-    justify-content: center;
-    grid-column: 1 / -1;
-    width: 100%;
-}
-#repertorio-de-artistas article {
-    padding: 10px;
-    width: 400px;
-    text-align: center;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-}
-#repertorio-de-artistas article img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
-    border-radius: 5px;
-}
-#repertorio-de-artistas article h2 {
-    font-size: 20px;
-    margin: 10px 0 5px;
-}
-#repertorio-de-artistas article h3 {
-    font-size: 18px;
-    margin: 10px 0 5px;
-}
-#repertorio-de-artistas article p {
-    font-size: 14px;
-    color: var(--color-busqueda-texto);
-    line-height: 1.4;
-}
 
 header {
     grid-area: header;
@@ -341,6 +292,31 @@ header {
     color: var(--color-busqueda-texto);
     cursor: pointer;
     font-size: 12px;
+    
+}
+.scroll{
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: var(--color-texto);
+    font-size: 20px;
+}
+.scroll thead tr{
+    border-bottom: 2px solid var(--color-busqueda-borde);
+} 
+.scroll th{
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.scroll tbody tr{
+    border-bottom: 1px solid #24455c;
+    border-top: 1px solid #24455c;
+}
+.scroll td{
+    padding: 12px 16px;
 }
 input{
     outline: none;
