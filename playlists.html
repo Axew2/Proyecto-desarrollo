@@ -6,8 +6,14 @@
     <meta name="viewport" 
     content="width=device-width, initial-scale=1">
     <title>Playlists - Regi Music</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/movil.css">
+=======
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
+>>>>>>> origin/develop
 </head>
 <body class="biblioteca playlists">
 
@@ -54,7 +60,7 @@
                         <th scope="col">Contenido</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id = "tabla-playlists-body">
                       <tr>
                       <th scope="row">Reggaeton</th>
                       <td>2</td>
@@ -72,7 +78,7 @@
         <section class="formulario-playlist">
             <h2>Crear Playlist</h2>
 
-            <form>
+            <form id = "crear-playlist-form">
                 <label for="nombre-playlist">Nombre de la playlist</label>
                 <input type="text" id="nombre-playlist" name="nombre-playlist" required>
                 <button type="submit">Crear Playlist</button>
@@ -83,6 +89,7 @@
     <footer>
         <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
     </footer>
+<script src="playlists.js"></script>
 
 </body>
 </html>
