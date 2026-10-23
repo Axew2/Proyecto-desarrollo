@@ -2,10 +2,10 @@
     display: grid;
     min-height: 100vh;
     grid-template-areas:
-        "header header header"
-        "nav main main"
-        "footer footer footer";
-    grid-template-columns: 220px 1fr;
+        "header  header"
+        "nav main "
+        "footer footer";
+    grid-template-columns: 220px minmax(0, 1fr);
     grid-template-rows: auto 1fr auto;
 }
 .login nav {
