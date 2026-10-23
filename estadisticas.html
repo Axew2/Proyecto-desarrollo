@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Estadísticas - Regi Music</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="manifest" href="manifest.json">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
 </head>
 
@@ -29,7 +29,7 @@
         No posees conexión a internet. Revisa tu red o datos móviles.
     </p>
 
-    
+   
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
@@ -42,16 +42,22 @@
         </ul>
     </nav>
 
+    <!-- En este caso para hacer el script de Alpine, estoy usando las variables de vmcanciones como "Ver mostrar canciones"
+    referente a ver el texto del ranking de las canciones, y vmostrar, como ver mostrar el txt del ranking de los artistas-->
+    
     <main>
         <section>
             <h2>Mis Estadísticas</h2>
             <p>Consulta tus canciones y artistas más escuchados.</p>
         </section>
 
-        <section>
+        <section x-data="{ vmcanciones: true }">
             <h2>Canciones más escuchadas</h2>
+            <button type="button" x-on:click="vmcanciones = !vmcanciones"
+                x-text="vmcanciones ? 'Ocultar ranking' : 'Mostrar ranking'">
+            </button>
 
-            <table class="scroll">
+            <table class="scroll" x-show="vmcanciones">
                 <caption>Ranking de canciones</caption>
 
                 <thead>
@@ -84,12 +90,15 @@
             </table>
         </section>
 
-        <section>
+        <section x-data="{ vmostrar: true }">
             <h2>Artistas más escuchados</h2>
-
-            <table class="scroll">
+            <button type="button" x-on:click="vmostrar = !vmostrar"
+                x-text="vmostrar ? 'Ocultar ranking' : 'Mostrar ranking'">
+            </button>
+           
+            <table class="scroll" x-show="vmostrar">
                 <caption>Ranking de artistas</caption>
-
+               
                 <thead>
                     <tr>
                         <th scope="col">Artista</th>
@@ -135,7 +144,7 @@
         {
             aviso.hidden = false;
         }
-        
+       
         window.addEventListener("offline", function() {
             aviso.hidden = false;
         });
@@ -144,6 +153,6 @@
             aviso.hidden = true;
         });
     </script>
-    
+   
 </body>
 </html>
