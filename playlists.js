@@ -1,7 +1,5 @@
 const formuPlaylists = document.querySelector("#crear-playlist-form");
-
 const tablaPlaylistsBody = document.querySelector("#tabla-playlists-body");
-console.log(tablaPlaylistsBody);
 
 
 const lista = {
@@ -15,7 +13,6 @@ const laufey = {
 }   
 
 const playlistObjetos = [lista, laufey];
-console.log(playlistObjetos);
 
 
 function AgregoPlaylist(nombreplaylist) {
