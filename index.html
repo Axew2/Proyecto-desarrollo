@@ -110,6 +110,19 @@
         
     <script>
         const aviso = document.getElementById("estado-internet");
+
+        if(navigator.onLine == false)
+        {
+            aviso.hidden = false;
+        }
+        
+        window.addEventListener("offline", function() {
+            aviso.hidden = false;
+        });
+
+        window.addEventListener("online", function() {
+            aviso.hidden = true;
+        });
     </script>
     
 </body>
