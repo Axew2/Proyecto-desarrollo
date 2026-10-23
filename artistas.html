@@ -26,6 +26,10 @@
 
     </header>
 
+    <p id="estado-internet" role="status" hidden>
+        No posees conexión a internet. Revisa tu red o datos móviles.
+    </p>
+
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
@@ -95,6 +99,23 @@
         {
             navigator.serviceWorker.register("./sw.js");
         }
+    </script>
+
+    <script>
+        const aviso = document.getElementById("estado-internet");
+
+        if(navigator.onLine == false)
+        {
+            aviso.hidden = false;
+        }
+        
+        window.addEventListener("offline", function() {
+            aviso.hidden = false;
+        });
+
+        window.addEventListener("online", function() {
+            aviso.hidden = true;
+        });
     </script>
 
 </body>
