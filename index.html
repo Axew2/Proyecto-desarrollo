@@ -96,6 +96,14 @@
         </div>    
     </footer>
 
+    <!-- Se agrega la parte necesaria que pide el Service Worker que acabo de crear, pregunta si el navegador es compatible con el service worker,
+    en caso de serlo, prueba a registrarse en la ruta del sw que cree. Claudito -->
+    <script>
+        if("serviceWorker" in navigator)
+        {
+            navigator.serviceWorker.register("./sw.js");
+        }
+    </script>
+    
 </body>
 </html>
-
