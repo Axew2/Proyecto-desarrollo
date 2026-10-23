@@ -36,6 +36,12 @@
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
         <ul class="enlaces-menu">
 
+    <p id="estado-internet" role="status" hidden>
+        No posees conexión a internet. Revisa tu red o datos móviles.
+    </p>
+    
+    <nav>
+        <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
@@ -114,6 +120,30 @@
     </footer>
 
     <script src="biblioteca.js"></script>
+
+    <script>
+        if("serviceWorker" in navigator)
+        {
+            navigator.serviceWorker.register("./sw.js");
+        }
+    </script>
+
+    <script>
+        const aviso = document.getElementById("estado-internet");
+
+        if(navigator.onLine == false)
+        {
+            aviso.hidden = false;
+        }
+        
+        window.addEventListener("offline", function() {
+            aviso.hidden = false;
+        });
+
+        window.addEventListener("online", function() {
+            aviso.hidden = true;
+        });
+    </script>
 
 </body>
 </html>
