@@ -76,5 +76,13 @@
     <footer>
         <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
     </footer>
+
+    <script>
+        if("serviceWorker" in navigator)
+        {
+            navigator.serviceWorker.register("./sw.js");
+        }
+    </script>
+    
 </body>
 </html>
