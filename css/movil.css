@@ -230,6 +230,7 @@ article img {
         justify-content: space-between;
 
     }
+   
 
     header h1 {
         text-align: left;
@@ -260,6 +261,17 @@ article img {
         flex-direction: column ;
         margin-top: 0;
     }
+   
+
+    .inicio nav .boton-menu {
+        display: none;
+    }
+
+    .inicio nav .enlaces-menu {
+        display: flex;
+        flex-direction: column;
+    }
+   
 }
 
 @media (min-width: 1024px){

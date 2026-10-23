@@ -1,0 +1,115 @@
+
+
+.inicio main, 
+.inicio aside, 
+.inicio nav{
+    min-width: 0;
+}
+.inicio main{
+    grid-area: main;
+    padding: 12px;
+}
+.inicio main section + section{
+    margin-top: 24px;
+}
+.inicio nav ul{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+.incio nav a{
+    min-height: 44px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+}
+.inicio article button, .inicio .Boton-buscar{
+    min-height: 44px;
+    padding: 10px 12px;
+}
+.inicio header{
+    flex-direction:column;
+    gap:10px;
+    align-items:stretch;
+}
+.inicio aside{
+    grid-area: aside;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.inicio aside p{
+    font-size: 18px;
+    margin-bottom: 10px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+#artistas-destacados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+    gap: 30px;
+    padding: 20px;
+}
+#artistas-destacados article {
+    max-width: 320px;
+    width:100%
+}
+#artistas-destacados h2{
+    grid-column: 1 / -1;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+#artistas-destacados p{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+#canciones-destacadas{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+#canciones-populares h2{
+    grid-column: 1 / -1;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+@media (min-width: 1024px){
+ .inicio {
+    grid-template-areas:
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+    grid-template-columns: 200px minmax(0,1fr) 250px;
+    grid-template-rows: auto 1fr auto;
+    }
+}/* Desde tablet: menú lateral tradicional, siempre visible. */
+@media (min-width: 768px) {
+    .inicio .boton-menu {
+
+        display: none;
+    }
+     .inicio header{
+        flex-direction: row;
+        align-items: center;    
+    }
+    .inicio nav .enlaces-menu {
+        display: flex;
+        margin-top: 0;
+    }
+        .inicio nav .boton-menu {
+        display: none;
+    }
+
+    .inicio nav .enlaces-menu {
+        display: flex;
+        flex-direction: column;
+    }
+   
+
+}
