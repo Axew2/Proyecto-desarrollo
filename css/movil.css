@@ -1,0 +1,308 @@
+html{ max-width: 100%; }
+body { 
+    width: 100%;
+    min-height: 100%;
+}
+header,
+nav,
+main,
+aside,
+footer {
+    min-width: 0%;
+}
+.inicio, 
+.biblioteca,
+.dashboard, 
+.estadisticas,
+.historial,
+.artistas,
+.playlist,
+.login{ 
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+    grid-template-rows:auto auto 1fr auto auto;
+    grid-template-columns: minmax(0,1fr);
+    min-height: 100vh;
+
+}
+.incio {
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+    grid-template-rows:auto auto 1fr auto auto;
+}
+.inicio main, 
+.biblioteca main, 
+.artistas main, 
+.dashboard main, 
+.login main,
+.estadisticas main,
+.historial main,
+.playlist main{
+    grid-area: main;
+    min-width: 0;
+    padding: 16px;
+}
+.inicio aside{
+    grid-area: aside;
+    min-width: 0;
+    padding: 10px;
+}
+.logo-titulo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+.logo-titulo img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.logo-titulo h1{
+    margin: 0;
+}
+header{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 16px;
+}
+header h1{
+    text-align: center;
+}
+.Barra-busqueda{
+    display: flex;
+    position: static;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 400px;
+    min-width: 0;
+    margin: 0 auto;
+
+}
+.Buscar {
+    min-width: 0;
+    width: 100%;
+}
+.Boton-buscar {
+    min-width: 44px;
+    padding: 8px 12px;
+}
+nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 16px;
+    min-width: 0;
+}
+nav ul{
+    list-style: none;
+    width: 100%;
+}
+nav a{
+    display: flex;
+    align-items: center;
+    min-width: 44px;
+    padding: 12px 12px;
+    
+}
+nav .menu-toggle{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+nav .boton-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    background-color: var(--color-boton-articulo);
+}
+nav .menu-toggle:focus-visible + .boton-menu {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+nav .enlaces-menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    margin-top: 8px;
+}
+nav .menu-toggle:checked ~ .enlaces-menu {
+    display: flex;
+}
+.inicio nav .enlaces-menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    margin-top: 8px;
+}
+.inicio nav .menu-toggle:checked ~ .enlaces-menu {
+    display: flex;
+}
+article {
+    max-width: 100%;
+    min-width: 0;
+}
+article img {
+    max-width: 100%;
+    height: auto;
+}
+#artistas-destacados, #cancione-destacadas{
+    grid-template-columns: minmax(0,1fr);
+}
+#repertorio-de-artistas article{
+    width: 100%;
+    max-width: 400px;
+}
+.inicio main section + section{
+    margin-top: 24px;
+}
+.scroll-contenedor{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+.biblioteca main{
+    align-items:  stretch;
+}
+.scroll{
+    font-size: 16px;
+}
+.scroll th, .scroll td{
+    padding: 8px;
+}
+
+
+@media (min-width:768px){
+
+.inicio, 
+.biblioteca,
+.dashboard, 
+.estadisticas,
+.historial,
+.artistas,
+.playlist,
+.login{ 
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "footer footer";
+    grid-template-rows:auto 1fr auto ;
+    grid-template-columns:  160px minmax(0,1fr);
+
+}
+    .inicio{
+        grid-template-areas:
+            "header header"
+            "nav main"
+            "nav aside"
+            "footer footer";
+        grid-template-columns: 100px minmax(0,1fr);
+        grid-template-rows: auto 1fr auto auto;
+        gap: 12px;
+
+    }
+    header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+   
+
+    header h1 {
+        text-align: left;
+    }
+    .Barra-busqueda{
+        margin: 0 auto;
+    }
+    nav {
+        padding: 10px;
+    }
+     nav .boton-menu{
+        display: none;
+    }
+    nav .enlaces-menu {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
+    #artistas-destacados, #cancione-destacadas{
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px),1fr));
+    }
+
+    .login nav .boton-menu{
+        display: none;
+    }
+    .login nav .enlaces-menu {
+        display: flex;
+        flex-direction: column ;
+        margin-top: 0;
+    }
+   
+
+    .inicio nav .boton-menu {
+        display: none;
+    }
+
+    .inicio nav .enlaces-menu {
+        display: flex;
+        flex-direction: column;
+    }
+   
+}
+
+@media (min-width: 1024px){
+    .inicio{
+        grid-template-areas:
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+    .biblioteca,
+    .login,
+    .dashboard, 
+    .estadisticas,
+    .historial,
+    .artistas,
+    .playlist{
+        grid-template-areas:
+            "header header header"
+            "nav main main"
+            "footer footer footer";
+        grid-template-columns: 200px minmax(0,1fr);
+        grid-template-rows: auto 1fr auto;
+    }
+    nav .boton-menu{
+        display: none;
+    }
+    nav .enlaces-menu{
+        display: flex;
+        flex-direction: column;
+    }
+
+}

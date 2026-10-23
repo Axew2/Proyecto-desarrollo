@@ -1,0 +1,49 @@
+.artistas {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav main main"
+        "footer footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+}
+#repertorio-de-artistas {
+    grid-area: main;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+#repertorio-de-artistas h2, #repertorio-de-artistas > p {
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / -1;
+    width: 100%;
+}
+#repertorio-de-artistas article {
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#repertorio-de-artistas article img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+}
+#repertorio-de-artistas article h2 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+}
+#repertorio-de-artistas article h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+#repertorio-de-artistas article p {
+    font-size: 14px;
+    color: var(--color-busqueda-texto);
+    line-height: 1.4;
+}

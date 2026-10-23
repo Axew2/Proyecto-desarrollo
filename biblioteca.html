@@ -5,7 +5,9 @@
     <meta name="viewport"
     content="width=device-width, initial-scale=1">
     <title>Mi Biblioteca - Regi Music</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/biblioteca.css">
+    <link rel="stylesheet" href="css/movil.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
 
@@ -13,7 +15,11 @@
 <body class="biblioteca">
     
     <header>
+        <div class="logo-titulo">
+        <img src="Icono-RMusic/RegiMusicIc.png" alt="" width="48" height="48">
+    
         <h1>Regi Music</h1>
+        </div> 
 <div class="Barra-busqueda">
     <label for="buscar-biblioteca" class="visual-oculto">
         Buscar música
@@ -24,6 +30,11 @@
 </div>
 
     </header>
+
+     <nav >
+        <input type="checkbox" id="menu-movil" class="menu-toggle">
+        <label for="menu-movil" class="boton-menu">☰ Menú</label>  
+        <ul class="enlaces-menu">
 
     <p id="estado-internet" role="status" hidden>
         No posees conexión a internet. Revisa tu red o datos móviles.
@@ -48,8 +59,8 @@
 
             <!-- Para hacer estas playlists, me basé en la estructura que sigue el profe en
             referencia a las tablas (tables), para ser especifico, en el apartado de HTML 5 Semántico
-            página 5: Tablas de datos, para que mantengan el formato de "Canción - Artista - Album - Duración" -->
-        
+            página 5: Tablas de daMtos, para que mantengan el formato de "Canción - Artista - Album - Duración" -->
+        <div class="scroll-contenedor">
             <table class="scroll" tabindex="0">
                     <caption> Canciones disponibles</caption>
                     <thead>
@@ -100,6 +111,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
         </section>
     </main>
 

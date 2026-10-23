@@ -1,0 +1,30 @@
+.biblioteca {
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas:
+        "header header header"
+        "nav main main"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+.biblioteca nav {
+    grid-area: nav;
+    padding: 10px 10px;
+}
+.biblioteca main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    padding: 40px 20px;
+}
+.biblioteca main h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+.biblioteca main p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}

@@ -2,19 +2,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" 
-    content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Regi Music</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/movil.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
 </head>
 
 <body class="inicio">
     <header>
+        <div class="logo-titulo">
         <img src="Icono-RMusic/RegiMusicIc.png" alt="" width="48" height="48">
+    
         <h1>Regi Music</h1>
-        <!-- Espacio disponible para poner lo básico, un logo a lo soundcloud,
+        </div>   <!-- Espacio disponible para poner lo básico, un logo a lo soundcloud,
         barrita de busqueda y opciones de sesión y de configuración.-->
         
 <div class="Barra-busqueda">
@@ -32,8 +35,11 @@
         No posees conexión a internet. Revisa tu red o datos móviles.
     </p>
     <!-- Damos paso a que el usuario navegue por el sitio con accesos rápidos clásicos. -->
-    <nav>
-        <ul>
+   <nav >
+        <input type="checkbox" id="menu-movil" class="menu-toggle">
+        <label for="menu-movil" class="boton-menu">☰ Menú</label>  
+        <ul class="enlaces-menu">
+
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
@@ -43,7 +49,6 @@
             <li><a href="estadisticas.html">Estadísticas</a></li>
         </ul>
     </nav>
-    
     <!-- Asignamos el main a la página princpal, que el usuario vea lo que suena ultimamente
     ya sean artistas o canciones. Oye, recuerden que los h son índices, no tipos de tamaño. -->
 
