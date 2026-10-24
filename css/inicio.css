@@ -102,14 +102,5 @@
         display: flex;
         margin-top: 0;
     }
-        .inicio nav .boton-menu {
-        display: none;
-    }
-
-    .inicio nav .enlaces-menu {
-        display: flex;
-        flex-direction: column;
-    }
-   
-
+    
 }
