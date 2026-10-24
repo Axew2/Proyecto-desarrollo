@@ -31,9 +31,6 @@
 </div>
 
     </header>
-  <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
      <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
@@ -51,12 +48,12 @@
 
     </nav>
 
-    <p id="estado-internet" role="status" hidden>
-    No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
-
     <main>
         <section id="playlists-disponibles" x-data="{ seleccionadas: [] }">
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+            
             <h2>Mi Biblioteca</h2>
             <p>Explora tus canciones favoritas en Regi Music.</p>
 

@@ -62,4 +62,6 @@
     color: var(--color-busqueda-texto);
     line-height: 1.4;
 }
-
+#estado-internet[hidden] {
+    display: none !important;
+}

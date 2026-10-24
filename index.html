@@ -32,9 +32,6 @@
 
     </header>
 
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
     <!-- Damos paso a que el usuario navegue por el sitio con accesos rápidos clásicos. -->
    <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
@@ -56,6 +53,10 @@
     <main>
         <!-- artistaSeleccionado una sola variable, no hace falta crear más ya que cambia según el artista seleccionado. -->
         <section id="artista-destacado" x-data=" { artistaSeleccionado: 'hector' } ">
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+
             <h2>Artista Destacado</h2>
             <p>Revisa quien suena últimamente en Regi Music.</p>
             <button type="button" x-on:click="artistaSeleccionado = 'hector'">

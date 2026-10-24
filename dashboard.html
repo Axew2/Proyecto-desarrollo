@@ -19,10 +19,6 @@
         <h1>Regi Music</h1>
         </div> 
     </header>
-   <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
-
     
 
     <nav >
@@ -39,14 +35,14 @@
         </ul>
     </nav>
 
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
-
     <!-- vpanel = Ver panel. -->
 
     <main>
         <section id="seccion-gestion-admin" x-data="{ vpanel: true }">
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+            
             <h2>Panel de Administrador:</h2>
             <p>Administrador, desde aquí puedes ver el estado de Regi Music.</p>
             <button type="button" x-on:click="vpanel = !vpanel"
