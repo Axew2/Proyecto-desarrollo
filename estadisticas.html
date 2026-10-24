@@ -29,9 +29,7 @@
             <button type="button" class="Boton-buscar">Buscar</button>
         </div>
     </header>
-   <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
+
     <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
@@ -45,18 +43,17 @@
             <li><a href="historial.html">Historial</a></li>
             <li><a href="estadisticas.html">Estadísticas</a></li>
         </ul>
-
     </nav>
-
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
     
       <!-- En este caso para hacer el script de Alpine, estoy usando las variables de vmcanciones como "Ver mostrar canciones"
     referente a ver el texto del ranking de las canciones, y vmostrar, como ver mostrar el txt del ranking de los artistas-->  
   
   <main>
         <section>
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+
             <h2>Mis Estadísticas</h2>
             <p>Consulta tus canciones y artistas más escuchados.</p>
         </section>

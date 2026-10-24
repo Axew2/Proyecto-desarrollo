@@ -30,9 +30,7 @@
     </div>
 
     </header>
-   <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
+
    <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
@@ -49,12 +47,12 @@
 
     </nav>
 
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
-
     <main x-data="{ ventanaPlaylist: false, playlists: playlistObjetos, nombrePlaylist: '' }">
             <section>
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+
             <h2>Mis Playlists</h2>
             <p>Organiza tus canciones favoritas en listas personalizadas por ti mismo.</p>
 

@@ -27,9 +27,7 @@
             <button type="button" class="Boton-buscar">Buscar</button>
         </div>
     </header>
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
+
    <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
@@ -46,14 +44,14 @@
 
     </nav>
 
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
-
     <!-- La variable que se utilizará es vhistorial: (ver historial). -->
 
     <main>
         <section x-data="{ vhistorial: true }">
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+
             <h2>Historial de reproducción</h2>
             <p>Consulta las canciones que has escuchado anteriormente.</p>
             <button type="button" x-on:click="vhistorial = !vhistorial"
