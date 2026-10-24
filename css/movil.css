@@ -23,14 +23,13 @@ footer {
         "header"
         "nav"
         "main"
-        "aside"
         "footer";
     grid-template-rows:auto auto 1fr auto auto;
     grid-template-columns: minmax(0,1fr);
     min-height: 100vh;
 
 }
-.incio {
+.inicio,.dashboard {
     grid-template-areas:
         "header"
         "nav"
@@ -107,6 +106,7 @@ nav {
     grid-area: nav;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     padding: 10px 16px;
     min-width: 0;
 }
@@ -171,10 +171,7 @@ article img {
 #artistas-destacados, #cancione-destacadas{
     grid-template-columns: minmax(0,1fr);
 }
-#repertorio-de-artistas article{
-    width: 100%;
-    max-width: 400px;
-}
+
 .inicio main section + section{
     margin-top: 24px;
 }
@@ -280,7 +277,7 @@ article img {
             "header header header"
             "nav main aside"
             "footer footer footer";
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: 200px minmax(0,1fr) 250px;
         grid-template-rows: auto 1fr auto;
     }
     .biblioteca,
@@ -291,11 +288,12 @@ article img {
     .artistas,
     .playlist{
         grid-template-areas:
-            "header header header"
-            "nav main main"
-            "footer footer footer";
+            "header header "
+            "nav main "
+            "footer  footer";
         grid-template-columns: 200px minmax(0,1fr);
         grid-template-rows: auto 1fr auto;
+        min-height: 100vh;
     }
     nav .boton-menu{
         display: none;
@@ -304,5 +302,5 @@ article img {
         display: flex;
         flex-direction: column;
     }
-
+   
 }
