@@ -1,38 +1,31 @@
-const infoHector = document.querySelector("#info-hector");
-const botonHector = document.querySelector("#boton-hector");
+document.addEventListener('alpine:init', () => {
+    Alpine.data('repeartistas', () => ({
+        genero: 'todos', artistas: [], gendispo: [],
 
-botonHector.addEventListener("click", function() {
-    if (infoHector.hidden) {
-        infoHector.hidden = false;
-        botonHector.textContent = "Ocultar Perfil";
-    } else {
-        infoHector.hidden = true;
-        botonHector.textContent = "Mostrar Perfil";
-    }
-});
+        /* No es tan mágico como se ve, y tiene un par de cositas medio raras que tuve que investigar para que
+        funcione, una de las cosas es el ...new, que lo que hace es eliminar los elementos duplicados (set los elimina
+        y ... los hace arreglo), básicamente hace que sean únicos. Y el flatMap, es casi lo mismo que un map común, pero los ordena
+        y "aplana" (?, de ahí el flat, que basicamente los ordena y "gestiona" de una buena manera.
+        Y la flechita =>, que se parece a la de c++ que nos enseñaron, pero lo que hace es definir una función. */
+        async init()
+        {
+            this.artistas = await ctrlartistas.listaartistas();
+            this.gendispo = [...new Set( this.artistas.flatMap(artista => artista.generos))];
+        }
+    }));
 
-const infoLaufey = document.querySelector("#info-laufey");
-const botonLaufey = document.querySelector("#boton-laufey");
+    Alpine.data('perfilartista', () => ({
+        mostrarperfil: false,
+        textoboton: 'Mostrar Perfil',
 
-botonLaufey.addEventListener("click", function() {
-    if (infoLaufey.hidden) {
-        infoLaufey.hidden = false; 
-        botonLaufey.textContent = "Ocultar Perfil";
-    } else {
-        infoLaufey.hidden = true; 
-        botonLaufey.textContent = "Mostrar Perfil";
-    }
-});
+        altperfil() {
+            this.mostrarperfil = !this.mostrarperfil;
 
-const info4Fantastico = document.querySelector("#info-4fantasticos");
-const boton4Fantastico = document.querySelector("#boton-4fantasticos"); 
-
-boton4Fantastico.addEventListener("click", function() {
-    if (info4Fantastico.hidden) {
-        info4Fantastico.hidden = false; 
-        boton4Fantastico.textContent = "Ocultar Perfil";
-    } else {
-        info4Fantastico.hidden = true; 
-        boton4Fantastico.textContent = "Mostrar Perfil";
-    }
+            if (this.mostrarperfil) {
+                this.textoboton = 'Ocultar Perfil';
+            } else {
+                this.textoboton = 'Mostrar Perfil';
+            }
+        }
+    }));
 });
