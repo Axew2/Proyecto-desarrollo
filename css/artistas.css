@@ -1,17 +1,10 @@
-.artistas {
-    display: grid;
-    grid-template-areas:
-        "header header header"
-        "nav main main"
-        "footer footer footer";
-    grid-template-columns: 1fr 2fr 1fr;
-}
+
 #repertorio-de-artistas {
     grid-area: main;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%,280px),1fr));
     gap: 20px;
+    align-items: start;
     padding: 20px;
 }
 #repertorio-de-artistas h2, #repertorio-de-artistas > p {
@@ -21,12 +14,9 @@
     width: 100%;
 }
 #repertorio-de-artistas article {
-    padding: 10px;
-    width: 400px;
-    text-align: center;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
 }
 #repertorio-de-artistas article img {
     width: 100%;
