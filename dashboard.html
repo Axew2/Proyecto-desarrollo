@@ -18,12 +18,17 @@
         <h1>Regi Music</h1>
         </div> 
     </header>
+   <p id="estado-internet" role="status" hidden>
+        No posees conexión a internet. Revisa tu red o datos móviles.
+    </p>
+
+    
 
     <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
         <ul class="enlaces-menu">
-
+        <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
@@ -83,5 +88,30 @@
     <footer>
         <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
     </footer>
+
+    <script>
+        if("serviceWorker" in navigator)
+        {
+            navigator.serviceWorker.register("./sw.js");
+        }
+    </script>
+
+    <script>
+        const aviso = document.getElementById("estado-internet");
+
+        if(navigator.onLine == false)
+        {
+            aviso.hidden = false;
+        }
+        
+        window.addEventListener("offline", function() {
+            aviso.hidden = false;
+        });
+
+        window.addEventListener("online", function() {
+            aviso.hidden = true;
+        });
+    </script>
+    
 </body>
 </html>
