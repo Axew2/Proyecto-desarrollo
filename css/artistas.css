@@ -1,11 +1,12 @@
 
 #repertorio-de-artistas {
-    grid-area: main;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%,280px),1fr));
     gap: 20px;
     align-items: start;
     padding: 20px;
+    width: 100%;
+    min-width: 0;
 }
 #repertorio-de-artistas h2, #repertorio-de-artistas > p {
     display: flex;
@@ -36,4 +37,14 @@
     font-size: 14px;
     color: var(--color-busqueda-texto);
     line-height: 1.4;
+}
+.artistas main{
+    grid-area: main;
+    width: 100%;
+    min-width: 0;
+}
+@media (min-width: 1024px) {
+    #repertorio-de-artistas {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
