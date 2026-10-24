@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/movil.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
+    <script defer src="libs/alpine.min.js"></script>
 
 </head>
 <body class="biblioteca">
@@ -52,7 +53,7 @@
     </p>
 
     <main>
-        <section id="playlists-disponibles">
+        <section id="playlists-disponibles" x-data="{ seleccionadas: [] }">
             <h2>Mi Biblioteca</h2>
             <p>Explora tus canciones favoritas en Regi Music.</p>
 
@@ -69,6 +70,7 @@
                             <th scope="col">Álbum</th>
                             <th scope="col">Duración</th>
                             <th scope="col">Favoritos</th>
+                            <th scope="col" class="cola">Agregar a la cola</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,6 +83,9 @@
                                 <button type="button" id="boton-sola">Marcar como escuchada</button>
                                 <button type="button" id="boton-sola-favorito">Agregar a favoritos</button>
                             </td>
+                            <td class="cola">
+                                <input type="checkbox" value="Sola" x-model="seleccionadas">
+                            </td>
                         </tr>
                             <tr id="cancion-from-the-start">
                             <th scope="row">From The Start</th>
@@ -90,6 +95,9 @@
                             <td>
                                 <button type="button" id="boton-from-the-start">Marcar como escuchada</button>
                                 <button type="button" id="boton-from-the-start-favorito">Agregar a favoritos</button>
+                            </td>
+                            <td class="cola">
+                                <input type="checkbox" value="From The Start" x-model="seleccionadas">
                             </td>
                         </tr>
                             <tr id="cancion-maniac">
@@ -101,16 +109,29 @@
                                 <button type="button" id="boton-maniac">Marcar como escuchada</button>
                                 <button type="button" id="boton-maniac-favorito">Agregar a favoritos</button>
                             </td>
+                            <td class="cola">
+                                <input type="checkbox" value="Maniac" x-model="seleccionadas">
+                            </td>
                         </tr>
 
                         <tr class = "total">
                             <td colspan="3">Duración Total de las canciones:</td>
                             <td>9:57</td>
                             <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
-                </div>
+            </div>
+            <p>
+                Canciones en la cola:
+                <span x-text="seleccionadas.length"></span>
+            </p>
+            <ol>
+                <template x-for="cancion in seleccionadas" x-bind:key="cancion">
+                    <li x-text="cancion"></li>
+                </template>
+            </ol>
         </section>
     </main>
 

@@ -6,6 +6,24 @@
         "footer footer footer";
     grid-template-columns: 1fr 2fr 1fr;
 }
+.artistas .filtro-gen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-basis: 100%;
+    grid-column: 1 / -1;
+}
+
+.artistas .filtro-gen button {
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    cursor: pointer;
+}
 #repertorio-de-artistas {
     grid-area: main;
     display: flex;
@@ -47,3 +65,4 @@
     color: var(--color-busqueda-texto);
     line-height: 1.4;
 }
+
