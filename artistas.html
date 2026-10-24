@@ -5,7 +5,9 @@
     <meta name="viewport"
     content="width=device-width, initial-scale=1">
     <title>Artistas - Regi Music</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/movil.css">
+    <link rel="stylesheet" href="css/artistas.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
 
@@ -13,25 +15,25 @@
 
 <body class="artistas">
     <header>
+        <div class="logo-titulo">
+        <img src="Icono-RMusic/RegiMusicIc.png" alt="" width="48" height="48">
+    
         <h1>Regi Music</h1>
-        
-<div class="Barra-busqueda">
-    <label for="buscar-artistas" class="visual-oculto">
+        </div> 
+        <div class="Barra-busqueda">
+        <label for="buscar-artistas" class="visual-oculto">
         Buscar música
-    </label>
-
-    <input type="text" id="buscar-artistas" placeholder="Buscar artistas, canciones..." class="Buscar">
-    <button type="button" class="Boton-buscar">Buscar</button>
-</div>
-
+        </label>
+        <input type="text" id="buscar-artistas" placeholder="Buscar artistas, canciones..." class="Buscar">
+        <button type="button" class="Boton-buscar">Buscar</button>
+        </div>
     </header>
 
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
-
-    <nav>
-        <ul>
+    <nav >
+        <input type="checkbox" id="menu-movil" class="menu-toggle">
+        <label for="menu-movil" class="boton-menu">☰ Menú</label>  
+        
+        <ul class="enlaces-menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
@@ -41,8 +43,13 @@
             <li><a href="estadisticas.html">Estadísticas</a></li>
         </ul>
     </nav>
+        
+    <p id="estado-internet" role="status" hidden>
+        No posees conexión a internet. Revisa tu red o datos móviles.
+    </p>
 
     <main>
+        
         <section id="repertorio-de-artistas">
             <h2>Repertorio de Artistas</h2>
             <p>Explora nuestra colección de artistas disponibles en Regi Music.</p>

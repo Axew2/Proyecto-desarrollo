@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard - Regi Music</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/movil.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
 </head>
 
 <body class="dashboard">
     <header>
-        <h1>Panel de Administrador</h1>
+        <div class="logo-titulo">
+        <img src="Icono-RMusic/RegiMusicIc.png" alt="" width="48" height="48">
+    
+        <h1>Regi Music</h1>
+        </div> 
     </header>
 
-    
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
+    <nav >
+        <input type="checkbox" id="menu-movil" class="menu-toggle">
+        <label for="menu-movil" class="boton-menu">☰ Menú</label>  
+        <ul class="enlaces-menu">
 
-    
-    <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
@@ -31,6 +34,10 @@
             <li><a href="estadisticas.html">Estadísticas</a></li>
         </ul>
     </nav>
+
+    <p id="estado-internet" role="status" hidden>
+        No posees conexión a internet. Revisa tu red o datos móviles.
+    </p>
 
     <main>
         <section id="seccion-gestion-canciones">

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Estadísticas - Regi Music</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/movil.css">
     <link rel="manifest" href="manifest.json">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
@@ -14,7 +15,11 @@
 <body class="biblioteca estadisticas">
 
     <header>
+        <div class="logo-titulo">
+        <img src="Icono-RMusic/RegiMusicIc.png" alt="" width="48" height="48">
+    
         <h1>Regi Music</h1>
+        </div> 
 
         <div class="Barra-busqueda">
             <label for="buscar-estadisticas" class="visual-oculto">
@@ -26,26 +31,29 @@
         </div>
     </header>
 
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
-
-    <nav>
-        <ul>
+    <nav >
+        <input type="checkbox" id="menu-movil" class="menu-toggle">
+        <label for="menu-movil" class="boton-menu">☰ Menú</label>  
+        <ul class="enlaces-menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
+            <li><a href="login.html">Iniciar Sesión</a></li>
             <li><a href="playlists.html">Playlists</a></li>
             <li><a href="historial.html">Historial</a></li>
             <li><a href="estadisticas.html">Estadísticas</a></li>
-            <li><a href="login.html">Iniciar Sesión</a></li>
         </ul>
+
     </nav>
 
-    <!-- En este caso para hacer el script de Alpine, estoy usando las variables de vmcanciones como "Ver mostrar canciones"
-    referente a ver el texto del ranking de las canciones, y vmostrar, como ver mostrar el txt del ranking de los artistas-->
-
-    <main>
+    <p id="estado-internet" role="status" hidden>
+        No posees conexión a internet. Revisa tu red o datos móviles.
+    </p>
+    
+      <!-- En este caso para hacer el script de Alpine, estoy usando las variables de vmcanciones como "Ver mostrar canciones"
+    referente a ver el texto del ranking de las canciones, y vmostrar, como ver mostrar el txt del ranking de los artistas-->  
+  
+  <main>
         <section>
             <h2>Mis Estadísticas</h2>
             <p>Consulta tus canciones y artistas más escuchados.</p>

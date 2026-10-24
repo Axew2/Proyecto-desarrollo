@@ -6,7 +6,8 @@
     --color-footer: #1f495f;
     --color-busqueda-fondo: #2c3236;
     --color-busqueda-texto: #ffffff;
-    --color-busqueda-borde: #5b8578;
+    --color-de-recuadro:#007e2a73;
+    --color-boton-articulo: #1b642e;
 }
 *{
     margin: 0px;
@@ -19,62 +20,9 @@
     font-family: 'Times New Roman', Times, serif;
     min-height: 100vh;
 }
-.inicio {
-    display: grid;
-    grid-template-areas:
-        "header header header"
-        "nav main aside"
-        "footer footer footer";
-    grid-template-columns: 1fr 2fr 1fr;
 
-}
-
-.inicio aside{
-    grid-area: aside;
-    padding: 10px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-.inicio aside p{
-    font-size: 18px;
-    margin-bottom: 10px;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}
-#artistas-destacados {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
-    gap: 30px;
-    padding: 20px;
-}
-#artistas-destacados article {
-    max-width: 320px;
-    width:100%
-}
-#artistas-destacados h2{
-    grid-column: 1 / -1;
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-#artistas-destacados p{
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-#canciones-destacadas{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-#canciones-populares h2{
-    grid-column: 1 / -1;
-    font-size: 30px;
-    margin-bottom: 10px;
-}
 article {
-    background-color: var(--color-busqueda-fondo);
+    background-color: var(--color-de-recuadro);
     padding: 10px;
     border-radius: 10px;
     text-align: center;
@@ -92,71 +40,13 @@ article img {
 }
 article button {
     padding: 8px 12px;
-    background-color: #5b8578;
-    color: var(--color-busqueda-texto);
+    background-color: var(--color-boton-articulo);
+    color: var(--color-articulo-boton-texto);
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
-.login {
-    display: grid;
-    min-height: 100vh;
-    grid-template-areas:
-        "header header header"
-        "nav main main"
-        "footer footer footer";
-    grid-template-columns: 220px 1fr;
-    grid-template-rows: auto 1fr auto;
-}.login nav{
-    grid-area: nav;
-    padding: 10px 10px;
-}
-.login main{
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 40px 20px;
-}
-.login main form, .login main .login-container {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid var(--color-busqueda-borde);
-}
 
-.login h2{
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-.login p{
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-.login label{
-    display: flex;
-    font-size: 20px;
-}
-.login input[type="email"], .login #password{
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid var(--color-busqueda-borde);
-}
-
-.login button[type="submit"]{
-    width: 100%;
-    padding: 10px;
-    background-color: var(--color-busqueda-fondo);
-    color: var(--color-busqueda-texto);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 .Boton-mostrar{
     color: var(--color-busqueda-texto);
     background-color: var(--color-busqueda-fondo);
@@ -256,7 +146,7 @@ article button {
     font-size: 18px;
 }
 .dashboard button[type="submit"]{
-width: 100%;
+    width: 100%;
     padding: 10px;
     background-color: var(--color-busqueda-fondo);
     color: var(--color-busqueda-texto);
@@ -266,60 +156,11 @@ width: 100%;
 }
 
 
-.artistas {
-    display: grid;
-    grid-template-areas:
-        "header header header"
-        "nav main main"
-        "footer footer footer";
-    grid-template-columns: 1fr 2fr 1fr;
-}
-#repertorio-de-artistas {
-    grid-area: main;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-#repertorio-de-artistas h2, #repertorio-de-artistas > p {
-    display: flex;
-    justify-content: center;
-    grid-column: 1 / -1;
-    width: 100%;
-}
-#repertorio-de-artistas article {
-    padding: 10px;
-    width: 400px;
-    text-align: center;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-}
-#repertorio-de-artistas article img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
-    border-radius: 5px;
-}
-#repertorio-de-artistas article h2 {
-    font-size: 20px;
-    margin: 10px 0 5px;
-}
-#repertorio-de-artistas article h3 {
-    font-size: 18px;
-    margin: 10px 0 5px;
-}
-#repertorio-de-artistas article p {
-    font-size: 14px;
-    color: var(--color-busqueda-texto);
-    line-height: 1.4;
-}
 
 header {
     grid-area: header;
     background-color: var(--color-header);
-    position: flex;
+    position: relative;
     display: flex;
     align-items: center;
     gap: 40px;
@@ -331,17 +172,19 @@ header {
 
 .Barra-busqueda {
     display: flex;
+    left: 50%;
     align-items: center;
     margin-top: 10px;
     background-color: var(--color-busqueda-fondo);
     border-radius: 5px;
     padding: 5px;
     width: 100%;
+    transform: none;
     max-width: 400px;
     border: 1px solid var(--color-busqueda-borde);
 }
 .Buscar {
-    flex: 1;
+    flex: 2;
     padding: 5px;
     border: none;
     background-color: transparent;
@@ -358,6 +201,31 @@ header {
     color: var(--color-busqueda-texto);
     cursor: pointer;
     font-size: 12px;
+    
+}
+.scroll{
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: var(--color-texto);
+    font-size: 20px;
+}
+.scroll thead tr{
+    border-bottom: 2px solid var(--color-busqueda-borde);
+} 
+.scroll th{
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.scroll tbody tr{
+    border-bottom: 1px solid #24455c;
+    border-top: 1px solid #24455c;
+}
+.scroll td{
+    padding: 12px 16px;
 }
 input{
     outline: none;
@@ -471,3 +339,42 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
+
+@media (min-width:768px){
+    .inicio{
+        grid-template-areas:
+            "header header"
+            "nav main"
+            "aside aside"
+            "footer footer";
+        grid-template-columns: 100px minmax(0,1fr);
+        grid-template-rows: auto 1fr auto auto;
+        gap: 12px;
+    }
+        .inicio header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .inicio header h1 {
+        text-align: left;
+    }
+
+    .inicio nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .inicio nav a {
+        justify-content: flex-start;
+    }
+}
+
+
+
+
+
+
+
