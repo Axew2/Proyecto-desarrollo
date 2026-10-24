@@ -25,6 +25,4 @@ const serviartistas = new sartistas(
     repoartistas
 );
 
-const ctrlartistas = new controlador(
-    serviartistas
-);
+registrarctrlartistas(serviartistas);

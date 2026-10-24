@@ -61,13 +61,13 @@
 
             <!-- Los pongo en un div ya que así solo se veía horrible :V, tengo que adaptarlo con el css igual. -->
             <div class="filtro-gen">
-                <button type="button" x-on:click="genero = 'todos'">
+                <button type="button" x-on:click="seleccionargene('todos')">
                     Todos
                 </button>
                 
                 <!-- gen in gendispo es: Por cada género que exista en gendispo haz x (en este caso crear un botón). -->
                 <template x-for="gen in gendispo" :key="gen">
-                    <button type="button" x-on:click="genero = gen" x-text="gen"></button>
+                    <button type="button" x-on:click="seleccionargene(gen)" x-text="gen"></button>
                 </template>
             </div>
 
