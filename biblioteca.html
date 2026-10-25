@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/movil.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
+    <script defer src="libs/alpine.min.js"></script>
 
 </head>
 <body class="biblioteca">
@@ -30,11 +31,10 @@
 </div>
 
     </header>
-
+  
      <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
-        
         <ul class="enlaces-menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
@@ -47,12 +47,14 @@
 
     </nav>
 
-    <p id="estado-internet" role="status" hidden>
-    No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
-
     <main>
-        <section id="playlists-disponibles">
+        <section id="playlists-disponibles" x-data="biblioteca" x-on:offline.window="desconectar()" x-on:online.window="conectar()">
+            <p id="estado-internet" role="status" x-show="!conectado">
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+            <p role="status" x-show="cargando"> Cargando biblioteca. </p>
+            <p role="alert" x-show="error !== ''" x-text="error"></p>
+            
             <h2>Mi Biblioteca</h2>
             <p>Explora tus canciones favoritas en Regi Music.</p>
 
@@ -69,6 +71,7 @@
                             <th scope="col">Álbum</th>
                             <th scope="col">Duración</th>
                             <th scope="col">Favoritos</th>
+                            <th scope="col" class="cola">Agregar a la cola</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,28 +81,43 @@
                             <td>The Bad Boy</td>
                             <td>3:53</td>
                             <td>
-                                <button type="button" id="boton-sola">Marcar como escuchada</button>
-                                <button type="button" id="boton-sola-favorito">Agregar a favoritos</button>
+                                <button type="button" id="boton-sola" x-on:click="cambescuchada('Sola')"
+                                x-text="escuchadas.includes('Sola') ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
+                                <button type="button" id="boton-sola-favorito" x-on:click="cambfavorito('Sola')"
+                                x-text="favoritas.includes('Sola') ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
+                            </td>
+                            <td class="cola">
+                                <input type="checkbox" value="Sola" x-model="seleccionadas">
                             </td>
                         </tr>
-                            <tr id="cancion-from-the-start">
+                            <tr id="cancion-From-The-Start">
                             <th scope="row">From The Start</th>
                             <td>Laufey</td>
                             <td>Bewitched</td>
                             <td>2:49</td>
                             <td>
-                                <button type="button" id="boton-from-the-start">Marcar como escuchada</button>
-                                <button type="button" id="boton-from-the-start-favorito">Agregar a favoritos</button>
+                                <button type="button" id="boton-From-The-Start" x-on:click="cambescuchada('From-The-Start')"
+                                x-text="escuchadas.includes('From-The-Start') ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
+                                <button type="button" id="boton-From-The-Start-favorito" x-on:click="cambfavorito('From-The-Start')"
+                                x-text="favoritas.includes('From-The-Start') ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
+                            </td>
+                            <td class="cola">
+                                <input type="checkbox" value="From The Start" x-model="seleccionadas">
                             </td>
                         </tr>
-                            <tr id="cancion-maniac">
+                            <tr id="cancion-Maniac">
                             <th scope="row">Maniac</th>
                             <td>Los 4 Fantásticos</td>
                             <td>Single</td>
                             <td>3:15</td>
                             <td>
-                                <button type="button" id="boton-maniac">Marcar como escuchada</button>
-                                <button type="button" id="boton-maniac-favorito">Agregar a favoritos</button>
+                                <button type="button" id="boton-Maniac" x-on:click="cambescuchada('Maniac')"
+                                x-text="escuchadas.includes('Maniac') ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
+                                <button type="button" id="boton-Maniac-favorito" x-on:click="cambfavorito('Maniac')"
+                                x-text="favoritas.includes('Maniac') ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
+                            </td>
+                            <td class="cola">
+                                <input type="checkbox" value="Maniac" x-model="seleccionadas">
                             </td>
                         </tr>
 
@@ -107,10 +125,20 @@
                             <td colspan="3">Duración Total de las canciones:</td>
                             <td>9:57</td>
                             <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
-                </div>
+            </div>
+            <p>
+                Canciones en la cola:
+                <span x-text="seleccionadas.length"></span>
+            </p>
+            <ol>
+                <template x-for="cancion in seleccionadas" x-bind:key="cancion">
+                    <li x-text="cancion"></li>
+                </template>
+            </ol>
         </section>
     </main>
 
@@ -118,8 +146,15 @@
         <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
     </footer>
 
+    <script src="repo-base.js"></script>
+    <script src="repo-biblioteca.js"></script>
+    <script src="servi-biblioteca.js"></script>
     <script src="biblioteca.js"></script>
+<<<<<<< HEAD
     <script src="buscador.js"></script>
+=======
+    <script src="compo.js"></script>
+>>>>>>> origin/develop
 
     <script>
         if("serviceWorker" in navigator)
@@ -127,23 +162,5 @@
             navigator.serviceWorker.register("./sw.js");
         }
     </script>
-
-    <script>
-        const aviso = document.getElementById("estado-internet");
-
-        if(navigator.onLine == false)
-        {
-            aviso.hidden = false;
-        }
-        
-        window.addEventListener("offline", function() {
-            aviso.hidden = false;
-        });
-
-        window.addEventListener("online", function() {
-            aviso.hidden = true;
-        });
-    </script>
-
 </body>
 </html>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/artistas.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
+    <script defer src="libs/alpine.min.js"></script>
 
 </head>
 
@@ -28,11 +29,9 @@
         <button type="button" class="Boton-buscar">Buscar</button>
         </div>
     </header>
-
-    <nav >
+    <nav>
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
-        
         <ul class="enlaces-menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
@@ -44,54 +43,57 @@
         </ul>
     </nav>
         
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
 
     <main>
         
-        <section id="repertorio-de-artistas">
+        <section id="repertorio-de-artistas" x-data="repeartistas">
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+            <p role="status" x-show="cargando">Los artistas están cargandose.</p>
+            <p role="alert" x-show="error !== ''" x-text="error"></p>
+            <p role="status" x-show="!cargando && error === '' && artistas.length === 0">Sin artistas en este momento.</p>
             <h2>Repertorio de Artistas</h2>
             <p>Explora nuestra colección de artistas disponibles en Regi Music.</p>
 
-            <!-- Según estuve viendo, al ser varios artistas (No tienen que ver los unos con los
-            otros, hacemos uso de varios articles pa separarlos -Claudito. )-->
+            <!-- Los pongo en un div ya que así solo se veía horrible :V, tengo que adaptarlo con el css igual. -->
+            <div class="filtro-gen">
+                <button type="button" x-on:click="seleccionargene('todos')">
+                    Todos
+                </button>
+                
+                <!-- gen in gendispo es: Por cada género que exista en gendispo haz x (en este caso crear un botón). -->
+                <template x-for="gen in gendispo" :key="gen">
+                    <button type="button" x-on:click="seleccionargene(gen)" x-text="gen"></button>
+                </template>
+            </div>
 
-            <article>
-                <h3>Hector El Father</h3>
-                <img src="Artistas-Imagenes/hef.jpg" alt="Portada albúm Bad Boy">
-                <p>Género: Reggaeton</p>
-                <p>Hector El Father, uno de los pioneros del género urbano de la Old School.</p>
-                <button type="button" id="boton-hector">Ver Perfil</button>
-                <p id="info-hector" hidden>
-                    Información adicional sobre Hector El Father: Nació en Carolina, Puerto Rico, y es conocido por su estilo único y su influencia en la música urbana. 
-                    Su carrera ha dejado un legado significativo en el reggaeton y ha colaborado con numerosos artistas del género.
-                </p>
-            </article>
+            <!-- Borré todos los articles anteriores en los q me demoré hora escribiendo y haciendo
+            en la entrega 1 ToT, estos son más automáticos, se crean por cada artista que haya
+            en el array. -Claudito. )-->
 
-            <article>
-                <h3>Laufey</h3>
-                <img src="Artistas-Imagenes/Laufey.jpg" alt="Reconocida cantante Laufey">
-                <p>Género: Jazz, Jazz Pop</p>
-                <p>Laufey es reconocida mundialmente por revitalizar el Jazz en la generación Z.</p>
-                <button type="button" id="boton-laufey">Ver Perfil</button>
-                <p id="info-laufey" hidden>
-                    Información adicional sobre Laufey: Nació en Islandia y es conocida por su estilo único que combina el jazz tradicional con elementos modernos. 
-                    Su música ha sido ampliamente reconocida y ha recibido múltiples premios.
-                </p>
-            </article>
+            <template x-for="artista in artistas" :key="artista.id">
+                <article x-data="perfilartista" x-show="genero === 'todos' || artista.generos.includes(genero)">
 
-            <article>
-                <h3>Los 4 Fantásticos</h3>
-                <img src="Artistas-Imagenes/4f.webp" alt="Grupo chileno que ha sonado recientemente: Los 4 Fantásticos">
-                <p>Género: Trap, Reggaeton, Pop</p>
-                <p>Los 4 Fantásticos son un grupo chileno formado por Kidd Voodoo, DrefQuila, Easykid, Young Cister.</p>
-                <button type="button" id="boton-4fantasticos">Ver Perfil</button>
-                <p id="info-4fantasticos" hidden>
-                    Información adicional sobre Los 4 Fantásticos: Son un grupo chileno que ha ganado reconocimiento 
-                    por su estilo único que combina elementos de trap, reggaeton y pop.
-                </p>
-            </article>
+                <h3 x-text="artista.nombre"></h3>
+                <img :src="artista.imagen" :alt="'Imagen de ' + artista.nombre">
+
+                    <p>
+                        Género:
+                        <span x-text="artista.generos.join(', ')"></span>
+                    </p>
+                
+                    <p x-text="artista.descripcion"></p>
+
+                    <button type="button" x-on:click="altperfil()" x-text="textoboton">
+                    </button>
+
+                    <p
+                        x-show="mostrarperfil"
+                        x-text="artista.biografia">
+                    </p>
+                </article>
+            </template>
         </section>
     </main>
 
@@ -99,6 +101,12 @@
         <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
     </footer>
 
+    <script src="repo-base.js"></script>
+    <script src="repo-artistas.js"></script>
+    <script src="servi-artistas.js"></script>
+    <script src="contr-artistas.js"></script>
+    <script src="compo-artistas.js"></script>
+    <script src="compo.js"></script>
     <script src="artistas.js"></script>
     <script src="buscador.js"></script>
     

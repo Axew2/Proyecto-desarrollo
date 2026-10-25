@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +9,7 @@
     <link rel="stylesheet" href="css/movil.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
+    <script defer src="libs/alpine.min.js"></script>
 </head>
 <body class="biblioteca playlists">
 
@@ -30,11 +30,9 @@
     </div>
 
     </header>
-
    <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
-        
         <ul class="enlaces-menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
@@ -47,12 +45,16 @@
 
     </nav>
 
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
+    <main x-data="repeplaylists">
+            <section>
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
+            <p role="status" x-show="cargando"> Las playlist están cargandose </p>
+            <p role="alert" x-show="error !== ''" x-text="error"></p>
+            <p role="status" x-show="!cargando && error === '' && playlists.length === 0"> Sin playlist en este momento. </p>
 
-    <main>
-        <section>
+
             <h2>Mis Playlists</h2>
             <p>Organiza tus canciones favoritas en listas personalizadas por ti mismo.</p>
 
@@ -63,40 +65,59 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Canciones</th>
                         <th scope="col">Contenido</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody id = "tabla-playlists-body">
-                      <tr>
-                      <th scope="row">Reggaeton</th>
-                      <td>2</td>
-                      <td>Sola, Enrolar</td>
-                    </tr>
-                      <tr>
-                        <th scope="row">Para estudiar</th>
-                        <td>1</td>
-                        <td>From The Start</td>
-                    </tr>
+                    <template x-for="playlist in playlists" :key="playlist.id">
+                        <tr>
+                            <th scope="row" x-text="playlist.titulo"></th>
+                            <td x-text="playlist.canciones.length"></td>
+                            <td x-text="playlist.canciones.join(', ')"></td>
+                            <td>
+                                <button type="button" x-on:click="aeditar(playlist)">Editar</button>
+                                <button type="button" x-on:click="eliminarplay(playlist.id)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </template>
                 </tbody>
             </table>
+            <button type="button" x-on:click="acrear()"> Nueva Playlist </button>
         </section>
+        
+        <div class="fondo" x-show="vplaylist">
+            <section class="formulario-playlist">
+                <div class="arriba-playlist">
+                    <h2 x-text="peditando ? 'Editar Playlist' : 'Crear Playlist'"></h2>
+                    <button type="button" x-on:click="vplaylist = false"> Cerrar </button>
+                </div>
 
-        <section class="formulario-playlist">
-            <h2>Crear Playlist</h2>
-
-            <form id = "crear-playlist-form">
-                <label for="nombre-playlist">Nombre de la playlist</label>
-                <input type="text" id="nombre-playlist" name="nombre-playlist" required>
-                <button type="submit">Crear Playlist</button>
-            </form>
-        </section>
+                <form x-on:submit.prevent="gform()">
+                    <label for="nombre-playlist">Nombre de la playlist</label>
+                    <input type="text" id="nombre-playlist" name="nombre-playlist" x-model="nplaylist" required>
+                    <button type="submit" x-text="peditando ? 'Guardar cambios' : 'Crear Playlist'"></button>
+                </form>
+                
+            </section>
+        </div>
+      
     </main>
 
     <footer>
         <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
     </footer>
     
+<<<<<<< HEAD
     <script src="playlists.js"></script>
     <script src="buscador.js"></script>
+=======
+    <script src="repo-base.js"></script>
+    <script src="repo-playlist.js"></script>
+    <script src="servi-playlists.js"></script>
+    <script src="contr-playlists.js"></script>
+    <script src="compo-playlists.js"></script>
+    <script src="compo.js"></script>
+>>>>>>> origin/develop
 
     <script>
         if("serviceWorker" in navigator)

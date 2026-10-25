@@ -102,14 +102,12 @@
         display: flex;
         margin-top: 0;
     }
-        .inicio nav .boton-menu {
-        display: none;
-    }
-
-    .inicio nav .enlaces-menu {
-        display: flex;
-        flex-direction: column;
-    }
-   
-
+    
+}
+.inicio.Botones-destacados{
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    cursor: pointer;
 }

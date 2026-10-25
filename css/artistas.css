@@ -1,18 +1,29 @@
-.artistas {
-    display: grid;
-    grid-template-areas:
-        "header header header"
-        "nav main main"
-        "footer footer footer";
-    grid-template-columns: 1fr 2fr 1fr;
-}
-#repertorio-de-artistas {
-    grid-area: main;
+.artistas .filtro-gen {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-basis: 100%;
+    grid-column: 1 / -1;
+}
+
+.artistas .filtro-gen button {
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+#repertorio-de-artistas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%,280px),1fr));
     gap: 20px;
+    align-items: start;
     padding: 20px;
+    width: 100%;
+    min-width: 0;
 }
 #repertorio-de-artistas h2, #repertorio-de-artistas > p {
     display: flex;
@@ -21,12 +32,9 @@
     width: 100%;
 }
 #repertorio-de-artistas article {
-    padding: 10px;
-    width: 400px;
-    text-align: center;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
 }
 #repertorio-de-artistas article img {
     width: 100%;
@@ -46,4 +54,14 @@
     font-size: 14px;
     color: var(--color-busqueda-texto);
     line-height: 1.4;
+}
+#estado-internet[hidden] {
+    display: none !important;
+}
+#repertorio-de-artistas > .filtro-gen{
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
