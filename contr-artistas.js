@@ -3,7 +3,18 @@ function registrarctrlartistas(serviartistas)
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('repeartistas', () => ({ genero: 'todos', artistas: [], gendispo: [], cargando: false, error: '',
+            muestraFormu: false,
+
+            nUevoArtis:{
+                nombre: "",
+                generos: [],
+                biografia: "",
+                imagen: ""            
+
+            },
+
             async init() 
+            //agregue el "muestraformu" para que se pueda abrir el formualario de añadir al artista <-- Basti
             {
                 await this.cargarartista();
             },

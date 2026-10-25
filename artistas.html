@@ -55,6 +55,25 @@
             <p role="status" x-show="!cargando && error === '' && artistas.length === 0">Sin artistas en este momento.</p>
             <h2>Repertorio de Artistas</h2>
             <p>Explora nuestra colección de artistas disponibles en Regi Music.</p>
+            <button type="button" x-on:click="muestraFormu = !muestraFormu">Agregar artista</button> 
+            <!-- ando configurando el boton de agregar artista para el CRUD, aparte de hacer que se cierre y se abra :b -- Basti --> 
+
+            <div x-show="muestraFormu"> <!-- Esto es el formulario -->
+                <form>
+                    <h3> Completa la información de tu artista favortio </h3> 
+
+                    <label for="Nombre-artista">Nombre del artista: </label>
+                    <input type="text" id="Nombre-artista" x-model="nUevoArtis.nombre" required> 
+                    
+                    <label for="descripcion-artista">Descripción del artista: </label>
+                    <textarea
+                        id="descripcion-artista"
+                        x-model="nUevoArtis.descripcion"
+                        placeholder="Descripción del artista"                        
+                        required>
+                    </textarea>
+                </form>
+            </div>
 
             <!-- Los pongo en un div ya que así solo se veía horrible :V, tengo que adaptarlo con el css igual. -->
             <div class="filtro-gen">
