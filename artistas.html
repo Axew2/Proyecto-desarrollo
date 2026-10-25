@@ -59,19 +59,33 @@
             <!-- ando configurando el boton de agregar artista para el CRUD, aparte de hacer que se cierre y se abra :b -- Basti --> 
 
             <div x-show="muestraFormu"> <!-- Esto es el formulario -->
-                <form>
+                <form x-on:submit.prevent="agregarALNuevoArtista()">
                     <h3> Completa la información de tu artista favortio </h3> 
 
                     <label for="Nombre-artista">Nombre del artista: </label>
                     <input type="text" id="Nombre-artista" x-model="nUevoArtis.nombre" required> 
                     
+                    <label for="genero-artista">Género del artista: </label>
+                    <input type="text" id="genero-artista" x-model="nUevoArtis.generos" required>
+                    
+                    <label for="imagen-artista">Imagen del artista: </label>
+                    <input type="url" id="imagen-artista" x-model="nUevoArtis.imagen" required>
+                    
+                    <label for="biografia-artista">Biografía del artista: </label>
+                    <textarea
+                        id="biografia-artista"
+                        x-model="nUevoArtis.biografia"
+                        required>
+                    </textarea>
+
                     <label for="descripcion-artista">Descripción del artista: </label>
                     <textarea
                         id="descripcion-artista"
-                        x-model="nUevoArtis.descripcion"
-                        placeholder="Descripción del artista"                        
+                        x-model="nUevoArtis.descripcion"                        
                         required>
                     </textarea>
+                    
+                    <button type="submit"> Guardar artista </button> 
                 </form>
             </div>
 
