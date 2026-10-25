@@ -65,3 +65,41 @@
     justify-content: center;
     gap: 10px;
 }
+
+.panel-nuevo-artista input, 
+.panel-nuevo-artista textarea{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #777;
+}
+
+.panel-nuevo-artista textarea{
+    min-height: 80px;
+    resize: vertical;
+}
+
+.panel-nuevo-artista button[type="submit"]{
+    padding: 10px;
+    background-color: #5b8578;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#repertorio-de-artistas > .panel-nuevo-artista{
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+}
+
+.panel-nuevo-artista form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--color-busqueda-panel);
+    border-radius: 10px;
+}

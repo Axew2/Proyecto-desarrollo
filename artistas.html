@@ -55,10 +55,10 @@
             <p role="status" x-show="!cargando && error === '' && artistas.length === 0">Sin artistas en este momento.</p>
             <h2>Repertorio de Artistas</h2>
             <p>Explora nuestra colección de artistas disponibles en Regi Music.</p>
-            <button type="button" x-on:click="muestraFormu = !muestraFormu">Agregar artista</button> 
+            <button type="button" class="boton-agregar-artista" x-on:click="muestraFormu = !muestraFormu">Agregar artista</button> 
             <!-- ando configurando el boton de agregar artista para el CRUD, aparte de hacer que se cierre y se abra :b -- Basti --> 
 
-            <div x-show="muestraFormu"> <!-- Esto es el formulario -->
+            <div class="panel-nuevo-artista" x-show="muestraFormu"> <!-- Esto es el formulario -->
                 <form x-on:submit.prevent="agregarALNuevoArtista()">
                     <h3> Completa la información de tu artista favortio </h3> 
 
@@ -66,7 +66,7 @@
                     <input type="text" id="Nombre-artista" x-model="nUevoArtis.nombre" required> 
                     
                     <label for="genero-artista">Género del artista: </label>
-                    <input type="text" id="genero-artista" x-model="nUevoArtis.generos" required>
+                    <input type="text" id="genero-artista" x-model="nUevoArtis.generoTExto" required>
                     
                     <label for="imagen-artista">Imagen del artista: </label>
                     <input type="url" id="imagen-artista" x-model="nUevoArtis.imagen" required>
