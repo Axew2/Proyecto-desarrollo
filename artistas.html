@@ -58,8 +58,9 @@
             <button type="button" class="boton-agregar-artista" x-on:click="muestraFormu = !muestraFormu">Agregar artista</button> 
             <!-- ando configurando el boton de agregar artista para el CRUD, aparte de hacer que se cierre y se abra :b -- Basti --> 
 
-            <div class="panel-nuevo-artista" x-show="muestraFormu"> <!-- Esto es el formulario -->
-                <form x-on:submit.prevent="agregarALNuevoArtista()">
+            <div class="fondo" x-show="muestraFormu"> <!-- Esto es el formulario -->
+                <div class="panel-nuevo-artista">
+                    <form x-on:submit.prevent="agregarALNuevoArtista()">
                     <h3> Completa la información de tu artista favortio </h3> 
 
                     <label for="Nombre-artista">Nombre del artista: </label>
@@ -86,7 +87,8 @@
                     </textarea>
                     
                     <button type="submit"> Guardar artista </button> 
-                </form>
+                    </form>
+                </div>
             </div>
 
             <!-- Los pongo en un div ya que así solo se veía horrible :V, tengo que adaptarlo con el css igual. -->
