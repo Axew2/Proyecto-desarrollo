@@ -30,12 +30,10 @@
     </div>
 
     </header>
-
    <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
         <ul class="enlaces-menu">
-        <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
@@ -47,7 +45,7 @@
 
     </nav>
 
-    <main x-data="{ ventanaPlaylist: false, playlists: playlistObjetos, nombrePlaylist: '' }">
+    <main x-data="{ ventanaPlaylist: false, playlists: playlistObjetos, nombrePlaylist: '', playlistEditar: null }">
             <section>
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
@@ -63,6 +61,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Canciones</th>
                         <th scope="col">Contenido</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody id = "tabla-playlists-body">
@@ -71,16 +70,25 @@
                             <th scope="row" x-text="playlist.titulo"></th>
                             <td x-text="playlist.canciones.length"></td>
                             <td x-text="playlist.canciones"></td>
+                            <td><button type="button" x-on:click="playlistEditar = playlist"> Editar</button>
+                            <button type="button">Eliminar</button></td>
                         </tr>
                     </template>
                 </tbody>
             </table>
-
             <button type="button" x-on:click="ventanaPlaylist = true">
                 Nueva Playlist
             </button>
         </section>
-        
+         <div class="Editor" x-show="playlistEditar !== null">
+            <h2>Editor de Playlist</h2>
+            <form id ="Editor">
+                <label for="editar-nombre">Nuevo nombre</label>
+                <input type="text" id="editar-nombre" required>
+                <button type="submit">Guardar cambios</button>
+                <button type="button">Cancelar</button>
+            </form> 
+         </div>
         <div class="fondo" x-show="ventanaPlaylist">
 
             <section class="formulario-playlist">
@@ -97,8 +105,10 @@
                     <input type="text" id="nombre-playlist" name="nombre-playlist" required x-model="nombrePlaylist">
                     <button type="submit">Crear Playlist</button>
                 </form>
+                
             </section>
         </div>
+      
     </main>
 
     <footer>

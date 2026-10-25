@@ -1,11 +1,3 @@
-.artistas {
-    display: grid;
-    grid-template-areas:
-        "header header header"
-        "nav main main"
-        "footer footer footer";
-    grid-template-columns: 1fr 2fr 1fr;
-}
 .artistas .filtro-gen {
     display: flex;
     flex-wrap: wrap;
@@ -25,12 +17,13 @@
     cursor: pointer;
 }
 #repertorio-de-artistas {
-    grid-area: main;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%,280px),1fr));
     gap: 20px;
     align-items: start;
     padding: 20px;
+    width: 100%;
+    min-width: 0;
 }
 #repertorio-de-artistas h2, #repertorio-de-artistas > p {
     display: flex;
@@ -64,4 +57,11 @@
 }
 #estado-internet[hidden] {
     display: none !important;
+}
+#repertorio-de-artistas > .filtro-gen{
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }

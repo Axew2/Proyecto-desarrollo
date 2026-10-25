@@ -104,3 +104,10 @@
     }
     
 }
+.inicio.Botones-destacados{
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    cursor: pointer;
+}
