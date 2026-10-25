@@ -54,7 +54,7 @@ class repoartistasls extends repobase
         return actualizarart;
     }
 
-    /* Elimina un artista por su id. */
+    /* elimina un artista por su id. */
     async eliminar(id)
     {
         const artistas = await this.listar();

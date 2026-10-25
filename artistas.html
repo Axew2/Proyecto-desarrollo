@@ -35,8 +35,6 @@
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
         
         <ul class="enlaces-menu">
-
-        <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
@@ -54,7 +52,9 @@
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
             </p>
-            
+            <p role="status" x-show="cargando">Los artistas están cargandose.</p>
+            <p role="alert" x-show="error !== ''" x-text="error"></p>
+            <p role="status" x-show="!cargando && error === '' && artistas.length === 0">Sin artistas en este momento.</p>
             <h2>Repertorio de Artistas</h2>
             <p>Explora nuestra colección de artistas disponibles en Regi Music.</p>
 
@@ -95,6 +95,7 @@
                         x-show="mostrarperfil"
                         x-text="artista.biografia">
                     </p>
+                    <button type="button" x-on:click="eliminarartista(artista.id)">Eliminar artista.</button>
                 </article>
             </template>
         </section>

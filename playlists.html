@@ -35,7 +35,6 @@
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
         <ul class="enlaces-menu">
-        <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artistas.html">Artistas</a></li>
             <li><a href="biblioteca.html">Mi Biblioteca</a></li>
@@ -47,11 +46,15 @@
 
     </nav>
 
-    <main x-data="{ ventanaPlaylist: false, playlists: playlistObjetos, nombrePlaylist: '' }">
+    <main x-data="repeplaylists">
             <section>
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
             </p>
+            <p role="status" x-show="cargando"> Las playlist están cargandose </p>
+            <p role="alert" x-show="error !== ''" x-text="error"></p>
+            <p role="status" x-show="!cargando && error === '' && playlists.length === 0"> Sin playlist en este momento. </p>
+
 
             <h2>Mis Playlists</h2>
             <p>Organiza tus canciones favoritas en listas personalizadas por ti mismo.</p>
@@ -63,39 +66,37 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Canciones</th>
                         <th scope="col">Contenido</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody id = "tabla-playlists-body">
-                    <template x-for="playlist in playlists" x-bind:key="playlist.titulo">
+                    <template x-for="playlist in playlists" :key="playlist.id">
                         <tr>
                             <th scope="row" x-text="playlist.titulo"></th>
                             <td x-text="playlist.canciones.length"></td>
-                            <td x-text="playlist.canciones"></td>
+                            <td x-text="playlist.canciones.join(', ')"></td>
+                            <td>
+                                <button type="button" x-on:click="aeditar(playlist)">Editar</button>
+                                <button type="button" x-on:click="eliminarplay(playlist.id)">Eliminar</button>
+                            </td>
                         </tr>
                     </template>
                 </tbody>
             </table>
-
-            <button type="button" x-on:click="ventanaPlaylist = true">
-                Nueva Playlist
-            </button>
+            <button type="button" x-on:click="acrear()"> Nueva Playlist </button>
         </section>
         
-        <div class="fondo" x-show="ventanaPlaylist">
-
+        <div class="fondo" x-show="vplaylist">
             <section class="formulario-playlist">
                 <div class="arriba-playlist">
-                    <h2>Crear Playlist</h2>
-                    <button type="button" x-on:click="ventanaPlaylist = false">
-                        Cerrar
-                    </button>
+                    <h2 x-text="peditando ? 'Editar Playlist' : 'Crear Playlist'"></h2>
+                    <button type="button" x-on:click="vplaylist = false"> Cerrar </button>
                 </div>
 
-                <form id = "crear-playlist-form" x-on:submit="playlists = [...playlistObjetos] ; ventanaPlaylist = false
-                    ; nombrePlaylist = '' ">
+                <form x-on:submit.prevent="gform()">
                     <label for="nombre-playlist">Nombre de la playlist</label>
-                    <input type="text" id="nombre-playlist" name="nombre-playlist" required x-model="nombrePlaylist">
-                    <button type="submit">Crear Playlist</button>
+                    <input type="text" id="nombre-playlist" name="nombre-playlist" x-model="nplaylist" required>
+                    <button type="submit" x-text="peditando ? 'Guardar cambios' : 'Crear Playlist'"></button>
                 </form>
             </section>
         </div>
@@ -105,8 +106,11 @@
         <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
     </footer>
     
+    <script src="repo-base.js"></script>
     <script src="repo-playlist.js"></script>
-    <script src="playlists.js"></script>
+    <script src="servi-playlists.js"></script>
+    <script src="contr-playlists.js"></script>
+    <script src="compo-playlists.js"></script>
 
     <script>
         if("serviceWorker" in navigator)

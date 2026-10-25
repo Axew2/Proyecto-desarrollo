@@ -18,6 +18,6 @@ class repobase
 
     async eliminar(id) 
     {
-        throw new Error("No disponible")
+        throw new Error("No disponible");
     }
 }
