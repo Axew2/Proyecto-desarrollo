@@ -55,8 +55,7 @@
             <p role="status" x-show="!cargando && error === '' && artistas.length === 0">Sin artistas en este momento.</p>
             <h2>Repertorio de Artistas</h2>
             <p>Explora nuestra colección de artistas disponibles en Regi Music.</p>
-            <button type="button" class="boton-agregar-artista" x-on:click="muestraFormu = !muestraFormu">Agregar artista</button> 
-            <!-- ando configurando el boton de agregar artista para el CRUD, aparte de hacer que se cierre y se abra :b -- Basti --> 
+            <!-- ando configurando el boton de agregar artista para el CRUD, aparte de hacer que se cierre y se abra :b -- Basti -->
 
             <div class="fondo" x-show="muestraFormu"> <!-- Esto es el formulario -->
                 <div class="panel-nuevo-artista">
@@ -135,6 +134,11 @@
                     </p>
                 </article>
             </template>
+            
+                <button type="button" class="boton-agregar-artista" 
+                    x-on:click="muestraFormu = !muestraFormu">
+                    Agregar artista
+                </button> 
         </section>
     </main>
 

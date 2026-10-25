@@ -140,3 +140,12 @@
     width: 100%;
 }
 
+#repertorio-de-artistas > .boton-agregar-artista {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: fit-content;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+
