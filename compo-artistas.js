@@ -14,15 +14,3 @@ const diartistas = [
         descripcion: "Los 4 Fantásticos son un grupo chileno formado por Kidd Voodoo, DrefQuila, Easykid y Young Cister.",
         biografia: "Los 4 Fantásticos son un grupo chileno que ha ganado reconocimiento por su estilo único que combina elementos de trap, reggaeton y pop."
     } ];
-
-const repoartistas = new repoartistasls
-(
-    "rmusic-artistas",
-    diartistas
-);
-
-const serviartistas = new sartistas(
-    repoartistas
-);
-
-registrarctrlartistas(serviartistas);
