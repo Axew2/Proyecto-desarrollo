@@ -13,6 +13,9 @@ class sartistas
 
     async crearartista(artista)
     {
+        if(artista.id === undefined || artista.id === null || artista.id === ""){
+            artista.id = Date.now().toString();
+        }
         const artistasc = await this.repoartistasls.crear(artista);
         return artistasc;
     }

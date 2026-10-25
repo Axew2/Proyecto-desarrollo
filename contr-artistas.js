@@ -3,6 +3,21 @@ function registrarctrlartistas(serviartistas)
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('repeartistas', () => ({ genero: 'todos', artistas: [], gendispo: [], cargando: false, error: '',
+            muestraFormu: false,
+            //agregue el "muestraformu" para que se pueda abrir el formualario de añadir al artista <-- Basti
+            
+            //<!-- la diferencia entre el texto y el arreglo genero es que uno es para el usuario y el otro para la app -->
+            nUevoArtis:{
+                id: "",
+                nombre: "",
+                generos: [], 
+                generoTExto: "",
+                biografia: "",
+                imagen: "",
+                descripcion: ""            
+
+            },
+
             async init() 
             {
                 await this.cargarartista();
@@ -25,6 +40,22 @@ function registrarctrlartistas(serviartistas)
                 {
                     this.cargando = false;
                 }
+            },
+            
+            async agregarALNuevoArtista(){
+                const Geneross = this.nUevoArtis.generoTExto.split(",");
+                this.nUevoArtis.generos = Geneross;
+                await this.crearartista(this.nUevoArtis);
+                this.nUevoArtis = {
+                    id: "",
+                    nombre: "",
+                    generos: [],
+                    generoTExto: "",
+                    biografia: "",
+                    imagen: "",
+                    descripcion: ""
+                }; 
+
             },
 
             seleccionargene(genero)

@@ -65,3 +65,87 @@
     justify-content: center;
     gap: 10px;
 }
+
+.artistas .fondo{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.artistas .fondo .panel-nuevo-artista{
+    width: 90%;
+    max-height: calc(100vh - 40px);
+    max-width: 400px;
+    overflow-y: auto;
+}
+
+.panel-nuevo-artista form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: var(--color-busqueda-fondo);
+    border-radius: 10px;
+}
+
+.panel-nuevo-artista h2{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.panel-nuevo-artista .arriba-artistA{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.panel-nuevo-artista .arriba-artistA button{
+    background-color: #5b8578;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.panel-nuevo-artista input,
+.panel-nuevo-artista textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-busqueda-borde);
+    border-radius: 5px;
+}
+
+.panel-nuevo-artista textarea{
+    min-height: 80px;
+    resize: vertical;
+}
+
+.panel-nuevo-artista button[type="submit"]{
+    padding: 10px;
+    background-color: #5b8578;
+    color: var(--color-busqueda-texto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#repertorio-de-artistas > .boton-agregar-artista {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: fit-content;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+
