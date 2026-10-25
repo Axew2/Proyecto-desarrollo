@@ -1,4 +1,29 @@
+.artistas {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav main main"
+        "footer footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.artistas .filtro-gen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-basis: 100%;
+    grid-column: 1 / -1;
+}
 
+.artistas .filtro-gen button {
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    padding: 10px 16px;
+    cursor: pointer;
+}
 #repertorio-de-artistas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%,280px),1fr));
@@ -38,6 +63,7 @@
     color: var(--color-busqueda-texto);
     line-height: 1.4;
 }
+<<<<<<< HEAD
 .artistas main{
     grid-area: main;
     width: 100%;
@@ -48,3 +74,8 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
+=======
+#estado-internet[hidden] {
+    display: none !important;
+}
+>>>>>>> origin/develop

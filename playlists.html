@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,6 +9,7 @@
     <link rel="stylesheet" href="css/movil.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
+    <script defer src="libs/alpine.min.js"></script>
 </head>
 <body class="biblioteca playlists">
 
@@ -30,6 +30,10 @@
     </div>
 
     </header>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/develop
    <nav >
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
@@ -45,12 +49,12 @@
 
     </nav>
 
-    <p id="estado-internet" role="status" hidden>
-        No posees conexión a internet. Revisa tu red o datos móviles.
-    </p>
+    <main x-data="{ ventanaPlaylist: false, playlists: playlistObjetos, nombrePlaylist: '' }">
+            <section>
+            <p id="estado-internet" role="status" hidden>
+                No posees conexión a internet. Revisa tu red o datos móviles.
+            </p>
 
-    <main>
-        <section>
             <h2>Mis Playlists</h2>
             <p>Organiza tus canciones favoritas en listas personalizadas por ti mismo.</p>
 
@@ -64,35 +68,46 @@
                     </tr>
                 </thead>
                 <tbody id = "tabla-playlists-body">
-                      <tr>
-                      <th scope="row">Reggaeton</th>
-                      <td>2</td>
-                      <td>Sola, Enrolar</td>
-                    </tr>
-                      <tr>
-                        <th scope="row">Para estudiar</th>
-                        <td>1</td>
-                        <td>From The Start</td>
-                    </tr>
+                    <template x-for="playlist in playlists" x-bind:key="playlist.titulo">
+                        <tr>
+                            <th scope="row" x-text="playlist.titulo"></th>
+                            <td x-text="playlist.canciones.length"></td>
+                            <td x-text="playlist.canciones"></td>
+                        </tr>
+                    </template>
                 </tbody>
             </table>
-        </section>
 
-        <section class="formulario-playlist">
-            <h2>Crear Playlist</h2>
-
-            <form id = "crear-playlist-form">
-                <label for="nombre-playlist">Nombre de la playlist</label>
-                <input type="text" id="nombre-playlist" name="nombre-playlist" required>
-                <button type="submit">Crear Playlist</button>
-            </form>
+            <button type="button" x-on:click="ventanaPlaylist = true">
+                Nueva Playlist
+            </button>
         </section>
+        
+        <div class="fondo" x-show="ventanaPlaylist">
+
+            <section class="formulario-playlist">
+                <div class="arriba-playlist">
+                    <h2>Crear Playlist</h2>
+                    <button type="button" x-on:click="ventanaPlaylist = false">
+                        Cerrar
+                    </button>
+                </div>
+
+                <form id = "crear-playlist-form" x-on:submit="playlists = [...playlistObjetos] ; ventanaPlaylist = false
+                    ; nombrePlaylist = '' ">
+                    <label for="nombre-playlist">Nombre de la playlist</label>
+                    <input type="text" id="nombre-playlist" name="nombre-playlist" required x-model="nombrePlaylist">
+                    <button type="submit">Crear Playlist</button>
+                </form>
+            </section>
+        </div>
     </main>
 
     <footer>
         <p>Todos los derechos reservados &copy; 2026 Regi Music Grupo 4</p>
     </footer>
     
+    <script src="repo-playlist.js"></script>
     <script src="playlists.js"></script>
 
     <script>
