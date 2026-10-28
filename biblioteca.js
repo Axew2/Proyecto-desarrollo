@@ -10,6 +10,8 @@ function registrarctrlbiblioteca(servibiblioteca)
                 try
                 {
                     const canciones = await servibiblioteca.listabiblioteca();
+                    this.canciones = canciones;
+
 
                     for(let i = 0; i < canciones.length; i++)
                     {
@@ -63,6 +65,7 @@ function registrarctrlbiblioteca(servibiblioteca)
                 try
                 {
                     const canciones = await servibiblioteca.listabiblioteca();
+                    
                     let encontrada = null;
 
                     for(let i = 0; i < canciones.length; i++)
