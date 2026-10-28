@@ -148,4 +148,18 @@
     margin-top: 10px;
 }
 
+#repertorio-de-artistas > p[role="alert"] { 
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
 
+    max-width: 420px;
+    padding: 12px 16px;
+
+    background-color: #7a2020;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+}
