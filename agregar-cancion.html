@@ -36,7 +36,7 @@
     </nav>
 
     <main>
-        <section id="seccion-gestion-canciones" x-data=" { titulo: '', artista: '', album: '', portada: '' } ">
+        <section id="seccion-gestion-canciones" x-data=" { titulo: '', artista: '', album: '', portada: '', duracion: ''} ">
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
             </p>
@@ -44,7 +44,7 @@
             <h2>Gestión de Canciones:</h2>
             <p>Bienvenido, autor, desde aquí puedes agregar canciones de tu autoría a Regi Music.</p>
             
-            <form action = "#" method = "post">
+            <form x-on: submit.prevent>
                 <p>
                     <label for = "titulo-cancion">Ingrese el título de la canción: </label><br>
                     <input type = "text" id = "titulo-cancion" name = "titulo-cancion" required x-model="titulo">
@@ -59,7 +59,7 @@
                 </p>
                 <p>
                     <label for = "duracion">Ingrese la duración de la canción (mm:ss): </label><br>
-                    <input type = "text" id = "duracion" name = "duracion" required pattern="\d{1,2}:\d{2}">
+                    <input type = "text" x-model="DuraciON" id = "duracion" name = "duracion" required pattern="\d{1,2}:\d{2}">
                 </p>
                 <p>
                     <label for = "genero">Ingrese el género de la canción: </label><br>
@@ -121,5 +121,9 @@
         });
     </script>
     
+    <script src="repo-base.js"></script>
+    <script src="repo-biblioteca.js"></script>
+    <script src="servi-biblioteca.js"></script>
+
 </body>
 </html>
