@@ -111,38 +111,44 @@
             <!-- Borré todos los articles anteriores en los q me demoré hora escribiendo y haciendo
             en la entrega 1 ToT, estos son más automáticos, se crean por cada artista que haya
             en el array. -Claudito. )-->
-
+            
             <template x-for="artista in artistas" :key="artista.id">
                 <article x-data="perfilartista" x-show="genero === 'todos' || artista.generos.includes(genero)">
-
+                
                 <h3 x-text="artista.nombre"></h3>
                 <img :src="artista.imagen" :alt="'Imagen de ' + artista.nombre">
-
+                    
                     <p>
                         Género:
                         <span x-text="artista.generos.join(', ')"></span>
                     </p>
-                
+                    
                     <p x-text="artista.descripcion"></p>
-
+                    
                     <button type="button" x-on:click="altperfil()" x-text="textoboton">
                     </button>
-
+                    
+                    <button type="button" x-on:click="eDitaARtista(artista)">
+                        Editar artista 
+                    </button>
+                    
                     <button type="button" x-on:click="eliminarartista(artista.id)">
                         Eliminar artista
                     </button>
-
+                    
                     <p
                         x-show="mostrarperfil"
                         x-text="artista.biografia">
                     </p>
+
                 </article>
             </template>
-            
+
                 <button type="button" class="boton-agregar-artista" 
                     x-on:click="muestraFormu = !muestraFormu">
                     Agregar artista
-                </button> 
+                </button>
+
         </section>
     </main>
 

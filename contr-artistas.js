@@ -1,11 +1,12 @@
-
 function registrarctrlartistas(serviartistas) 
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('repeartistas', () => ({ genero: 'todos', artistas: [], gendispo: [], cargando: false, error: '',
-            muestraFormu: false,
+            muestraFormu: false, EditoARtistaID: null, 
             //agregue el "muestraformu" para que se pueda abrir el formualario de añadir al artista <-- Basti
-            
+            // lo que agregue de editar artista id, es para editar un artista 
+            // pero guardando su id porque asi sabemos con cual trabajamos <-- basti
+
             //<!-- la diferencia entre el texto y el arreglo genero es que uno es para el usuario y el otro para la app -->
             nUevoArtis:{
                 id: "", nombre: "", generos: [], generoTExto: "", biografia: "", imagen: "", descripcion: ""            
@@ -15,6 +16,7 @@ function registrarctrlartistas(serviartistas)
             {
                 await this.cargarartista();
             },
+            
             async cargarartista() 
             {
                 this.cargando = true;
@@ -38,16 +40,31 @@ function registrarctrlartistas(serviartistas)
             async agregarALNuevoArtista(){
                 const Geneross = this.nUevoArtis.generoTExto.split(",");
                 this.nUevoArtis.generos = Geneross;
-                await this.crearartista(this.nUevoArtis);
-                this.nUevoArtis = {
-                    id: "", nombre: "", generos: [], generoTExto: "", biografia: "", imagen: "", descripcion: ""
-                }; 
+
+                if(this.EditoARtistaID === null){
+                    await this.crearartista(this.nUevoArtis);  
+                }
+                else{
+                    await this.editarartista(this.nUevoArtis);
+                }
+
+                this.nUevoArtis = {id: "", nombre: "", generos: [], generoTExto: "", biografia: "", imagen: "", descripcion: ""};
+
+                this.EditoARtistaID = null;
+                this.muestraFormu = false;
+            },
+
+            async eDitaARtista(artista){
+                this.EditoARtistaID = artista.id;
+                this.nUevoArtis = { id: artista.id, nombre: artista.nombre, generos: [...artista.generos], generoTExto: artista.generos.join(","), biografia: artista.biografia, imagen: artista.imagen, descripcion: artista.descripcion };
+                this.muestraFormu = true;
             },
 
             seleccionargene(genero)
             {
                 this.genero = genero;
             },
+            
             async crearartista(artista)
             {
                 try
