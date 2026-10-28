@@ -39,13 +39,18 @@ function registrarctrlartistas(serviartistas)
             
             async agregarALNuevoArtista(){
                 const Geneross = this.nUevoArtis.generoTExto.split(",");
+                
                 this.nUevoArtis.generos = Geneross;
 
                 if(this.EditoARtistaID === null){ // esto sirve para crear o editar un artista dependiendo si tiene id o no, simplecito
-                    await this.crearartista(this.nUevoArtis);  
+                    if(await this.crearartista(this.nUevoArtis) === false ){
+                        return;
+                    }  
                 }
                 else{
-                    await this.editarartista(this.nUevoArtis);
+                    if(await this.editarartista(this.nUevoArtis) === false){
+                        return;
+                    }
                 }
 
                 this.nUevoArtis = {id: "", nombre: "", generos: [], generoTExto: "", biografia: "", imagen: "", descripcion: ""};
@@ -80,11 +85,13 @@ function registrarctrlartistas(serviartistas)
                 {
                     await serviartistas.crearartista(artista);
                     await this.cargarartista();
+                    return true;
                 }
                 catch(error)
                 {
                     this.error = 'No se pudo crear el artista.';
                     console.error(error);
+                    return false;
                 }
             },
             async editarartista(actualizarart)
@@ -93,11 +100,13 @@ function registrarctrlartistas(serviartistas)
                 {
                     await serviartistas.editarartista(actualizarart);
                     await this.cargarartista();
+                    return true;
                 }
                 catch(error)
                 {
                     this.error = 'No se pudo editar el artista.';
                     console.error(error);
+                    return false;
                 }
             },
             async eliminarartista(id)
