@@ -41,7 +41,7 @@ function registrarctrlartistas(serviartistas)
                 const Geneross = this.nUevoArtis.generoTExto.split(",");
                 this.nUevoArtis.generos = Geneross;
 
-                if(this.EditoARtistaID === null){
+                if(this.EditoARtistaID === null){ // esto sirve para crear o editar un artista dependiendo si tiene id o no, simplecito
                     await this.crearartista(this.nUevoArtis);  
                 }
                 else{
@@ -54,9 +54,18 @@ function registrarctrlartistas(serviartistas)
                 this.muestraFormu = false;
             },
 
-            async eDitaARtista(artista){
+            async eDitaARtista(artista)
+            {
                 this.EditoARtistaID = artista.id;
                 this.nUevoArtis = { id: artista.id, nombre: artista.nombre, generos: [...artista.generos], generoTExto: artista.generos.join(","), biografia: artista.biografia, imagen: artista.imagen, descripcion: artista.descripcion };
+                this.muestraFormu = true;
+            },
+
+            async ABroArtistaNUEvo()
+            { // esto deja que al abrir el formulario de agregar artista siempre este vacio, sin 
+                //esto cuando editabas un artista y luego usabas agregar se ponia la info del que se editaba en vez de estar vacio <-- basti  
+                this.EditoARtistaID = null;
+                this.nUevoArtis = {id: "", nombre:"", generos: [], generoTExto: "", biografia: "", imagen: "", descripcion: ""};
                 this.muestraFormu = true;
             },
 
