@@ -75,6 +75,25 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <template x-for="cancion in canciones" :key="cancion.id"> 
+                            <tr>
+                                <td x-text="cancion.titulo"></td>
+                                <td x-text="cancion.artista"></td>
+                                <td x-text="cancion.album"></td>
+                                <td x-text="cancion.duracion"></td>
+                                
+                                <td>
+                                <button type="button" x-on:click="cambescuchada(cancion.id)"
+                                x-text="escuchadas.includes(cancion.id) ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
+                                <button type="button" x-on:click="cambfavorito(cancion.id)"
+                                x-text="favoritas.includes(cancion.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
+                                </td>
+                                
+                                <td class="cola">
+                                <input type="checkbox" :value="cancion.titulo" x-model="seleccionadas">
+                                </td>
+                            </tr>
+                        </template>
                             <tr id="cancion-sola">
                             <th scope="row">Sola</th>
                             <td>Hector El Father</td>
@@ -128,6 +147,7 @@
                             <td></td>
                         </tr>
                     </tbody>
+
                 </table>
             </div>
             <p>
