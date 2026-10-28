@@ -8,14 +8,7 @@ function registrarctrlartistas(serviartistas)
             
             //<!-- la diferencia entre el texto y el arreglo genero es que uno es para el usuario y el otro para la app -->
             nUevoArtis:{
-                id: "",
-                nombre: "",
-                generos: [], 
-                generoTExto: "",
-                biografia: "",
-                imagen: "",
-                descripcion: ""            
-
+                id: "", nombre: "", generos: [], generoTExto: "", biografia: "", imagen: "", descripcion: ""            
             },
 
             async init() 
@@ -47,15 +40,8 @@ function registrarctrlartistas(serviartistas)
                 this.nUevoArtis.generos = Geneross;
                 await this.crearartista(this.nUevoArtis);
                 this.nUevoArtis = {
-                    id: "",
-                    nombre: "",
-                    generos: [],
-                    generoTExto: "",
-                    biografia: "",
-                    imagen: "",
-                    descripcion: ""
+                    id: "", nombre: "", generos: [], generoTExto: "", biografia: "", imagen: "", descripcion: ""
                 }; 
-
             },
 
             seleccionargene(genero)
