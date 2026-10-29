@@ -1,8 +1,13 @@
-const busca = document.querySelector(".Buscar");
-const botonBuscar = document.querySelector(".Boton-buscar");
+document.addEventListener('alpine:init', () => {
+Alpine.data('buscador', () => ({ TEXtoBusque: '', ResulTA: [], CArgando: false, eRRor: '', 
 
-busca.addEventListener("input", function() {
-    const valorBusqueda = busca.value.toLowerCase();
-    const elementos = document.querySelectorAll("#repetidor-artistas article");
+    SEleccionaArtis(artista){
+       this.SElecArtistA = artista;
+    },
 
+    async BUScar(){
+
+    }
+
+    }));
 });
