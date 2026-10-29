@@ -6,6 +6,7 @@
     <title>Estadísticas - Regi Music</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/movil.css">
+    <link rel="stylesheet" href="css/estadisticas.css">
     <link rel="manifest" href="manifest.json">
     <script defer src="libs/alpine.min.js"></script>
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
@@ -58,11 +59,13 @@
 
         <section x-data="{ vmcanciones: true }">
             <h2>Canciones más escuchadas</h2>
-            <button type="button" x-on:click="vmcanciones = !vmcanciones"
+            <button type="button" class="boton-ranking"
+                x-on:click="vmcanciones = !vmcanciones"
                 x-text="vmcanciones ? 'Ocultar ranking' : 'Mostrar ranking'">
             </button>
-
-            <table class="scroll" x-show="vmcanciones">
+            
+            <div class="recuadro-estadisticas" x-show="vmcanciones">
+            <table class="scroll" >
                 <caption>Ranking de canciones</caption>
 
                 <thead>
@@ -93,15 +96,18 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
         </section>
 
         <section x-data="{ vmostrar: true }">
             <h2>Artistas más escuchados</h2>
-            <button type="button" x-on:click="vmostrar = !vmostrar"
+            <button type="button" class="boton-ranking"
+                x-on:click="vmostrar = !vmostrar"
                 x-text="vmostrar ? 'Ocultar ranking' : 'Mostrar ranking'">
             </button>
-
-            <table class="scroll" x-show="vmostrar">
+            
+            <div class="recuadro-estadisticas" x-show="vmostrar">
+            <table class="scroll" >
                 <caption>Ranking de artistas</caption>
 
                 <thead>
@@ -128,6 +134,7 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
         </section>
     </main>
 

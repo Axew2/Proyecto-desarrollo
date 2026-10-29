@@ -6,6 +6,7 @@
     <title>Historial - Regi Music</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/movil.css">
+    <link rel="stylesheet" href="css/historial.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
     <script defer src="libs/alpine.min.js"></script>
@@ -52,12 +53,12 @@
 
             <h2>Historial de reproducción</h2>
             <p>Consulta las canciones que has escuchado anteriormente.</p>
-            <button type="button" x-on:click="vhistorial = !vhistorial"
+            <button type="button" class="boton-historial"
+            x-on:click="vhistorial = !vhistorial"
                 x-text="vhistorial ? 'Ocultar historial' : 'Mostrar historial'">
             </button>
-
-
-            <table class="scroll" x-show="vhistorial">
+            <div class="tabla-historial" x-show="vhistorial">
+            <table class="scroll" >
                 <caption>Canciones escuchadas</caption>
 
                 <thead>
@@ -92,6 +93,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </section>
     </main>
 
