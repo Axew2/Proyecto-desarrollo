@@ -40,3 +40,11 @@ if(document.querySelector(".Barra-busqueda"))
 
     REGIstroBUSca(serviartistas, servibiblioteca);
 }
+
+if(document.body.classList.contains("historial"))
+{
+    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
+    const servibiblioteca = new sbiblioteca(repobiblioteca);
+
+    reGIstractELhiSTo(servibiblioteca);
+}
