@@ -21,22 +21,26 @@
     
         <h1>Regi Music</h1>
         </div> 
-        <div class="Barra-busqueda">
+        <div class="Barra-busqueda" x-data="buscador">
         <label for="buscar-artistas" class="visual-oculto">
         Buscar música
         </label>
 
-        </div>
-            <template>
-                <p x-text="resultado.nombre || resultado.titulo"
-                x-show="CArgando" x-show="eRRor !== '' " >
+        <input type="text" id="buscar-artistas" x-model="TEXtoBusque" placeholder="Buscar artistas, canciones..." class="Buscar">
+        <button type="button" x-on:click="BUScar()" class="Boton-buscar">Buscar</button>
+
+        <div class="resultados-busqueda" x-show="CArgando || eRRor !== '' || ResulTA.length > 0">
+            <template x-for="resultado in ResulTA">
+                <p x-text="resultado.nombre || resultado.titulo">
                     
                 </p>
             </template>
+
+            <p x-show="CArgando">Buscando...</p>
+            <p x-show="eRRor !== ''" x-text="eRRor"></p>
+
         </div>
 
-        <input type="text" id="buscar-artistas" placeholder="Buscar artistas, canciones..." class="Buscar">
-        <button type="button" class="Boton-buscar">Buscar</button>
         </div>
     </header>
     <nav>

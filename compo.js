@@ -14,7 +14,7 @@ if (document.body.classList.contains("playlists"))
     registrarctrplaylists(serviplaylists);
 }
 
-if(document.body.classList.contains("biblioteca") && !document.body.classList.contains("playlists"))
+if(document.body.classList.contains("biblioteca") && !document.body.classList.contains("playlists") && !document.body.classList.contains("historial") && !document.body.classList.contains("estadisticas"))
 {
     const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
     const servibiblioteca = new sbiblioteca(repobiblioteca);
