@@ -407,3 +407,6 @@ footer {
 #estado-internet[hidden] {
     display: none !important;
 }
+.visual-oculto{
+    display: none;
+}
