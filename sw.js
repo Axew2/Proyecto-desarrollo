@@ -1,6 +1,6 @@
 // El service worker está diseñado para guardar en el caché una copia de elementos importantes.
 
-const VERSION_CACHE = "version-5.0"
+const VERSION_CACHE = "version-5.3"
 
 
 /* Esta función lo que hace es "instalar" en el navegador una cache cuando escuche el evento que necesita,

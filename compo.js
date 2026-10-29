@@ -38,13 +38,16 @@ if(document.querySelector(".Barra-busqueda"))
     const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
     const servibiblioteca = new sbiblioteca(repobiblioteca);
 
-    REGIstroBUSca(serviartistas, servibiblioteca);
+    const repoplaylists = new repoplaylistsls("rmusic-playlists", diplaylists);
+    const serviplaylists = new splaylists(repoplaylists);
+
+    REGIstroBUSca(serviartistas, servibiblioteca, serviplaylists);
 }
 
 if(document.body.classList.contains("historial"))
 {
     const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
     const servibiblioteca = new sbiblioteca(repobiblioteca);
-
+    
     reGIstractELhiSTo(servibiblioteca);
 }
