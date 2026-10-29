@@ -5,9 +5,12 @@ document.addEventListener('alpine:init', () => {
         altperfil() {
             this.mostrarperfil = !this.mostrarperfil;
 
+            this.$dispatch('perfil-cambiado', {abierto: this.mostrarperfil});
+
             if (this.mostrarperfil)
             {
                 this.textoboton = 'Ocultar Perfil';
+                
             }
             else 
             {
