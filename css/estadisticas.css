@@ -1,0 +1,38 @@
+.estadisticas .recuadro-estadisticas {
+    background-color: var(--color-de-recuadro);
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 10px auto;
+    overflow-x: auto;
+}
+.estadisticas .recuadro-estadisticas .scroll {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.estadisticas .recuadro-estadisticas th,
+.estadisticas .recuadro-estadisticas td {
+    border: 1px solid #5b8578;
+    padding: 12px;
+    text-align: center;
+}
+
+.estadisticas .recuadro-estadisticas caption {
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.estadisticas .boton-ranking {
+    display: block;
+    margin: 15px auto;
+    background-color: #1b642e;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
