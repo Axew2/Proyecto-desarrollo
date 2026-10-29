@@ -104,10 +104,26 @@
     }
     
 }
-.inicio.Botones-destacados{
+.inicio .Botones-destacados{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+.Botones-destacados button{
     width: auto;
-    height: auto;
     flex: 0 0 auto;
-    padding: 10px 16px;
+    padding: 10px 15px;
+    background-color: #1b642e;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
     cursor: pointer;
+    font-size: 16px;
+    gap: 20px;
 }

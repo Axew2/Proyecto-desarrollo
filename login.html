@@ -67,7 +67,7 @@
             </form>
 
             <h3>Roles existentes:</h3>
-
+            <div class="roles">
             <button type="button" x-on:click="rolinformacion = 'oyente'">
                 Oyente
             </button>
@@ -77,7 +77,7 @@
             <button type="button" x-on:click="rolinformacion = 'admin'">
                 Administrador
             </button>
-
+            </div>
             <div class="roles-inf">
                 <div x-show="rolinformacion === 'oyente'">
                     <h4>Cuenta de oyente</h4>
