@@ -58,9 +58,16 @@
             <p role="status"x-show="!cargando && error === '' && canciones.length === 0">
                 No hay canciones guardadas en la biblioteca.
             </p>
-
-    <form x-show="EDitandoLAcanci !== null"
-            x-on:submit.prevent="GUardaEDit()">
+            
+        <div class="fondo-editar-cancion" x-show="EDitandoLAcanci !== null">
+    <div class="panel-editar-cancion">
+        <div class="encabezado-edicion">
+    <h2>Editar canción</h2>
+    <button type="button" x-on:click="EDitandoLAcanci = null">
+        Cerrar
+    </button>
+</div>
+    <form x-on:submit.prevent="GUardaEDit()">
 
         <p>
             <label for="editar-titulo">Título de la canción:</label>
@@ -95,6 +102,8 @@
 
         <button type="submit">Guardar cambios</button>
     </form>
+    </div>
+        </div>
             
             <h2>Mi Biblioteca</h2>
             <p>Explora tus canciones favoritas en Regi Music.</p>
@@ -123,21 +132,22 @@
                                 <td x-text="cancion.album"></td>
                                 <td x-text="cancion.duracion"></td>
                                 
-                                <td>
-                                <button type="button" x-on:click="cambescuchada(cancion.id)"
+                                <td class="acciones-cancion">
+                                <button type="button" class="botton-escuchar" x-on:click="cambescuchada(cancion.id)"
                                 x-text="escuchadas.includes(cancion.id) ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
                                 
-                                <button type="button" x-on:click="cambfavorito(cancion.id)"
+                                <button type="button" class="botton-favorito"   x-on:click="cambfavorito(cancion.id)"
                                 x-text="favoritas.includes(cancion.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
                                 
-                                <button type="button" x-on:click="ELiminCAnci(cancion.id)"> 
+                                <button type="button" class="botton-editar"  x-on:click="eDitaCAnci(cancion)"> 
+                                   Editar cancion
+                                </button>
+
+                                <button type="button" class="botton-eliminar" x-on:click="ELiminCAnci(cancion.id)"> 
                                     Eliminar cancion
                                 </button>
 
-                                <button type="button" x-on:click="eDitaCAnci(cancion)"> 
-                                    Editar cancion
-                                </button>
-
+                            
                                 </td>
                                 
                                 <td class="cola">
