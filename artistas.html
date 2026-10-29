@@ -25,6 +25,16 @@
         <label for="buscar-artistas" class="visual-oculto">
         Buscar música
         </label>
+
+        </div>
+            <template>
+                <p x-text="resultado.nombre || resultado.titulo"
+                x-show="CArgando" x-show="eRRor !== '' " >
+                    
+                </p>
+            </template>
+        </div>
+
         <input type="text" id="buscar-artistas" placeholder="Buscar artistas, canciones..." class="Buscar">
         <button type="button" class="Boton-buscar">Buscar</button>
         </div>
