@@ -29,3 +29,14 @@ if(document.getElementById("seccion-gestion-canciones"))
     
     REGistrarLAcancion(servibiblioteca);
 }
+
+if(document.querySelector(".Barra-busqueda"))
+{
+    const repoartistas = new repoartistasls("rmusic-artistas", diartistas);
+    const serviartistas = new sartistas(repoartistas);
+
+    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
+    const servibiblioteca = new sbiblioteca(repobiblioteca);
+
+    REGIstroBUSca(serviartistas, servibiblioteca);
+}

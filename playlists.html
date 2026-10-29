@@ -20,13 +20,13 @@
         <h1>Regi Music</h1>
         </div> 
         
-<div class="Barra-busqueda">
+<div class="Barra-busqueda" x-data="buscador">
     <label for="buscar-playlists" class="visual-oculto">
         Buscar música
     </label>
 
-        <input type="text" id="buscar-playlists" placeholder="Buscar artistas, canciones..." class="Buscar">
-        <button type="button" class="Boton-buscar">Buscar</button>
+        <input type="text" id="buscar-playlists" x-model="TEXtoBusque" placeholder="Buscar artistas, canciones..." class="Buscar">
+        <button type="button" x-on:click="BUScar()" class="Boton-buscar">Buscar</button>
     </div>
 
     </header>
@@ -112,6 +112,14 @@
     <script src="servi-playlists.js"></script>
     <script src="contr-playlists.js"></script>
     <script src="compo-playlists.js"></script>
+    <script src="compo-artistas.js"></script>
+    <script src="repo-artistas.js"></script>
+    <script src="servi-artistas.js"></script>
+    <script src="contr-artistas.js"></script>
+    <script src="repo-biblioteca.js"></script>
+    <script src="servi-biblioteca.js"></script>
+    <script src="artistas.js"></script>
+    <script src="buscador.js"></script>
     <script src="compo.js"></script>
 
     <script>
