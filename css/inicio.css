@@ -122,4 +122,6 @@
     border-radius: 10px;
     color: #ffffff;
     cursor: pointer;
+    font-size: 16px;
+    gap: 20px;
 }
