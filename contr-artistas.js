@@ -2,7 +2,7 @@ function registrarctrlartistas(serviartistas)
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('repeartistas', () => ({ genero: 'todos', artistas: [], gendispo: [], cargando: false, error: '',
-            muestraFormu: false, EditoARtistaID: null, 
+            muestraFormu: false, EditoARtistaID: null, MEnsaPErfil: '', 
             //agregue el "muestraformu" para que se pueda abrir el formualario de añadir al artista <-- Basti
             // lo que agregue de editar artista id, es para editar un artista 
             // pero guardando su id porque asi sabemos con cual trabajamos <-- basti
@@ -16,7 +16,7 @@ function registrarctrlartistas(serviartistas)
             {
                 await this.cargarartista();
             },
-            
+
             async cargarartista() 
             {
                 this.cargando = true;

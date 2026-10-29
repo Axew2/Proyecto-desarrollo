@@ -14,7 +14,7 @@ if (document.body.classList.contains("playlists"))
     registrarctrplaylists(serviplaylists);
 }
 
-if(document.body.classList.contains("biblioteca") && !document.body.classList.contains("playlists"))
+if(document.body.classList.contains("biblioteca") && !document.body.classList.contains("playlists") && !document.body.classList.contains("historial") && !document.body.classList.contains("estadisticas"))
 {
     const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
     const servibiblioteca = new sbiblioteca(repobiblioteca);
@@ -28,4 +28,26 @@ if(document.getElementById("seccion-gestion-canciones"))
     const servibiblioteca = new sbiblioteca(repobiblioteca);
     
     REGistrarLAcancion(servibiblioteca);
+}
+
+if(document.querySelector(".Barra-busqueda"))
+{
+    const repoartistas = new repoartistasls("rmusic-artistas", diartistas);
+    const serviartistas = new sartistas(repoartistas);
+
+    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
+    const servibiblioteca = new sbiblioteca(repobiblioteca);
+
+    const repoplaylists = new repoplaylistsls("rmusic-playlists", diplaylists);
+    const serviplaylists = new splaylists(repoplaylists);
+
+    REGIstroBUSca(serviartistas, servibiblioteca, serviplaylists);
+}
+
+if(document.body.classList.contains("historial"))
+{
+    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
+    const servibiblioteca = new sbiblioteca(repobiblioteca);
+    
+    reGIstractELhiSTo(servibiblioteca);
 }

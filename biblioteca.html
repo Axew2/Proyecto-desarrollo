@@ -21,13 +21,26 @@
     
         <h1>Regi Music</h1>
         </div> 
-<div class="Barra-busqueda">
+<div class="Barra-busqueda" x-data="buscador">
     <label for="buscar-biblioteca" class="visual-oculto">
         Buscar música
     </label>
 
-    <input type="text" id="buscar-biblioteca" placeholder="Buscar artistas, canciones..." class="Buscar">
-    <button type="button" class="Boton-buscar">Buscar</button>
+    <input type="text" id="buscar-biblioteca" x-model="TEXtoBusque" placeholder="Buscar artistas, canciones..." class="Buscar">
+    <button type="button" x-on:click="BUScar()" class="Boton-buscar">Buscar</button>
+
+    <div class="resultados-busqueda" x-show="CArgando || eRRor !== '' || ResulTA.length > 0">
+        <template x-for="resultado in ResulTA">
+            <p x-text="resultado.nombre || resultado.titulo">
+                    
+            </p>
+        </template>
+
+        <p x-show="CArgando">Buscando...</p>
+        <p x-show="eRRor !== ''" x-text="eRRor"></p>
+
+    </div>
+
 </div>
 
     </header>
@@ -182,9 +195,18 @@
     </footer>
 
     <script src="repo-base.js"></script>
+    <script src="biblioteca.js"></script>
+    <script src="repo-artistas.js"></script>
+    <script src="servi-artistas.js"></script>
+    <script src="contr-artistas.js"></script>
+    <script src="compo-artistas.js"></script>
+    <script src="artistas.js"></script>
+    <script src="buscador.js"></script>
     <script src="repo-biblioteca.js"></script>
     <script src="servi-biblioteca.js"></script>
-    <script src="biblioteca.js"></script>
+    <script src="repo-playlist.js"></script>
+    <script src="servi-playlists.js"></script>
+    <script src="compo-playlists.js"></script>
     <script src="compo.js"></script>
 
     <script>

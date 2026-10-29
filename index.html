@@ -21,14 +21,27 @@
         </div>   <!-- Espacio disponible para poner lo básico, un logo a lo soundcloud,
         barrita de busqueda y opciones de sesión y de configuración.-->
         
-<div class="Barra-busqueda ">
+<div class="Barra-busqueda " x-data="buscador">
     <label for="buscar-inicio" class="visual-oculto">
         Buscar música
     </label>
 
     <input type="text" id="buscar-inicio" placeholder="Buscar artistas, canciones..." class="Buscar"
     x-model="TEXtoBusque">
-    <button type="button" class="Boton-buscar">Buscar</button>
+    <button type="button" x-on:click="BUScar()" class="Boton-buscar">Buscar</button>
+
+    <div class="resultados-busqueda" x-show="CArgando || eRRor !== '' || ResulTA.length > 0">
+        <template x-for="resultado in ResulTA">
+            <p x-text="resultado.nombre || resultado.titulo">
+                    
+            </p>
+        </template>
+
+        <p x-show="CArgando">Buscando...</p>
+        <p x-show="eRRor !== ''" x-text="eRRor"></p>
+
+    </div>
+
 </div>
 
     </header>
@@ -163,7 +176,18 @@
         });
     </script>
 
+    <script src="repo-base.js"></script>
+    <script src="compo-artistas.js"></script>
+    <script src="repo-artistas.js"></script>
+    <script src="servi-artistas.js"></script>
+    <script src="repo-biblioteca.js"></script>
+    <script src="servi-biblioteca.js"></script>
+    <script src="buscador.js"></script>
     <script src="iniciio.js"></script>
+    <script src="repo-playlist.js"></script>
+    <script src="servi-playlists.js"></script>
+    <script src="compo-playlists.js"></script>
+    <script src="compo.js"></script>
     
 </body>
 </html>
