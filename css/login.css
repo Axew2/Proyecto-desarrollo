@@ -67,3 +67,16 @@
     overflow-wrap: break-word;
     line-height: 1.5;
 }
+.login .roles button{
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    padding: 10px 16px;
+    cursor: pointer;
+    background-color: #113b1c;
+    border: none;
+    border-radius: 10px;
+    color: #ffffffff;
+    font-size: 14px;
+}

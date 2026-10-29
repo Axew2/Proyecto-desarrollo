@@ -15,6 +15,11 @@
     flex: 0 0 auto;
     padding: 10px 16px;
     cursor: pointer;
+    background-color: #1b642e;
+    border: none;
+    border-radius: 10px;
+    color: #ffffffff;
+    font-size: 16px;
 }
 #repertorio-de-artistas {
     display: grid;
@@ -76,6 +81,16 @@
     display: flex;
     padding: 20px;
     overflow-y: auto;
+}
+.artistas .fondo button{
+    width: auto;
+    flex: 0 0 auto;
+    padding: 10px 15px;
+    background-color: #1b642e;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .artistas .fondo .panel-nuevo-artista{
@@ -143,9 +158,15 @@
 #repertorio-de-artistas > .boton-agregar-artista {
     grid-column: 1 / -1;
     justify-self: center;
+    background-color: #1b642e;
+    color: white;
     width: fit-content;
-    padding: 5px 10px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
     margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 #repertorio-de-artistas > p[role="alert"] { 

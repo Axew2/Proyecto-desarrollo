@@ -12,7 +12,7 @@
     <script defer src="libs/alpine.min.js"></script>
 </head>
 
-<body class="inicio">
+<body class="inicio" x-data="inicio">
     <header>
         <div class="logo-titulo">
         <img src="Icono-RMusic/RegiMusicIc.png" alt="" width="48" height="48">
@@ -21,12 +21,13 @@
         </div>   <!-- Espacio disponible para poner lo básico, un logo a lo soundcloud,
         barrita de busqueda y opciones de sesión y de configuración.-->
         
-<div class="Barra-busqueda">
+<div class="Barra-busqueda ">
     <label for="buscar-inicio" class="visual-oculto">
         Buscar música
     </label>
 
-    <input type="text" id="buscar-inicio" placeholder="Buscar artistas, canciones..." class="Buscar">
+    <input type="text" id="buscar-inicio" placeholder="Buscar artistas, canciones..." class="Buscar"
+    x-model="TEXtoBusque">
     <button type="button" class="Boton-buscar">Buscar</button>
 </div>
 
@@ -51,7 +52,7 @@
 
     <main>
         <!-- artistaSeleccionado una sola variable, no hace falta crear más ya que cambia según el artista seleccionado. -->
-        <section id="artista-destacado" x-data=" { artistaSeleccionado: 'hector' } ">
+        <section id="artista-destacado">
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
             </p>
@@ -59,15 +60,15 @@
             <h2>Artista Destacado</h2>
             <p>Revisa quien suena últimamente en Regi Music.</p>
             <div class="Botones-destacados">
-            <button type="button" x-on:click="artistaSeleccionado = 'hector'">
+            <button type="button" x-on:click="SEleccionaArtis('hector')">
                 Héctor El Father
             </button>
 
-            <button type="button" x-on:click="artistaSeleccionado = 'laufey'">
+            <button type="button" x-on:click="SEleccionaArtis('laufey')">
                 Laufey
             </button>
 
-            <button type="button" x-on:click="artistaSeleccionado = '4f'">
+            <button type="button" x-on:click="SEleccionaArtis('4f')">
                 Los 4F
             </button>
             </div>
@@ -76,7 +77,7 @@
             recientemente o tiene algún hit pegado. -->
 
             <!-- Alpine: Este solo se va a mostrar (===) cuando la variable que declaramos antes sea hector. -->
-            <article x-show="artistaSeleccionado === 'hector'">
+            <article x-show="SElecArtistA === 'hector'">
                 <h3>Hector El Father</h3>
                 <img src="Artistas-Imagenes/hef.jpg" alt="Portada albúm Bad Boy">
                 <p>Género: Reggaeton</p>
@@ -84,7 +85,7 @@
                 <button type="button">Ver Perfil</button>
             </article>
 
-            <article x-show="artistaSeleccionado === 'laufey'">
+            <article x-show="SElecArtistA === 'laufey'">
                 <h3>Laufey</h3>
                 <img src="Artistas-Imagenes/Laufey.jpg" alt="Reconocida cantante Laufey">
                 <p>Género: Jazz, Jazz Pop</p>
@@ -92,7 +93,7 @@
                 <button type="button" id="boton-laufey">Ver Perfil</button>
             </article>
 
-            <article x-show="artistaSeleccionado === '4f'">
+            <article x-show="SElecArtistA === '4f'">
                 <h3>Los 4 Fantásticos</h3>
                 <img src="Artistas-Imagenes/4f.webp" alt="Grupo chileno que ha sonado recientemente: Los 4 Fantásticos">
                 <p>Género: Trap, Reggaeton, Pop</p>
@@ -162,7 +163,7 @@
         });
     </script>
 
-    <script src="buscador.js"></script>
+    <script src="iniciio.js"></script>
     
 </body>
 </html>

@@ -22,3 +22,13 @@
 .cola {
     text-align: center;
 }
+
+.boton-agregar-cancion {
+    display: table;
+    margin: 20px auto;
+    padding: 12px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
