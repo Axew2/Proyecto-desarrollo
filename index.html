@@ -12,7 +12,7 @@
     <script defer src="libs/alpine.min.js"></script>
 </head>
 
-<body class="inicio">
+<body class="inicio" x-data="inicio">
     <header>
         <div class="logo-titulo">
         <img src="Icono-RMusic/RegiMusicIc.png" alt="" width="48" height="48">
@@ -21,12 +21,13 @@
         </div>   <!-- Espacio disponible para poner lo básico, un logo a lo soundcloud,
         barrita de busqueda y opciones de sesión y de configuración.-->
         
-<div class="Barra-busqueda">
+<div class="Barra-busqueda ">
     <label for="buscar-inicio" class="visual-oculto">
         Buscar música
     </label>
 
-    <input type="text" id="buscar-inicio" placeholder="Buscar artistas, canciones..." class="Buscar">
+    <input type="text" id="buscar-inicio" placeholder="Buscar artistas, canciones..." class="Buscar"
+    x-model="TEXtoBusque">
     <button type="button" class="Boton-buscar">Buscar</button>
 </div>
 
@@ -51,7 +52,7 @@
 
     <main>
         <!-- artistaSeleccionado una sola variable, no hace falta crear más ya que cambia según el artista seleccionado. -->
-        <section id="artista-destacado" x-data=" { artistaSeleccionado: 'hector' } ">
+        <section id="artista-destacado">
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
             </p>
@@ -59,15 +60,15 @@
             <h2>Artista Destacado</h2>
             <p>Revisa quien suena últimamente en Regi Music.</p>
             <div class="Botones-destacados">
-            <button type="button" x-on:click="SEleccionarArtis('hector')">
+            <button type="button" x-on:click="SEleccionaArtis('hector')">
                 Héctor El Father
             </button>
 
-            <button type="button" x-on:click="SEleccionarArtis('laufey')">
+            <button type="button" x-on:click="SEleccionaArtis('laufey')">
                 Laufey
             </button>
 
-            <button type="button" x-on:click="SEleccionarArtis('4f')">
+            <button type="button" x-on:click="SEleccionaArtis('4f')">
                 Los 4F
             </button>
             </div>
@@ -162,7 +163,6 @@
         });
     </script>
 
-    <script src="buscador.js"></script>
     <script src="iniciio.js"></script>
     
 </body>
