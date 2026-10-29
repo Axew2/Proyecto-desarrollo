@@ -59,15 +59,15 @@
             <h2>Artista Destacado</h2>
             <p>Revisa quien suena últimamente en Regi Music.</p>
             <div class="Botones-destacados">
-            <button type="button" x-on:click="artistaSeleccionado = 'hector'">
+            <button type="button" x-on:click="SEleccionarArtis('hector')">
                 Héctor El Father
             </button>
 
-            <button type="button" x-on:click="artistaSeleccionado = 'laufey'">
+            <button type="button" x-on:click="SEleccionarArtis('laufey')">
                 Laufey
             </button>
 
-            <button type="button" x-on:click="artistaSeleccionado = '4f'">
+            <button type="button" x-on:click="SEleccionarArtis('4f')">
                 Los 4F
             </button>
             </div>
@@ -76,7 +76,7 @@
             recientemente o tiene algún hit pegado. -->
 
             <!-- Alpine: Este solo se va a mostrar (===) cuando la variable que declaramos antes sea hector. -->
-            <article x-show="artistaSeleccionado === 'hector'">
+            <article x-show="SElecArtistA === 'hector'">
                 <h3>Hector El Father</h3>
                 <img src="Artistas-Imagenes/hef.jpg" alt="Portada albúm Bad Boy">
                 <p>Género: Reggaeton</p>
@@ -84,7 +84,7 @@
                 <button type="button">Ver Perfil</button>
             </article>
 
-            <article x-show="artistaSeleccionado === 'laufey'">
+            <article x-show="SElecArtistA === 'laufey'">
                 <h3>Laufey</h3>
                 <img src="Artistas-Imagenes/Laufey.jpg" alt="Reconocida cantante Laufey">
                 <p>Género: Jazz, Jazz Pop</p>
@@ -92,7 +92,7 @@
                 <button type="button" id="boton-laufey">Ver Perfil</button>
             </article>
 
-            <article x-show="artistaSeleccionado === '4f'">
+            <article x-show="SElecArtistA === '4f'">
                 <h3>Los 4 Fantásticos</h3>
                 <img src="Artistas-Imagenes/4f.webp" alt="Grupo chileno que ha sonado recientemente: Los 4 Fantásticos">
                 <p>Género: Trap, Reggaeton, Pop</p>
@@ -163,6 +163,7 @@
     </script>
 
     <script src="buscador.js"></script>
+    <script src="iniciio.js"></script>
     
 </body>
 </html>

@@ -55,6 +55,10 @@
             <p role="status" x-show="cargando"> Cargando biblioteca. </p>
             <p role="alert" x-show="error !== ''" x-text="error"></p>
 
+            <p role="status"x-show="!cargando && error === '' && canciones.length === 0">
+                No hay canciones guardadas en la biblioteca.
+            </p>
+
     <form x-show="EDitandoLAcanci !== null"
             x-on:submit.prevent="GUardaEDit()">
 
@@ -142,60 +146,8 @@
 
                             </tr>
                         </template>
-                            <tr id="cancion-sola">
-                            <th scope="row">Sola</th>
-                            <td>Hector El Father</td>
-                            <td>The Bad Boy</td>
-                            <td>3:53</td>
-                            <td>
-                                <button type="button" id="boton-sola" x-on:click="cambescuchada('Sola')"
-                                x-text="escuchadas.includes('Sola') ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
-                                <button type="button" id="boton-sola-favorito" x-on:click="cambfavorito('Sola')"
-                                x-text="favoritas.includes('Sola') ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
-                            </td>
-                            <td class="cola">
-                                <input type="checkbox" value="Sola" x-model="seleccionadas">
-                            </td>
-                        </tr>
-                            <tr id="cancion-From-The-Start">
-                            <th scope="row">From The Start</th>
-                            <td>Laufey</td>
-                            <td>Bewitched</td>
-                            <td>2:49</td>
-                            <td>
-                                <button type="button" id="boton-From-The-Start" x-on:click="cambescuchada('From-The-Start')"
-                                x-text="escuchadas.includes('From-The-Start') ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
-                                <button type="button" id="boton-From-The-Start-favorito" x-on:click="cambfavorito('From-The-Start')"
-                                x-text="favoritas.includes('From-The-Start') ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
-                            </td>
-                            <td class="cola">
-                                <input type="checkbox" value="From The Start" x-model="seleccionadas">
-                            </td>
-                        </tr>
-                            <tr id="cancion-Maniac">
-                            <th scope="row">Maniac</th>
-                            <td>Los 4 Fantásticos</td>
-                            <td>Single</td>
-                            <td>3:15</td>
-                            <td>
-                                <button type="button" id="boton-Maniac" x-on:click="cambescuchada('Maniac')"
-                                x-text="escuchadas.includes('Maniac') ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
-                                <button type="button" id="boton-Maniac-favorito" x-on:click="cambfavorito('Maniac')"
-                                x-text="favoritas.includes('Maniac') ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
-                            </td>
-                            <td class="cola">
-                                <input type="checkbox" value="Maniac" x-model="seleccionadas">
-                            </td>
-                        </tr>
-
-                        <tr class = "total">
-                            <td colspan="3">Duración Total de las canciones:</td>
-                            <td>9:57</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                            
                     </tbody>
-
                 </table>
             </div>
             <p>
