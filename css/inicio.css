@@ -111,6 +111,8 @@
     align-items: center;
     flex-wrap: nowrap;
     gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
     width: 100%;
 }
 .Botones-destacados button{
