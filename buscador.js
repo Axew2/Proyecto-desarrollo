@@ -1,13 +1,16 @@
-document.addEventListener('alpine:init', () => {
-Alpine.data('buscador', () => ({ TEXtoBusque: '', ResulTA: [], CArgando: false, eRRor: '', 
+function REGIstroBUSca(serviartistas, servibibblioteca){
 
-    SEleccionaArtis(artista){
-       this.SElecArtistA = artista;
-    },
+    document.addEventListener('alpine:init', () => {
+    Alpine.data('buscador', () => ({ TEXtoBusque: '', ResulTA: [], CArgando: false, eRRor: '', 
 
-    async BUScar(){
+        SEleccionaArtis(artista){
+        this.SElecArtistA = artista;
+        },
 
-    }
+        async BUScar(){
 
-    }));
-});
+        }
+
+        }));
+    });
+}
