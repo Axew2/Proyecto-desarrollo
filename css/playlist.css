@@ -1,0 +1,77 @@
+.playlists .recuadro-playlist {
+    background-color: var(--color-de-recuadro);
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+.playlists .recuadro-playlists .scroll {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.playlists .recuadro-playlists th,
+.playlists .recuadro-playlists td {
+    border: 1px solid #5b8578;
+    padding: 12px;
+    text-align: center;
+}
+
+.playlists .recuadro-playlists caption {
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.playlists .recuadro-playlists .scroll {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.playlists .recuadro-playlists th,
+.playlists .recuadro-playlists td {
+    border: 1px solid #5b8578;
+    padding: 12px;
+    text-align: center;
+}
+
+.playlists .recuadro-playlists caption {
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.playlists .boton-editar,
+.playlists .boton-eliminar {
+    background-color: #1b642e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.playlists .boton-eliminar{
+    background-color: #8b2525;
+}
+.playlists .playlist-accion{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.playlists .nueva-playlist{
+    display: block;
+    margin: 20px auto;
+    background-color: #1b642e;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}

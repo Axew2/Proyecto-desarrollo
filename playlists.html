@@ -7,6 +7,7 @@
     <title>Playlists - Regi Music</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/movil.css">
+    <link rel="stylesheet" href="css/playlist.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="Icono-RMusic/RegiMusicIc.png">
     <script defer src="libs/alpine.min.js"></script>
@@ -69,7 +70,7 @@
 
             <h2>Mis Playlists</h2>
             <p>Organiza tus canciones favoritas en listas personalizadas por ti mismo.</p>
-
+            <div class="recuadro-playlist">
             <table class="scroll">
                 <caption>Playlists disponibles</caption>
                 <thead>
@@ -86,15 +87,18 @@
                             <th scope="row" x-text="playlist.titulo"></th>
                             <td x-text="playlist.canciones.length"></td>
                             <td x-text="playlist.canciones.join(', ')"></td>
-                            <td>
-                                <button type="button" x-on:click="aeditar(playlist)">Editar</button>
-                                <button type="button" x-on:click="eliminarplay(playlist.id)">Eliminar</button>
+                            <td class ="acciones-playlist" class="playlist-accion">
+                                <button type="button" class="boton-editar"
+                                x-on:click="aeditar(playlist)">Editar</button>
+                                <button type="button" class="boton-eliminar"
+                                x-on:click="eliminarplay(playlist.id)">Eliminar</button>
                             </td>
                         </tr>
                     </template>
                 </tbody>
             </table>
-            <button type="button" x-on:click="acrear()"> Nueva Playlist </button>
+            </div>
+            <button type="button" class="nueva-playlist" x-on:click="acrear()"> Nueva Playlist </button>
         </section>
         
         <div class="fondo" x-show="vplaylist">
