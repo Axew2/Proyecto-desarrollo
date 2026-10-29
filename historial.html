@@ -59,7 +59,7 @@
     <!-- La variable que se utilizará es vhistorial: (ver historial). -->
 
     <main>
-        <section x-data="{ vhistorial: true }">
+        <section x-data="historial">
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
             </p>
@@ -67,46 +67,42 @@
             <h2>Historial de reproducción</h2>
             <p>Consulta las canciones que has escuchado anteriormente.</p>
             <button type="button" class="boton-historial"
-            x-on:click="vhistorial = !vhistorial"
-                x-text="vhistorial ? 'Ocultar historial' : 'Mostrar historial'">
+                x-on:click="HistoRI = !HistoRI"
+                 x-text="HistoRI ? 'Ocultar historial' : 'Mostrar historial'">
             </button>
-            <div class="tabla-historial" x-show="vhistorial">
-            <table class="scroll" >
+            
+            <p role="status" x-show="cARgando">Cargando historial...</p>
+            <p role="alert" x-show="eRROr !== ''" x-text="eRROr"></p>
+            <p role="status" x-show="!cARgando && eRROr === '' && CAnciEscUCha.length === 0">
+                No hay canciones escuchadas.
+            </p>
+
+            <div class="tabla-historial" x-show="HistoRI">
+                <table class="scroll">
                 <caption>Canciones escuchadas</caption>
 
                 <thead>
                     <tr>
-                        <th scope="col">Canción</th>
-                        <th scope="col">Artista</th>
-                        <th scope="col">Álbum</th>
-                        <th scope="col">Fecha</th>
+                    <th scope="col">Cancion</th>
+                    <th scope="col">Artista</th>
+                    <th scope="col">Álbum</th>
+                    <th scope="col">Fecha</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <th scope="row">Sola</th>
-                        <td>Héctor El Father</td>
-                        <td>The Bad Boy</td>
-                        <td>20/10/2026</td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">From The Start</th>
-                        <td>Laufey</td>
-                        <td>Bewitched</td>
-                        <td>19/10/2026</td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">Maniac</th>
-                        <td>Los 4 Fantásticos</td>
-                        <td>Single</td>
-                        <td>18/10/2026</td>
-                    </tr>
+                    <template x-for="cancion in CAnciEscUCha" :key="cancion.id">
+                        <tr>
+                        <th scope="row" x-text="cancion.titulo"></th>
+                        <td x-text="cancion.artista"></td>
+                        <td x-text="cancion.album"></td>
+                        <td>No contiene fecha </td>
+                        </tr>
+                    </template>
                 </tbody>
             </table>
-            </div>
+        </div>
+
         </section>
     </main>
 
@@ -140,6 +136,7 @@
     
     <script src="repo-base.js"></script>
     <script src="compo-artistas.js"></script>
+    <script src="contr-historial.js"></script>
     <script src="repo-artistas.js"></script>
     <script src="servi-artistas.js"></script>
     <script src="contr-artistas.js"></script>

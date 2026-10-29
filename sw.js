@@ -1,6 +1,6 @@
 // El service worker está diseñado para guardar en el caché una copia de elementos importantes.
 
-const VERSION_CACHE = "version-4.9"
+const VERSION_CACHE = "version-5.0"
 
 
 /* Esta función lo que hace es "instalar" en el navegador una cache cuando escuche el evento que necesita,
@@ -26,7 +26,7 @@ self.addEventListener("install", function(event) {
             "servi-playlists.js","contr-playlists.js","compo-playlists.js","compo.js","manifest.json",
             "Icono-RMusic/RegiMusicIc.png","Icono-RMusic/RegiMusicIc - 192.png","Icono-RMusic/RegiMusicIc - 512.png",
             "Artistas-Imagenes/4f.webp","Artistas-Imagenes/hef.jpg","Artistas-Imagenes/Los 4F.png","Artistas-Imagenes/Laufey.jpg", "contr-aregar-cancion.js"
-            ,"iniciio.js", "css/playlist.css", "css/historial.css", "css/estadisticas.css"]);
+            ,"iniciio.js", "css/playlist.css", "css/historial.css", "css/estadisticas.css", "contr-historial.js"]);
         }));
 });
 
