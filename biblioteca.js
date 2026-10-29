@@ -1,7 +1,7 @@
 function registrarctrlbiblioteca(servibiblioteca)
 {
     document.addEventListener('alpine:init', () => {
-        Alpine.data('biblioteca', () => ({ seleccionadas: [], favoritas: [], escuchadas: [], cargando: false, error: '', conectado: navigator.onLine,
+        Alpine.data('biblioteca', () => ({ seleccionadas: [], favoritas: [], escuchadas: [], cargando: false, error: '', conectado: navigator.onLine, EDitandoLAcanci: null, DAtosEDitadoS: {}, canciones: [],
 
             async init()
             {
@@ -10,6 +10,8 @@ function registrarctrlbiblioteca(servibiblioteca)
                 try
                 {
                     const canciones = await servibiblioteca.listabiblioteca();
+                    this.canciones = canciones;
+
 
                     for(let i = 0; i < canciones.length; i++)
                     {
@@ -63,6 +65,7 @@ function registrarctrlbiblioteca(servibiblioteca)
                 try
                 {
                     const canciones = await servibiblioteca.listabiblioteca();
+                    
                     let encontrada = null;
 
                     for(let i = 0; i < canciones.length; i++)
@@ -123,7 +126,35 @@ function registrarctrlbiblioteca(servibiblioteca)
                     this.error = 'No se pudo actualizar las canciones escuchadas.';
                     console.error(error);
                 }
+            },
+            
+            async ELiminCAnci(id){
+                try{
+                    await servibiblioteca.elbiblioteca(id);
+                    this.canciones = await servibiblioteca.listabiblioteca();
+                }
+                catch{
+                    this.error = 'No se pudo eliminar la cancion';
+                }
+            },
+
+            async eDitaCAnci(cancion){
+                this.EDitandoLAcanci = cancion.id;
+                this.DAtosEDitadoS = {...cancion};
+            },
+
+            async GUardaEDit(){
+                try{
+                    await servibiblioteca.edbiblioteca(this.DAtosEDitadoS);
+                    this.canciones = await servibiblioteca.listabiblioteca();
+                    this.EDitandoLAcanci = null;
+                    this.DAtosEDitadoS = {};
+                }
+                catch{
+                    this.error = 'No se pudo editar la cancion'
+                }
             }
+
         }));
     });
 }

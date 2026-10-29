@@ -21,3 +21,11 @@ if(document.body.classList.contains("biblioteca") && !document.body.classList.co
 
     registrarctrlbiblioteca(servibiblioteca);
 }
+   
+if(document.getElementById("seccion-gestion-canciones"))    
+{        
+    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
+    const servibiblioteca = new sbiblioteca(repobiblioteca);
+    
+    REGistrarLAcancion(servibiblioteca);
+}
