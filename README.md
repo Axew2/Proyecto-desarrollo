@@ -12,6 +12,8 @@ El proyecto fue actualizado para cumplir con lo solicitado de la entrega 1 y la 
 - Diago Zavalaga
 - Bastian Cisternas
 
+## El video ya está disponible en el github y canvas, con el nombre de: Proyecto DWEB grupo 4.mp4 en la carpea de Artistas-Imagenes.
+
 ## Tecnologías utilizadas
 
 - HTML5
@@ -26,9 +28,9 @@ El proyecto fue actualizado para cumplir con lo solicitado de la entrega 1 y la 
 
 ## Servidor
 
-IP pública: 100.31.94.19 
+IP pública: 52.91.52.255 
 
-http://100.31.94.19 
+http://52.91.52.255 
 
 La aplicación está desplegada en una instancia EC2 y es servida mediante nginx.
 
