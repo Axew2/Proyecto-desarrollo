@@ -54,3 +54,14 @@ if(document.body.classList.contains("historial"))
     
     reGIstractELhiSTo(servibiblioteca);
 }
+
+if(document.body.classList.contains("inicio"))
+{
+    const repoartistas = new repoartistasls("rmusic-artistas", diartistas);
+    const serviartistas = new sartistas(repoartistas);
+
+    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
+    const servibiblioteca = new sbiblioteca(repobiblioteca);
+
+    registrarInicio(serviartistas, servibiblioteca);
+}

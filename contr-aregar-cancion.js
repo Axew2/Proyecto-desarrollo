@@ -7,7 +7,7 @@ function REGistrarLAcancion(servibiblioteca)
             async AGRegoCAncion()
             {
                 const cancion = { 
-                    titulo: this.titulo, album: this.album, duracion: this.duracion, artista: this.artista, portada: this.portada, id: Date.now().toString()
+                    titulo: this.titulo, album: this.album, duracion: this.duracion, artista: this.artista, portada: this.portada, id: Date.now().toString(), activo: true
                 };
 
                 await servibiblioteca.cbiblioteca(cancion);

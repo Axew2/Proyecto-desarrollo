@@ -2,7 +2,7 @@ function registrarctrlartistas(serviartistas)
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('repeartistas', () => ({ genero: 'todos', artistas: [], gendispo: [], cargando: false, error: '',
-            muestraFormu: false, EditoARtistaID: null, MEnsaPErfil: '', 
+            muestraFormu: false, EditoARtistaID: null, MEnsaPErfil: '', mdesactivados: false,
             //agregue el "muestraformu" para que se pueda abrir el formualario de añadir al artista <-- Basti
             // lo que agregue de editar artista id, es para editar un artista 
             // pero guardando su id porque asi sabemos con cual trabajamos <-- basti
@@ -62,7 +62,7 @@ function registrarctrlartistas(serviartistas)
             async eDitaARtista(artista)
             {
                 this.EditoARtistaID = artista.id;
-                this.nUevoArtis = { id: artista.id, nombre: artista.nombre, generos: [...artista.generos], generoTExto: artista.generos.join(","), biografia: artista.biografia, imagen: artista.imagen, descripcion: artista.descripcion };
+                this.nUevoArtis = { id: artista.id, nombre: artista.nombre, generos: [...artista.generos], generoTExto: artista.generos.join(","), biografia: artista.biografia, imagen: artista.imagen, descripcion: artista.descripcion, activo: artista.activo };
                 this.muestraFormu = true;
             },
 
@@ -109,6 +109,19 @@ function registrarctrlartistas(serviartistas)
                     return false;
                 }
             },
+            async cambiarestartista(id)
+            {
+                try
+                {
+                    await serviartistas.cambiarestartista(id);
+                    await this.cargarartista();
+                }
+                catch(error)
+                {
+                    this.error = 'No se pudo cambiar el estado del artista.';
+                    console.error(error);
+                }
+            },
             async eliminarartista(id)
             {
                 try
@@ -121,6 +134,25 @@ function registrarctrlartistas(serviartistas)
                     this.error = 'No se pudo eliminar el artista.';
                     console.error(error);
                 }
+            },
+            get artvisibles()
+            {
+                const visibles = [];
+
+                for(let i = 0; i < this.artistas.length; i++)
+                {
+                    if(this.mdesactivados || this.artistas[i].activo !== false)
+                    {
+                        visibles.push(this.artistas[i]);
+                    }
+                }
+
+                return visibles;
+            },
+
+            altdesactivados()
+            {
+                this.mdesactivados = !this.mdesactivados;
             }
         }));
     });

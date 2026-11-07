@@ -16,6 +16,21 @@ document.addEventListener('alpine:init', () => {
             {
                 this.textoboton = 'Mostrar Perfil';
             }
+        },
+        avisarestado(id)
+        {
+            this.$dispatch('cambiar-estado-artista', id);
+        },
+        textoestado(activo)
+        {
+            if(activo === false)
+            {
+                return 'Activar artista';
+            }
+            else
+            {
+                return 'Desactivar artista';
+            }
         }
     }));
 });

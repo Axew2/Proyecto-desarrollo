@@ -124,7 +124,12 @@
             <!-- Para hacer estas playlists, me basé en la estructura que sigue el profe en
             referencia a las tablas (tables), para ser especifico, en el apartado de HTML 5 Semántico
             página 5: Tablas de daMtos, para que mantengan el formato de "Canción - Artista - Album - Duración" -->
-        <div class="scroll-contenedor">
+
+            <button type="button" class="boton-estado" x-on:click="altdesactivadas()">
+                Mostrar/Ocultar canciones desactivadas
+            </button>
+        
+            <div class="scroll-contenedor">
             <table class="scroll" tabindex="0">
                     <caption> Canciones disponibles</caption>
                     <thead>
@@ -138,7 +143,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <template x-for="cancion in canciones" :key="cancion.id"> 
+                        <template x-for="cancion in cancvisibles" :key="cancion.id"> 
                             <tr>
                                 <td x-text="cancion.titulo"></td>
                                 <td x-text="cancion.artista"></td>
@@ -160,6 +165,9 @@
                                     Eliminar cancion
                                 </button>
 
+                                <button type="button" class="boton-estado" x-on:click="cestcancion(cancion.id)" 
+                                x-text="cancion.activo === false ? 'Activar canción' : 'Desactivar canción'">
+                                </button>
                             
                                 </td>
                                 

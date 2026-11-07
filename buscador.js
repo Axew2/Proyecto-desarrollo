@@ -18,15 +18,33 @@ function REGIstroBUSca(serviartistas, servibiblioteca, serviplaylists){
                 const playLISta = await serviplaylists.listaplay();
 
                 for(let i = 0; i < canciLISta.length; i++){
-                    if(canciLISta[i].nombre.toLowerCase().includes(this.TEXtoBusque.toLowerCase())){
+                    if( canciLISta[i].activo !== false && canciLISta[i].nombre.toLowerCase().includes(this.TEXtoBusque.toLowerCase())){
                         this.ResulTA.push(canciLISta[i]);
                     }
                 }
 
-                for(let i = 0; i < biblioLISta.length; i++){
-                    if(biblioLISta[i].titulo.toLowerCase().includes(this.TEXtoBusque.toLowerCase())
+                for(let i = 0; i < biblioLISta.length; i++)
+                {
+                    let artistaDesactivado = false;
+
+                    for(let j = 0; j < canciLISta.length; j++)
+                    {
+                        if(biblioLISta[i].artista.trim().toLowerCase() === canciLISta[j].nombre.trim().toLowerCase())
+                        {
+                            if(canciLISta[j].activo === false)
+                            {
+                                artistaDesactivado = true;
+                            }
+                            break;
+                        }
+                    }
+
+                    if(biblioLISta[i].activo !== false &&
+                    artistaDesactivado === false &&
+                    (biblioLISta[i].titulo.toLowerCase().includes(this.TEXtoBusque.toLowerCase())
                     || biblioLISta[i].artista.toLowerCase().includes(this.TEXtoBusque.toLowerCase())
-                    || biblioLISta[i].album.toLowerCase().includes(this.TEXtoBusque.toLowerCase())){
+                    || biblioLISta[i].album.toLowerCase().includes(this.TEXtoBusque.toLowerCase())))
+                    {
                         this.ResulTA.push(biblioLISta[i]);
                     }
                 }

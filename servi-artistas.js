@@ -30,4 +30,26 @@ class sartistas
     {
         await this.repoartistasls.eliminar(id);
     }
+    async cambiarestartista(id)
+    {
+        const artistas = await this.repoartistasls.listar();
+
+        for(let i = 0; i < artistas.length; i++)
+        {
+            if(artistas[i].id === id)
+            {
+                if(artistas[i].activo === false)
+                {
+                    artistas[i].activo = true;
+                }
+                else
+                {
+                    artistas[i].activo = false;
+                }
+
+                await this.repoartistasls.editar(artistas[i]);
+                return artistas[i];
+            }
+        }
+    }
 }

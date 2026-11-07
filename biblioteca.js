@@ -1,7 +1,9 @@
 function registrarctrlbiblioteca(servibiblioteca)
 {
     document.addEventListener('alpine:init', () => {
-        Alpine.data('biblioteca', () => ({ seleccionadas: [], favoritas: [], escuchadas: [], cargando: false, error: '', conectado: navigator.onLine, EDitandoLAcanci: null, DAtosEDitadoS: {}, canciones: [],
+        Alpine.data('biblioteca', () => ({ seleccionadas: [], favoritas: [], escuchadas: [], cargando: false, error: '', conectado: navigator.onLine,
+            EDitandoLAcanci: null, DAtosEDitadoS: {}, canciones: [], mdesactivados: false,
+
 
             async init()
             {
@@ -153,6 +155,41 @@ function registrarctrlbiblioteca(servibiblioteca)
                 catch{
                     this.error = 'No se pudo editar la cancion'
                 }
+            },
+
+            async cestcancion(id)
+            {
+                this.error = '';
+                try
+                {
+                    await servibiblioteca.cestcancion(id);
+                    this.canciones = await servibiblioteca.listabiblioteca();
+                }
+                catch(error)
+                {
+                    this.error = 'No se pudo cambiar el estado de la canción.';
+                    console.error(error);
+                }
+            },
+
+            get cancvisibles()
+            {
+                const visibles = [];
+
+                for(let i = 0; i < this.canciones.length; i++)
+                {
+                    if(this.mdesactivados || this.canciones[i].activo !== false)
+                    {
+                        visibles.push(this.canciones[i]);
+                    }
+                }
+
+                return visibles;
+            },
+
+            altdesactivadas()
+            {
+                this.mdesactivados = !this.mdesactivados;
             }
 
         }));

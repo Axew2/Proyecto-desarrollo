@@ -441,3 +441,20 @@ footer {
 .resultados-busqueda p:last-child {
     border-bottom: none;
 }
+
+.boton-estado {
+    background-color: #1b642e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.boton-estado:hover {
+    background-color: #155026;
+}
