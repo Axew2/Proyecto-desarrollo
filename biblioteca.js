@@ -2,7 +2,7 @@ function registrarctrlbiblioteca(servibiblioteca)
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('biblioteca', () => ({ seleccionadas: [], favoritas: [], escuchadas: [], cargando: false, error: '', conectado: navigator.onLine,
-            EDitandoLAcanci: null, DAtosEDitadoS: {}, canciones: [], mdesactivados: false,
+            EDitandoLAcanci: null, DAtosEDitadoS: {}, canciones: [], mdesactivados: false, msolofavoritas: false,
 
 
             async init()
@@ -178,7 +178,8 @@ function registrarctrlbiblioteca(servibiblioteca)
 
                 for(let i = 0; i < this.canciones.length; i++)
                 {
-                    if(this.mdesactivados || this.canciones[i].activo !== false)
+                    if((this.mdesactivados || this.canciones[i].activo !== false)
+                    && (!this.msolofavoritas || this.favoritas.includes(this.canciones[i].id)))
                     {
                         visibles.push(this.canciones[i]);
                     }
@@ -190,6 +191,11 @@ function registrarctrlbiblioteca(servibiblioteca)
             altdesactivadas()
             {
                 this.mdesactivados = !this.mdesactivados;
+            },
+
+            altfavoritas()
+            {
+                this.msolofavoritas = !this.msolofavoritas;
             }
 
         }));

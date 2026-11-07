@@ -128,6 +128,10 @@
             <button type="button" class="boton-estado" x-on:click="altdesactivadas()">
                 Mostrar/Ocultar canciones desactivadas
             </button>
+
+            <button type="button" class="boton-estado" x-on:click="altfavoritas()"
+            x-text="msolofavoritas ? 'Mostrar todas las canciones' : 'Mostrar solo favoritas'">
+            </button>
         
             <div class="scroll-contenedor">
             <table class="scroll" tabindex="0">

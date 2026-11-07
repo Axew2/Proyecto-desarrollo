@@ -458,3 +458,9 @@ footer {
 .boton-estado:hover {
     background-color: #155026;
 }
+
+button,
+nav a,
+nav .boton-menu {
+    min-height: 44px;
+}

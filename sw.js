@@ -1,6 +1,6 @@
 // El service worker está diseñado para guardar en el caché una copia de elementos importantes.
 
-const VERSION_CACHE = "version-5.4"
+const VERSION_CACHE = "version-5.5"
 
 
 /* Esta función lo que hace es "instalar" en el navegador una cache cuando escuche el evento que necesita,
@@ -17,7 +17,7 @@ self.addEventListener("install", function(event) {
 
             /* Cuando esté listo lo anterior y se abra el archivo caché, se retornará un guardado de los archivos
             que le indiquemos. */
-            return cache.addAll(["index.html","login.html","biblioteca.html","dashboard.html","playlists.html",
+            return cache.addAll(["./","index.html","login.html","biblioteca.html","dashboard.html","playlists.html",
             "historial.html","estadisticas.html","artistas.html","css/styles.css","css/artistas.css",
             "css/biblioteca.css","css/inicio.css","css/login.css","css/movil.css","artistas.js","biblioteca.js",
             "agregar-cancion.html","repo-playlist.js","libs/alpine.min.js",

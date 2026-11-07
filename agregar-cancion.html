@@ -42,6 +42,12 @@
             </p>
             
             <h2>Gestión de Canciones:</h2>
+            <p role="status" x-show="cargando">
+                Guardando canción...
+            </p>
+            <p role="alert" x-show="error !== ''" x-text="error"></p>
+            <p role="status" x-show="mensaje !== ''" x-text="mensaje"></p>
+
             <p>Bienvenido, autor, desde aquí puedes agregar canciones de tu autoría a Regi Music.</p>
             
             <form x-on:submit.prevent="AGRegoCAncion()">
@@ -88,7 +94,7 @@
                 </p>
                 
 
-                <button type = "submit"> Agregar Canción </button>
+                <button type = "submit" x-bind:disabled="cargando"> Agregar Canción </button>
             </form>
         </section>
     </main>
