@@ -11,7 +11,10 @@ if (document.body.classList.contains("playlists"))
     const repoplaylists = new repoplaylistsls("rmusic-playlists", diplaylists);
     const serviplaylists = new splaylists(repoplaylists);
 
-    registrarctrplaylists(serviplaylists);
+    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
+    const servibiblioteca = new sbiblioteca(repobiblioteca);
+
+    registrarctrplaylists(serviplaylists, servibiblioteca);
 }
 
 if(document.body.classList.contains("biblioteca") && !document.body.classList.contains("playlists") && !document.body.classList.contains("historial") && !document.body.classList.contains("estadisticas"))
