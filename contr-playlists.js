@@ -105,24 +105,25 @@ function registrarctrplaylists(serviplaylists, servibiblioteca)
             async gform()
             {
                 const titulo = this.nplaylist.trim();
-
-                if (titulo === '')
-                {
-                    this.error = 'Escribe un nombre para la playlist.';
-                    return;
-                }
-
                 let guardado;
 
-                if (this.peditando !== null)
+                if(this.peditando !== null)
                 {
-                    guardado = await this.editarplay({ ...this.peditando, titulo: titulo, canciones: [...this.seleccanciones] });                }
+                    guardado = await this.editarplay({
+                        ...this.peditando,
+                        titulo: titulo,
+                        canciones: [...this.seleccanciones]
+                    });
+                }
                 else
                 {
-                    guardado = await this.crearplay({ titulo: titulo, canciones: [...this.seleccanciones] });
+                    guardado = await this.crearplay({
+                        titulo: titulo,
+                        canciones: [...this.seleccanciones]
+                    });
                 }
 
-                if (guardado)
+                if(guardado)
                 {
                     this.vplaylist = false;
                     this.nplaylist = '';

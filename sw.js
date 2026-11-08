@@ -20,7 +20,7 @@ self.addEventListener("install", function(event) {
             return cache.addAll(["./","index.html","login.html","biblioteca.html","dashboard.html","playlists.html",
             "historial.html","estadisticas.html","artistas.html","css/styles.css","css/artistas.css",
             "css/biblioteca.css","css/inicio.css","css/login.css","css/movil.css","artistas.js","biblioteca.js",
-            "agregar-cancion.html","repo-playlist.js","libs/alpine.min.js",
+            "agregar-cancion.html","repo-playlist.js","libs/alpine.min.js", "contr-login.js",
             "repo-base.js","repo-artistas.js","servi-artistas.js","contr-artistas.js","compo-artistas.js",
             "repo-biblioteca.js","servi-biblioteca.js","buscador.js", "repo-historial.js","servi-historial.js",
             "servi-playlists.js","contr-playlists.js","compo-playlists.js","compo.js","manifest.json", "audios/prueba.mp3","audios/prueba2.mp3",

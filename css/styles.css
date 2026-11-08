@@ -464,3 +464,17 @@ nav a,
 nav .boton-menu {
     min-height: 44px;
 }
+
+.enlaces-admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.enlaces-admin .boton-estado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

@@ -5,8 +5,6 @@ document.addEventListener('alpine:init', () => {
         altperfil() {
             this.mostrarperfil = !this.mostrarperfil;
 
-            this.$dispatch('perfil-cambiado', {abierto: this.mostrarperfil});
-
             if (this.mostrarperfil)
             {
                 this.textoboton = 'Ocultar Perfil';
@@ -17,9 +15,17 @@ document.addEventListener('alpine:init', () => {
                 this.textoboton = 'Mostrar Perfil';
             }
         },
+        pedicion(artista)
+        {
+            this.$dispatch('editar-artista', artista);
+        },
         avisarestado(id)
         {
             this.$dispatch('cambiar-estado-artista', id);
+        },
+        pedeliminar(id)
+        {
+            this.$dispatch('eliminar-artista', id);
         },
         textoestado(activo)
         {

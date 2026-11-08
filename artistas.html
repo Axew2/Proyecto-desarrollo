@@ -60,9 +60,9 @@
 
     <main>
         
-        <section id="repertorio-de-artistas"x-data="repeartistas" 
-        x-on:perfil-cambiado="console.log($event.detail.abierto ? 'Se abrió el perfil.' : 'Se cerró el perfil.')"
-        x-on:cambiar-estado-artista="cambiarestartista($event.detail)">
+        <section id="repertorio-de-artistas" x-data="repeartistas" 
+        x-on:cambiar-estado-artista="cambiarestartista($event.detail)" x-on:editar-artista="eDitaARtista($event.detail)"
+        x-on:eliminar-artista="eliminarartista($event.detail)">
         
         
         <p id="estado-internet" role="status" hidden>
@@ -83,7 +83,7 @@
                     
                     <div class="arriba-artistA">
                         <h3> Completa la información de tu artista favorito </h3> 
-                        <button type="button" x-on:click="muestraFormu = false">
+                        <button type="button" x-on:click="cerrarFormu()">
                             Cerrar
                         </button>
                     </div>
@@ -138,7 +138,7 @@
             </button>
             
             <template x-for="artista in artvisibles" :key="artista.id">
-                <article x-data="perfilartista" x-show="genero === 'todos' || artista.generos.includes(genero)">
+                <article x-data="perfilartista">
                 
                 <h3 x-text="artista.nombre"></h3>
                 <img :src="artista.imagen" :alt="'Imagen de ' + artista.nombre">
@@ -153,15 +153,15 @@
                     <button type="button" x-on:click="altperfil()" x-text="textoboton">
                     </button>
                     
-                    <button type="button" x-on:click="eDitaARtista(artista)">
-                        Editar artista 
+                    <button type="button" x-on:click="pedicion(artista)">
+                        Editar artista
                     </button>
                     
                     <button type="button" x-on:click="avisarestado(artista.id)"
                         x-text="textoestado(artista.activo)">
                     </button>
 
-                    <button type="button" x-on:click="eliminarartista(artista.id)">
+                    <button type="button" x-on:click="pedeliminar(artista.id)">
                         Eliminar artista
                     </button>
                     

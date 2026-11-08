@@ -1,4 +1,4 @@
-function registrarInicio(serviartistas, servibiblioteca, servihistorial)
+function rinicio(serviartistas, servibiblioteca, servihistorial)
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('inicio', () => ({
@@ -7,6 +7,7 @@ function registrarInicio(serviartistas, servibiblioteca, servihistorial)
             artistas: [],
             canciones: [],
             scancion: null,
+            scancionvista: null,
 
             async init()
             {
@@ -19,6 +20,7 @@ function registrarInicio(serviartistas, servibiblioteca, servihistorial)
                     this.canciones = [];
                     this.SElecArtistA = null;
                     this.scancion = null;
+                    this.scancionvista = null;
 
                     for(let i = 0; i < lista.length; i++)
                     {
@@ -46,9 +48,11 @@ function registrarInicio(serviartistas, servibiblioteca, servihistorial)
                         if(biblioteca[i].activo !== false && adesactivado === false && this.canciones.length < 3)
                         {
                             this.canciones.push(biblioteca[i]);
+
                             if(this.scancion === null)
                             {
                                 this.scancion = biblioteca[i].id;
+                                this.scancionvista = biblioteca[i].id;
                             }
                         }
                     }
@@ -73,6 +77,16 @@ function registrarInicio(serviartistas, servibiblioteca, servihistorial)
             {
                 this.pausar();
                 this.scancion = id;
+            },
+
+            mostrardestacada(id)
+            {
+                this.scancionvista = id;
+            },
+            async escCancion(id)
+            {
+                this.seleccancion(id);
+                await this.reproducir();
             },
 
             async reproducir()
@@ -157,7 +171,7 @@ function registrarInicio(serviartistas, servibiblioteca, servihistorial)
                 this.reproducir();
             },
 
-            get cancionActual()
+            get canactual()
             {
                 for(let i = 0; i < this.canciones.length; i++)
                 {

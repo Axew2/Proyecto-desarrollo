@@ -138,21 +138,27 @@ function registrarctrlartistas(serviartistas)
             get artvisibles()
             {
                 const visibles = [];
-
                 for(let i = 0; i < this.artistas.length; i++)
                 {
                     if(this.mdesactivados || this.artistas[i].activo !== false)
                     {
-                        visibles.push(this.artistas[i]);
+                        if(this.genero === 'todos' || this.artistas[i].generos.includes(this.genero))
+                        {
+                            visibles.push(this.artistas[i]);
+                        }
                     }
                 }
-
                 return visibles;
             },
 
             altdesactivados()
             {
                 this.mdesactivados = !this.mdesactivados;
+            },
+
+            cerrarFormu()
+            {
+                this.muestraFormu = false;
             }
         }));
     });

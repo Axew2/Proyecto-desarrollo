@@ -13,8 +13,7 @@ function registrarctrlbiblioteca(servibiblioteca)
                 {
                     const canciones = await servibiblioteca.listabiblioteca();
                     this.canciones = canciones;
-
-
+                    
                     for(let i = 0; i < canciones.length; i++)
                     {
                         if(canciones[i].favorita === true)
@@ -42,7 +41,6 @@ function registrarctrlbiblioteca(servibiblioteca)
             clista(lista, cancion)
             {
                 const i = lista.indexOf(cancion);
-
                 if(i === -1)
                 {
                     lista.push(cancion);
@@ -66,27 +64,8 @@ function registrarctrlbiblioteca(servibiblioteca)
                 this.error = '';
                 try
                 {
-                    const canciones = await servibiblioteca.listabiblioteca();
-                    
-                    let encontrada = null;
+                    await servibiblioteca.cambfavorito(cancion);
 
-                    for(let i = 0; i < canciones.length; i++)
-                    {
-                        if(canciones[i].id === cancion)
-                        {
-                            encontrada = canciones[i];
-                            break;
-                        }
-                    }
-
-                    if(encontrada === null)
-                    {
-                        await servibiblioteca.cbiblioteca({ id: cancion, favorita: true, escuchada: false });
-                    }
-                    else
-                    {
-                        await servibiblioteca.edbiblioteca({ ...encontrada, favorita: !encontrada.favorita });
-                    }
                     this.clista(this.favoritas, cancion);
                 }
                 catch(error)
@@ -101,26 +80,8 @@ function registrarctrlbiblioteca(servibiblioteca)
                 this.error = '';
                 try
                 {
-                    const canciones = await servibiblioteca.listabiblioteca();
-                    let encontrada = null;
+                    await servibiblioteca.cambescuchada(cancion);
 
-                    for(let i = 0; i < canciones.length; i++)
-                    {
-                        if(canciones[i].id === cancion)
-                        {
-                            encontrada = canciones[i];
-                            break;
-                        }
-                    }
-
-                    if(encontrada === null)
-                    {
-                        await servibiblioteca.cbiblioteca({ id: cancion, favorita: false, escuchada: true });
-                    }
-                    else
-                    {
-                        await servibiblioteca.edbiblioteca({ ...encontrada, escuchada: !encontrada.escuchada });
-                    }
                     this.clista(this.escuchadas, cancion);
                 }
                 catch(error)
@@ -130,13 +91,27 @@ function registrarctrlbiblioteca(servibiblioteca)
                 }
             },
             
-            async ELiminCAnci(id){
-                try{
+            async ELiminCAnci(id)
+            {
+                this.error = '';
+
+                try
+                {
                     await servibiblioteca.elbiblioteca(id);
+                    if(this.favoritas.includes(id))
+                    {
+                        this.clista(this.favoritas, id);
+                    }
+                    if(this.escuchadas.includes(id))
+                    {
+                        this.clista(this.escuchadas, id);
+                    }
                     this.canciones = await servibiblioteca.listabiblioteca();
                 }
-                catch{
-                    this.error = 'No se pudo eliminar la cancion';
+                catch(error)
+                {
+                    this.error = 'No se pudo eliminar la canción.';
+                    console.error(error);
                 }
             },
 
@@ -145,15 +120,27 @@ function registrarctrlbiblioteca(servibiblioteca)
                 this.DAtosEDitadoS = {...cancion};
             },
 
-            async GUardaEDit(){
-                try{
+            cedicion()
+            {
+                this.EDitandoLAcanci = null;
+                this.DAtosEDitadoS = {};
+            },
+
+            async GUardaEDit()
+            {
+                this.error = '';
+
+                try
+                {
                     await servibiblioteca.edbiblioteca(this.DAtosEDitadoS);
                     this.canciones = await servibiblioteca.listabiblioteca();
                     this.EDitandoLAcanci = null;
                     this.DAtosEDitadoS = {};
                 }
-                catch{
-                    this.error = 'No se pudo editar la cancion'
+                catch(error)
+                {
+                    this.error = error.message;
+                    console.error(error);
                 }
             },
 
@@ -169,6 +156,42 @@ function registrarctrlbiblioteca(servibiblioteca)
                 {
                     this.error = 'No se pudo cambiar el estado de la canción.';
                     console.error(error);
+                }
+            },
+
+            textoestado(activo)
+            {
+                if(activo === false)
+                {
+                    return 'Activar canción';
+                }
+                else
+                {
+                    return 'Desactivar canción';
+                }
+            },
+
+            textoescuchada(id)
+            {
+                if(this.escuchadas.includes(id))
+                {
+                    return 'Quitar de escuchadas.';
+                }
+                else
+                {
+                    return 'Marcar como escuchada.';
+                }
+            },
+
+            textofavorito(id)
+            {
+                if(this.favoritas.includes(id))
+                {
+                    return 'Quitar de favoritos';
+                }
+                else
+                {
+                    return 'Agregar a favoritos';
                 }
             },
 

@@ -21,7 +21,7 @@
         <h1>Regi Music</h1>
         </div> 
     </header>
-    <nav >
+    <nav>
         <input type="checkbox" id="menu-movil" class="menu-toggle">
         <label for="menu-movil" class="boton-menu">☰ Menú</label>  
         <ul class="enlaces-menu">
@@ -37,7 +37,7 @@
     </nav>
 
     <main>
-        <section id = "login-section" x-data="{ rolinformacion: 'oyente', mostrarcontra: false }">
+        <section id="login-section" x-data="login">
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
             </p>
@@ -57,27 +57,22 @@
                 </p>
                 <p>
                     <label for = "password"> Contraseña: </label><br>
-                    <input x-bind:type="mostrarcontra ? 'text' : 'password'" id = "password" name = "password" required minlength="6" autocomplete="current-password">
+                    <input x-bind:type="tipocontra()" id="password" name="password" required minlength="6" autocomplete="current-password">
                     
-                    <button type="button" class="Boton-mostrar" x-on:click="mostrarcontra = !mostrarcontra" x-text="mostrarcontra ? 'Ocultar Contraseña' : 'Mostrar Contraseña'">
-                        Mostrar/Ocultar Contraseña
+                    <button type="button" class="Boton-mostrar" x-on:click="altcontra()" x-text="textocontra()">
                     </button>
                 </p>
                 <button type = "submit"> Iniciar Sesión </button>
             </form>
 
             <h3>Roles existentes:</h3>
+
             <div class="roles">
-            <button type="button" x-on:click="rolinformacion = 'oyente'">
-                Oyente
-            </button>
-            <button type="button" x-on:click="rolinformacion = 'artista'">
-                Artista
-            </button>
-            <button type="button" x-on:click="rolinformacion = 'admin'">
-                Administrador
-            </button>
+                <button type="button" x-on:click="cambiarrol('oyente')"> Oyente </button>
+                <button type="button" x-on:click="cambiarrol('artista')"> Artista </button>
+                <button type="button" x-on:click="cambiarrol('admin')"> Administrador </button>
             </div>
+            
             <div class="roles-inf">
                 <div x-show="rolinformacion === 'oyente'">
                     <h4>Cuenta de oyente</h4>
@@ -135,5 +130,6 @@
         });
     </script>
     
+    <script src="contr-login.js"></script>
 </body>
 </html>

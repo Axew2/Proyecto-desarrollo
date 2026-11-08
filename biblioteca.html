@@ -74,12 +74,12 @@
             
         <div class="fondo-editar-cancion" x-show="EDitandoLAcanci !== null">
     <div class="panel-editar-cancion">
-        <div class="encabezado-edicion">
-    <h2>Editar canción</h2>
-    <button type="button" x-on:click="EDitandoLAcanci = null">
-        Cerrar
-    </button>
-</div>
+            <div class="encabezado-edicion">
+                <h2>Editar canción</h2>
+                <button type="button" x-on:click="cedicion()">
+                    Cerrar
+                </button>
+            </div>  
     <form x-on:submit.prevent="GUardaEDit()">
 
         <p>
@@ -163,10 +163,12 @@
                                 
                                 <td class="acciones-cancion">
                                 <button type="button" class="botton-escuchar" x-on:click="cambescuchada(cancion.id)"
-                                x-text="escuchadas.includes(cancion.id) ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
-                                
-                                <button type="button" class="botton-favorito"   x-on:click="cambfavorito(cancion.id)"
-                                x-text="favoritas.includes(cancion.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
+                                    x-text="textoescuchada(cancion.id)">
+                                </button>
+
+                                <button type="button" class="botton-favorito" x-on:click="cambfavorito(cancion.id)"
+                                    x-text="textofavorito(cancion.id)">
+                                </button>
                                 
                                 <button type="button" class="botton-editar"  x-on:click="eDitaCAnci(cancion)"> 
                                    Editar cancion
@@ -176,8 +178,8 @@
                                     Eliminar cancion
                                 </button>
 
-                                <button type="button" class="boton-estado" x-on:click="cestcancion(cancion.id)" 
-                                x-text="cancion.activo === false ? 'Activar canción' : 'Desactivar canción'">
+                                <button type="button" class="boton-estado" x-on:click="cestcancion(cancion.id)"
+                                    x-text="textoestado(cancion.activo)">
                                 </button>
                             
                                 </td>

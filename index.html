@@ -112,13 +112,13 @@
 
         <div class="Botones-destacados">
             <template x-for="cancion in canciones" :key="cancion.id">
-                <button type="button" x-on:click="seleccancion(cancion.id)" x-text="cancion.titulo">
+                <button type="button" x-on:click="mostrardestacada(cancion.id)" x-text="cancion.titulo">
                 </button>
             </template>
         </div>
 
         <template x-for="cancion in canciones" :key="cancion.id">
-            <article x-show="scancion === cancion.id">
+            <article x-show="scancionvista === cancion.id">
                 <h3 x-text="cancion.titulo"></h3>
 
                 <img x-show="cancion.portada" x-bind:src="cancion.portada" x-bind:alt="'Portada de ' + cancion.titulo">
@@ -131,7 +131,7 @@
                 <p>
                     Duración: <span x-text="cancion.duracion"></span>
                 </p>
-                <button type="button" disabled>
+                <button type="button" x-on:click="escCancion(cancion.id)">
                     Escuchar
                 </button>
             </article>
@@ -148,16 +148,13 @@
         <p>De momento se encuentra todo vacío... !Busca algo para alegrar tu día!</p>
     </aside>
 
-    <!-- El footer contiene información sobre el sitio web, pero podemos ponerle al ser
-    un sitio de música, la típica barra de reproducción.-->
    <footer class="reproductor">
         <audio id="audio-reproductor" x-ref="areproductor" controls preload="metadata">
             Tu navegador no admite reproducción de audio.
         </audio>
 
-        <div class="reproducir-cancion">
-            <p x-text="cancionActual ? cancionActual.titulo : 'Sin canción seleccionada'"></p>
-            <p x-text="cancionActual ? cancionActual.artista : 'Sin artista'"></p>
+        <div class="reproducir-cancion"> <p x-text="canactual ? canactual.titulo : 'Sin canción seleccionada'"></p>
+            <p x-text="canactual ? canactual.artista : 'Sin artista'"></p>
         </div>
     
         <div class="reproducir-botones">
