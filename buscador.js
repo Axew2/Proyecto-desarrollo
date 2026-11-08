@@ -25,7 +25,7 @@ function REGIstroBUSca(serviartistas, servibiblioteca, serviplaylists){
 
                 for(let i = 0; i < biblioLISta.length; i++)
                 {
-                    let artistaDesactivado = false;
+                    let adesactivado = false;
 
                     for(let j = 0; j < canciLISta.length; j++)
                     {
@@ -33,14 +33,14 @@ function REGIstroBUSca(serviartistas, servibiblioteca, serviplaylists){
                         {
                             if(canciLISta[j].activo === false)
                             {
-                                artistaDesactivado = true;
+                                adesactivado = true;
                             }
                             break;
                         }
                     }
 
                     if(biblioLISta[i].activo !== false &&
-                    artistaDesactivado === false &&
+                    adesactivado === false &&
                     (biblioLISta[i].titulo.toLowerCase().includes(this.TEXtoBusque.toLowerCase())
                     || biblioLISta[i].artista.toLowerCase().includes(this.TEXtoBusque.toLowerCase())
                     || biblioLISta[i].album.toLowerCase().includes(this.TEXtoBusque.toLowerCase())))

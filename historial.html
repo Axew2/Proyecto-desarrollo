@@ -67,7 +67,7 @@
             <h2>Historial de reproducción</h2>
             <p>Consulta las canciones que has escuchado anteriormente.</p>
             <button type="button" class="boton-historial"
-                x-on:click="HistoRI = !HistoRI"
+                x-on:click="althistorial()"
                  x-text="HistoRI ? 'Ocultar historial' : 'Mostrar historial'">
             </button>
             
@@ -96,7 +96,7 @@
                         <th scope="row" x-text="cancion.titulo"></th>
                         <td x-text="cancion.artista"></td>
                         <td x-text="cancion.album"></td>
-                        <td>No contiene fecha </td>
+                        <td x-text="ffecha(cancion.fecha)"></td>
                         </tr>
                     </template>
                 </tbody>
@@ -147,6 +147,8 @@
     <script src="repo-playlist.js"></script>
     <script src="servi-playlists.js"></script>
     <script src="compo-playlists.js"></script>
+    <script src="repo-historial.js"></script>
+    <script src="servi-historial.js"></script>
     <script src="compo.js"></script>
 
 </body>

@@ -22,8 +22,8 @@ self.addEventListener("install", function(event) {
             "css/biblioteca.css","css/inicio.css","css/login.css","css/movil.css","artistas.js","biblioteca.js",
             "agregar-cancion.html","repo-playlist.js","libs/alpine.min.js",
             "repo-base.js","repo-artistas.js","servi-artistas.js","contr-artistas.js","compo-artistas.js",
-            "repo-biblioteca.js","servi-biblioteca.js","buscador.js",
-            "servi-playlists.js","contr-playlists.js","compo-playlists.js","compo.js","manifest.json",
+            "repo-biblioteca.js","servi-biblioteca.js","buscador.js", "repo-historial.js","servi-historial.js",
+            "servi-playlists.js","contr-playlists.js","compo-playlists.js","compo.js","manifest.json", "audios/prueba.mp3","audios/prueba2.mp3",
             "Icono-RMusic/RegiMusicIc.png","Icono-RMusic/RegiMusicIc - 192.png","Icono-RMusic/RegiMusicIc - 512.png",
             "Artistas-Imagenes/4f.webp","Artistas-Imagenes/hef.jpg","Artistas-Imagenes/Los 4F.png","Artistas-Imagenes/Laufey.jpg", "contr-aregar-cancion.js"
             ,"iniciio.js", "css/playlist.css", "css/historial.css", "css/estadisticas.css", "contr-historial.js"]);

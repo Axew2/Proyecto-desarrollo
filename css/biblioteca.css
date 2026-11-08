@@ -107,3 +107,9 @@
     flex-wrap: nowrap;
     gap: 8px;
 }
+@media (max-width: 767px) {
+    .biblioteca .acciones-cancion {
+        flex-wrap: wrap;
+        max-width: 260px;
+    }
+}

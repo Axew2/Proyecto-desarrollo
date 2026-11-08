@@ -151,15 +151,25 @@
     <!-- El footer contiene información sobre el sitio web, pero podemos ponerle al ser
     un sitio de música, la típica barra de reproducción.-->
    <footer class="reproductor">
+        <audio id="audio-reproductor" x-ref="areproductor" controls preload="metadata">
+            Tu navegador no admite reproducción de audio.
+        </audio>
+
         <div class="reproducir-cancion">
-            <p>Enrolar - Fantastic Four Remix</p>
-            <p>Los 4F</p>
+            <p x-text="cancionActual ? cancionActual.titulo : 'Sin canción seleccionada'"></p>
+            <p x-text="cancionActual ? cancionActual.artista : 'Sin artista'"></p>
         </div>
     
         <div class="reproducir-botones">
-            <button type="button"> Reproducir </button>
-            <button type="button"> Pausar </button>
-            <button type="button"> Siguiente </button>
+            <button type="button" x-on:click="reproducir()">
+                Reproducir
+            </button>
+            <button type="button" x-on:click="pausar()">
+                Pausar
+            </button>
+            <button type="button" x-on:click="siguiente()">
+                Siguiente
+            </button>
         </div>    
     </footer>
 
@@ -200,6 +210,8 @@
     <script src="repo-playlist.js"></script>
     <script src="servi-playlists.js"></script>
     <script src="compo-playlists.js"></script>
+    <script src="repo-historial.js"></script>
+    <script src="servi-historial.js"></script>
     <script src="compo.js"></script>
     
 </body>
