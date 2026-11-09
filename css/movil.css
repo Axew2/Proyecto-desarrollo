@@ -312,3 +312,9 @@ article img {
     }
    
 }
+
+@media (max-width: 767px) {
+    .inicio .Botones-destacados {
+        flex-wrap: wrap;
+    }
+}

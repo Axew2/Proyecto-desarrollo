@@ -60,25 +60,33 @@
       <!-- En este caso para hacer el script de Alpine, estoy usando las variables de vmcanciones como "Ver mostrar canciones"
     referente a ver el texto del ranking de las canciones, y vmostrar, como ver mostrar el txt del ranking de los artistas-->  
   
-  <main>
+  <main x-data="estadisticas">
         <section>
             <p id="estado-internet" role="status" hidden>
                 No posees conexión a internet. Revisa tu red o datos móviles.
             </p>
 
             <h2>Mis Estadísticas</h2>
+            <p role="status" x-show="cargando">
+                Cargando estadísticas...
+            </p>
+
+            <p role="alert" x-show="error !== ''" x-text="error"></p>
             <p>Consulta tus canciones y artistas más escuchados.</p>
         </section>
 
-        <section x-data="{ vmcanciones: true }">
+        <section>
             <h2>Canciones más escuchadas</h2>
             <button type="button" class="boton-ranking"
-                x-on:click="vmcanciones = !vmcanciones"
+                x-on:click="altcanciones()"
                 x-text="vmcanciones ? 'Ocultar ranking' : 'Mostrar ranking'">
             </button>
             
             <div class="recuadro-estadisticas" x-show="vmcanciones">
-            <table class="scroll" >
+                <p role="status" x-show="!cargando && error === '' && rankingcanciones.length === 0">
+                    Todavía no hay canciones reproducidas.
+                </p>
+            <table class="scroll" x-show="rankingcanciones.length > 0">
                 <caption>Ranking de canciones</caption>
 
                 <thead>
@@ -90,64 +98,50 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <th scope="row">Sola</th>
-                        <td>Héctor El Father</td>
-                        <td>12</td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">From The Start</th>
-                        <td>Laufey</td>
-                        <td>9</td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">Enrolar</th>
-                        <td>Los 4F</td>
-                        <td>7</td>
-                    </tr>
+                    <template x-for="cancion in rankingcanciones" :key="cancion.cancionId">
+                        <tr>
+                            <th scope="row" x-text="cancion.titulo"></th>
+                            <td x-text="cancion.artista"></td>
+                            <td x-text="cancion.reproducciones"></td>
+                        </tr>
+                    </template>
                 </tbody>
             </table>
         </div>
         </section>
 
-        <section x-data="{ vmostrar: true }">
+        <section>
             <h2>Artistas más escuchados</h2>
             <button type="button" class="boton-ranking"
-                x-on:click="vmostrar = !vmostrar"
+                x-on:click="altartistas()"
                 x-text="vmostrar ? 'Ocultar ranking' : 'Mostrar ranking'">
             </button>
             
             <div class="recuadro-estadisticas" x-show="vmostrar">
-            <table class="scroll" >
-                <caption>Ranking de artistas</caption>
+                <p role="status"
+                    x-show="!cargando && error === '' && rankingartistas.length === 0">
+                    Todavía no hay artistas reproducidos.
+                </p>
+                <table class="scroll" x-show="rankingartistas.length > 0">
+                    <caption>Ranking de artistas</caption>
 
-                <thead>
-                    <tr>
-                        <th scope="col">Artista</th>
-                        <th scope="col">Reproducciones</th>
-                    </tr>
-                </thead>
+                    <thead>
+                        <tr>
+                            <th scope="col">Artista</th>
+                            <th scope="col">Reproducciones</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <tr>
-                        <th scope="row">Héctor El Father</th>
-                        <td>12</td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">Laufey</th>
-                        <td>9</td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">Los 4F</th>
-                        <td>7</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                    <tbody>
+                        <template x-for="artista in rankingartistas" :key="artista.artista">
+                            <tr>
+                                <th scope="row" x-text="artista.artista"></th>
+                                <td x-text="artista.reproducciones"></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 
@@ -191,6 +185,9 @@
     <script src="repo-playlist.js"></script>
     <script src="servi-playlists.js"></script>
     <script src="compo-playlists.js"></script>
+    <script src="repo-historial.js"></script>
+    <script src="servi-historial.js"></script>
+    <script src="contr-estadisticas.js"></script>
     <script src="compo.js"></script>
     
 </body>

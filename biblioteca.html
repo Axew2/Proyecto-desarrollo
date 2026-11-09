@@ -74,12 +74,12 @@
             
         <div class="fondo-editar-cancion" x-show="EDitandoLAcanci !== null">
     <div class="panel-editar-cancion">
-        <div class="encabezado-edicion">
-    <h2>Editar canción</h2>
-    <button type="button" x-on:click="EDitandoLAcanci = null">
-        Cerrar
-    </button>
-</div>
+            <div class="encabezado-edicion">
+                <h2>Editar canción</h2>
+                <button type="button" x-on:click="cedicion()">
+                    Cerrar
+                </button>
+            </div>  
     <form x-on:submit.prevent="GUardaEDit()">
 
         <p>
@@ -113,6 +113,13 @@
             x-model="DAtosEDitadoS.portada" required>
         </p>
 
+        <p>
+            <label for="editar-audio">Ruta del audio:</label>
+            <input type="text" id="editar-audio"
+                x-model="DAtosEDitadoS.audio"
+                placeholder="audios/prueba.mp3">
+        </p>
+
         <button type="submit">Guardar cambios</button>
     </form>
     </div>
@@ -124,7 +131,16 @@
             <!-- Para hacer estas playlists, me basé en la estructura que sigue el profe en
             referencia a las tablas (tables), para ser especifico, en el apartado de HTML 5 Semántico
             página 5: Tablas de daMtos, para que mantengan el formato de "Canción - Artista - Album - Duración" -->
-        <div class="scroll-contenedor">
+
+            <button type="button" class="boton-estado" x-on:click="altdesactivadas()">
+                Mostrar/Ocultar canciones desactivadas
+            </button>
+
+            <button type="button" class="boton-estado" x-on:click="altfavoritas()"
+            x-text="msolofavoritas ? 'Mostrar todas las canciones' : 'Mostrar solo favoritas'">
+            </button>
+        
+            <div class="scroll-contenedor">
             <table class="scroll" tabindex="0">
                     <caption> Canciones disponibles</caption>
                     <thead>
@@ -138,7 +154,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <template x-for="cancion in canciones" :key="cancion.id"> 
+                        <template x-for="cancion in cancvisibles" :key="cancion.id"> 
                             <tr>
                                 <td x-text="cancion.titulo"></td>
                                 <td x-text="cancion.artista"></td>
@@ -147,10 +163,12 @@
                                 
                                 <td class="acciones-cancion">
                                 <button type="button" class="botton-escuchar" x-on:click="cambescuchada(cancion.id)"
-                                x-text="escuchadas.includes(cancion.id) ? 'Quitar de escuchadas.' : 'Marcar como escuchada.'"></button>
-                                
-                                <button type="button" class="botton-favorito"   x-on:click="cambfavorito(cancion.id)"
-                                x-text="favoritas.includes(cancion.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'"></button>
+                                    x-text="textoescuchada(cancion.id)">
+                                </button>
+
+                                <button type="button" class="botton-favorito" x-on:click="cambfavorito(cancion.id)"
+                                    x-text="textofavorito(cancion.id)">
+                                </button>
                                 
                                 <button type="button" class="botton-editar"  x-on:click="eDitaCAnci(cancion)"> 
                                    Editar cancion
@@ -160,6 +178,9 @@
                                     Eliminar cancion
                                 </button>
 
+                                <button type="button" class="boton-estado" x-on:click="cestcancion(cancion.id)"
+                                    x-text="textoestado(cancion.activo)">
+                                </button>
                             
                                 </td>
                                 

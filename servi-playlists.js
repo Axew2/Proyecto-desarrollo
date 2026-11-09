@@ -13,12 +13,21 @@ class splaylists
 
     async crearplay(playlists)
     {
+        if(playlists.titulo.trim() === '')
+        {
+            throw new Error("La playlist debe tener un nombre.");
+        }
         const playc = await this.repoplaylistsls.crear(playlists);
         return playc;
     }
 
     async editarplay(actualizarplay)
     {
+        if(actualizarplay.titulo.trim() === '')
+        {
+            throw new Error("La playlist debe tener un nombre.");
+        }
+
         const playe = await this.repoplaylistsls.editar(actualizarplay);
         return playe;
     }
