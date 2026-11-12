@@ -1,15 +1,16 @@
 // Estoy adaptando el CRUB en base a lo que hice con artistas, por eso son iguales por cierto.
 
 // Tuve que añadir 3 métodos que agrega un formulario, las funciones permiten abrirlo, editarlo y guardarlo.
-function registrarctrplaylists(serviplaylists) 
+function registrarctrplaylists(serviplaylists, servibiblioteca) 
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('repeplaylists', () => ({ playlists: [], cargando: false, error: '', vplaylist: false,
-            nplaylist: '', peditando: null,
+            nplaylist: '', peditando: null, cancdisponibles: [], seleccanciones: [],
             
             async init() 
             {
                 await this.cargarplaylists();
+                await this.cargarcanciones();
             },
             async cargarplaylists()
             {
@@ -28,6 +29,18 @@ function registrarctrplaylists(serviplaylists)
                 finally
                 {
                     this.cargando = false;
+                }
+            },
+            async cargarcanciones()
+            {
+                try
+                {
+                    this.cancdisponibles = await servibiblioteca.listabiblioteca();
+                }
+                catch (error)
+                {
+                    this.error = 'No se pudieron cargar las canciones.';
+                    console.error(error);
                 }
             },
             async crearplay(playlist)
@@ -79,6 +92,7 @@ function registrarctrplaylists(serviplaylists)
                 this.peditando = null;
                 this.nplaylist = '';
                 this.vplaylist = true;
+                this.seleccanciones = [];
             },
             aeditar(playlist)
             {
@@ -86,29 +100,30 @@ function registrarctrplaylists(serviplaylists)
                 this.peditando = playlist;
                 this.nplaylist = playlist.titulo;
                 this.vplaylist = true;
+                this.seleccanciones = [...playlist.canciones];
             },
             async gform()
             {
                 const titulo = this.nplaylist.trim();
-
-                if (titulo === '')
-                {
-                    this.error = 'Escribe un nombre para la playlist.';
-                    return;
-                }
-
                 let guardado;
 
-                if (this.peditando !== null)
+                if(this.peditando !== null)
                 {
-                    guardado = await this.editarplay({ ...this.peditando, titulo: titulo });
+                    guardado = await this.editarplay({
+                        ...this.peditando,
+                        titulo: titulo,
+                        canciones: [...this.seleccanciones]
+                    });
                 }
                 else
                 {
-                    guardado = await this.crearplay({ titulo: titulo, canciones: [] });
+                    guardado = await this.crearplay({
+                        titulo: titulo,
+                        canciones: [...this.seleccanciones]
+                    });
                 }
 
-                if (guardado)
+                if(guardado)
                 {
                     this.vplaylist = false;
                     this.nplaylist = '';

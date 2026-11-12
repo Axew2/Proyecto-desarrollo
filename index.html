@@ -73,57 +73,70 @@
             <h2>Artista Destacado</h2>
             <p>Revisa quien suena últimamente en Regi Music.</p>
             <div class="Botones-destacados">
-            <button type="button" x-on:click="SEleccionaArtis('hector')">
-                Héctor El Father
-            </button>
-
-            <button type="button" x-on:click="SEleccionaArtis('laufey')">
-                Laufey
-            </button>
-
-            <button type="button" x-on:click="SEleccionaArtis('4f')">
-                Los 4F
-            </button>
+                <template x-for="artista in artistas" :key="artista.id">
+                    <button type="button"
+                        x-on:click="SEleccionaArtis(artista.id)"
+                        x-text="artista.nombre">
+                    </button>
+                </template>
             </div>
-            <!-- Article según el profe es donde algo se explica por si solo,
-            una noticia, comentario, etc, en este caso, hablamos sobre algún artista que suena
-            recientemente o tiene algún hit pegado. -->
 
-            <!-- Alpine: Este solo se va a mostrar (===) cuando la variable que declaramos antes sea hector. -->
-            <article x-show="SElecArtistA === 'hector'">
-                <h3>Hector El Father</h3>
-                <img src="Artistas-Imagenes/hef.jpg" alt="Portada albúm Bad Boy">
-                <p>Género: Reggaeton</p>
-                <p>Hector El Father, uno de los pioneros del género urbano de la Old School.</p>
-                <button type="button">Ver Perfil</button>
-            </article>
+            <p x-show="artistas.length === 0">
+                No hay artistas disponibles.
+            </p>
 
-            <article x-show="SElecArtistA === 'laufey'">
-                <h3>Laufey</h3>
-                <img src="Artistas-Imagenes/Laufey.jpg" alt="Reconocida cantante Laufey">
-                <p>Género: Jazz, Jazz Pop</p>
-                <p>Laufey es reconocida mundialmente por revitalizar el Jazz en la generación Z.</p>
-                <button type="button" id="boton-laufey">Ver Perfil</button>
-            </article>
+            <template x-for="artista in artistas" :key="artista.id">
+                <article x-show="SElecArtistA === artista.id">
+                    <h3 x-text="artista.nombre"></h3>
 
-            <article x-show="SElecArtistA === '4f'">
-                <h3>Los 4 Fantásticos</h3>
-                <img src="Artistas-Imagenes/4f.webp" alt="Grupo chileno que ha sonado recientemente: Los 4 Fantásticos">
-                <p>Género: Trap, Reggaeton, Pop</p>
-                <p>Los 4 Fantásticos son un grupo chileno formado por Kidd Voodoo, DrefQuila, Easykid, Young Cister.</p>
-                <button type="button" id="boton-4fantasticos">Ver Perfil</button>
-            </article>
+                    <img x-bind:src="artista.imagen"
+                        x-bind:alt="artista.nombre">
+
+                    <p>
+                        Género: <span x-text="artista.generos"></span>
+                    </p>
+
+                    <p x-text="artista.descripcion"></p>
+
+                    <a href="artistas.html" class="boton-estado">Ver perfil</a>
+                </article>
+            </template>
         </section>
 
         <section id="canciones-populares">
-            <h2>Canciones Populares</h2>
-            <article>
-                <h3>Enrolar - Fantastic Four Remix</h3>
-                <img src="Artistas-Imagenes/Los 4F.png" alt="Portada de la canción Enrolar - Fantastic Four Remix">
-                <p>Canción más popular del grupo "Los 4 F", su último hit con 70 millones de reproducciones.</p>
-                <button type="button">Escuchar</button>
+        <h2>Canciones destacadas</h2>
+
+        <p x-show="canciones.length === 0">
+            No hay canciones disponibles en este momento.
+        </p>
+
+        <div class="Botones-destacados">
+            <template x-for="cancion in canciones" :key="cancion.id">
+                <button type="button" x-on:click="mostrardestacada(cancion.id)" x-text="cancion.titulo">
+                </button>
+            </template>
+        </div>
+
+        <template x-for="cancion in canciones" :key="cancion.id">
+            <article x-show="scancionvista === cancion.id">
+                <h3 x-text="cancion.titulo"></h3>
+
+                <img x-show="cancion.portada" x-bind:src="cancion.portada" x-bind:alt="'Portada de ' + cancion.titulo">
+                <p>
+                    Artista: <span x-text="cancion.artista"></span>
+                </p>
+                <p>
+                    Álbum: <span x-text="cancion.album"></span>
+                </p>
+                <p>
+                    Duración: <span x-text="cancion.duracion"></span>
+                </p>
+                <button type="button" x-on:click="escCancion(cancion.id)">
+                    Escuchar
+                </button>
             </article>
-        </section>
+        </template>
+    </section>
     </main>
 
     <!-- Tipo spotify, que el aside sea la barra lateral donde aparece la lista de espera,
@@ -135,18 +148,25 @@
         <p>De momento se encuentra todo vacío... !Busca algo para alegrar tu día!</p>
     </aside>
 
-    <!-- El footer contiene información sobre el sitio web, pero podemos ponerle al ser
-    un sitio de música, la típica barra de reproducción.-->
    <footer class="reproductor">
-        <div class="reproducir-cancion">
-            <p>Enrolar - Fantastic Four Remix</p>
-            <p>Los 4F</p>
+        <audio id="audio-reproductor" x-ref="areproductor" controls preload="metadata">
+            Tu navegador no admite reproducción de audio.
+        </audio>
+
+        <div class="reproducir-cancion"> <p x-text="canactual ? canactual.titulo : 'Sin canción seleccionada'"></p>
+            <p x-text="canactual ? canactual.artista : 'Sin artista'"></p>
         </div>
     
         <div class="reproducir-botones">
-            <button type="button"> Reproducir </button>
-            <button type="button"> Pausar </button>
-            <button type="button"> Siguiente </button>
+            <button type="button" x-on:click="reproducir()">
+                Reproducir
+            </button>
+            <button type="button" x-on:click="pausar()">
+                Pausar
+            </button>
+            <button type="button" x-on:click="siguiente()">
+                Siguiente
+            </button>
         </div>    
     </footer>
 
@@ -187,6 +207,8 @@
     <script src="repo-playlist.js"></script>
     <script src="servi-playlists.js"></script>
     <script src="compo-playlists.js"></script>
+    <script src="repo-historial.js"></script>
+    <script src="servi-historial.js"></script>
     <script src="compo.js"></script>
     
 </body>

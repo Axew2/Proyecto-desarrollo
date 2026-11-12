@@ -87,7 +87,7 @@
                             <th scope="row" x-text="playlist.titulo"></th>
                             <td x-text="playlist.canciones.length"></td>
                             <td x-text="playlist.canciones.join(', ')"></td>
-                            <td class ="acciones-playlist" class="playlist-accion">
+                            <td class ="acciones-playlist playlist-accion">
                                 <button type="button" class="boton-editar"
                                 x-on:click="aeditar(playlist)">Editar</button>
                                 <button type="button" class="boton-eliminar"
@@ -111,12 +111,22 @@
                 <form x-on:submit.prevent="gform()">
                     <label for="nombre-playlist">Nombre de la playlist</label>
                     <input type="text" id="nombre-playlist" name="nombre-playlist" x-model="nplaylist" required>
+                    <fieldset>
+                        <legend>Seleccionar canciones</legend>
+                        <p x-show="cancdisponibles.length === 0">
+                            No hay canciones disponibles en Biblioteca.
+                        </p>
+                        <template x-for="cancion in cancdisponibles" :key="cancion.id">
+                            <label>
+                                <input type="checkbox" :value="cancion.titulo" x-model="seleccanciones">
+                                <span x-text="cancion.titulo"></span>
+                            </label>
+                        </template>
+                    </fieldset>
                     <button type="submit" x-text="peditando ? 'Guardar cambios' : 'Crear Playlist'"></button>
                 </form>
-                
             </section>
         </div>
-      
     </main>
 
     <footer>

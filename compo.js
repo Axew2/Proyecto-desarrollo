@@ -1,53 +1,115 @@
-if (document.body.classList.contains("artistas"))
+const servicios = {
+    biblioteca: null,
+    artistas: null,
+    playlists: null
+};
+
+function observibiblioteca()
 {
-    const repoartistas = new repoartistasls("rmusic-artistas", diartistas);
-    const serviartistas = new sartistas(repoartistas);
+    if(servicios.biblioteca === null)
+    {
+        const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
+        servicios.biblioteca = new sbiblioteca(repobiblioteca);
+    }
+
+    return servicios.biblioteca;
+}
+
+function observiartistas()
+{
+    if(servicios.artistas === null)
+    {
+        const repoartistas = new repoartistasls("rmusic-artistas", diartistas);
+        servicios.artistas = new sartistas(repoartistas);
+    }
+
+    return servicios.artistas;
+}
+
+function observiplaylists()
+{
+    if(servicios.playlists === null)
+    {
+        const repoplaylists = new repoplaylistsls("rmusic-playlists", diplaylists);
+        servicios.playlists = new splaylists(repoplaylists);
+    }
+
+    return servicios.playlists;
+}
+
+if(document.body.classList.contains("artistas"))
+{
+    const serviartistas = observiartistas();
 
     registrarctrlartistas(serviartistas);
 }
 
-if (document.body.classList.contains("playlists"))
+if(document.body.classList.contains("playlists"))
 {
-    const repoplaylists = new repoplaylistsls("rmusic-playlists", diplaylists);
-    const serviplaylists = new splaylists(repoplaylists);
+    const serviplaylists = observiplaylists();
 
-    registrarctrplaylists(serviplaylists);
+    const servibiblioteca = observibiblioteca();
+
+    registrarctrplaylists(serviplaylists, servibiblioteca);
 }
 
-if(document.body.classList.contains("biblioteca") && !document.body.classList.contains("playlists") && !document.body.classList.contains("historial") && !document.body.classList.contains("estadisticas"))
+if(document.querySelector('[x-data="biblioteca"]'))
 {
-    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
-    const servibiblioteca = new sbiblioteca(repobiblioteca);
+    const servibiblioteca = observibiblioteca();
 
     registrarctrlbiblioteca(servibiblioteca);
 }
    
-if(document.getElementById("seccion-gestion-canciones"))    
-{        
-    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
-    const servibiblioteca = new sbiblioteca(repobiblioteca);
-    
+if(document.getElementById("seccion-gestion-canciones"))
+{
+    const servibiblioteca = observibiblioteca();
+
     REGistrarLAcancion(servibiblioteca);
 }
 
 if(document.querySelector(".Barra-busqueda"))
 {
-    const repoartistas = new repoartistasls("rmusic-artistas", diartistas);
-    const serviartistas = new sartistas(repoartistas);
+    const serviartistas = observiartistas();
 
-    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
-    const servibiblioteca = new sbiblioteca(repobiblioteca);
+    const servibiblioteca = observibiblioteca();
 
-    const repoplaylists = new repoplaylistsls("rmusic-playlists", diplaylists);
-    const serviplaylists = new splaylists(repoplaylists);
+    const serviplaylists = observiplaylists();
 
     REGIstroBUSca(serviartistas, servibiblioteca, serviplaylists);
 }
 
 if(document.body.classList.contains("historial"))
 {
-    const repobiblioteca = new repobibliotecals("rmusic-biblioteca");
-    const servibiblioteca = new sbiblioteca(repobiblioteca);
-    
-    reGIstractELhiSTo(servibiblioteca);
+    const repohistorial = new repohistorialls("rmusic-historial");
+    const servihistorial = new shistorial(repohistorial);
+
+    reGIstractELhiSTo(servihistorial);
+}
+
+if(document.body.classList.contains("inicio"))
+{
+    const serviartistas = observiartistas();
+
+    const servibiblioteca = observibiblioteca();
+
+    const repohistorial = new repohistorialls("rmusic-historial");
+    const servihistorial = new shistorial(repohistorial);
+
+    rinicio(serviartistas, servibiblioteca, servihistorial);
+}
+
+if(document.body.classList.contains("estadisticas"))
+{
+    const repohistorial = new repohistorialls("rmusic-historial");
+    const servihistorial = new shistorial(repohistorial);
+
+    restadisticas(servihistorial);
+}
+
+if(document.querySelector('[x-data="dashboard"]'))
+{
+    const servibiblioteca = observibiblioteca();
+    const serviartistas = observiartistas();
+
+    rdashboard(servibiblioteca, serviartistas);
 }

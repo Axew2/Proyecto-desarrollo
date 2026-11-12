@@ -1,8 +1,11 @@
-function reGIstractELhiSTo(servibiblioteca)
+function reGIstractELhiSTo(servihistorial)
 {
     document.addEventListener('alpine:init', () => {
         Alpine.data('historial', () => ({
-            HistoRI: true, CAnciEscUCha: [], cARgando: false, eRROr: '',
+            HistoRI: true,
+            CAnciEscUCha: [],
+            cARgando: false,
+            eRROr: '',
 
             async init()
             {
@@ -17,15 +20,7 @@ function reGIstractELhiSTo(servibiblioteca)
 
                 try
                 {
-                    const cancio = await servibiblioteca.listabiblioteca();
-
-                    for(let i = 0; i < cancio.length; i++)
-                    {
-                        if(cancio[i].escuchada === true)
-                        {
-                            this.CAnciEscUCha.push(cancio[i]);
-                        }
-                    }
+                    this.CAnciEscUCha = await servihistorial.listahistorial();
                 }
                 catch(error)
                 {
@@ -36,6 +31,21 @@ function reGIstractELhiSTo(servibiblioteca)
                 {
                     this.cARgando = false;
                 }
+            },
+
+            ffecha(fecha)
+            {
+                if(!fecha)
+                {
+                    return 'Sin fecha registrada';
+                }
+
+                return new Date(fecha).toLocaleString('es-CL');
+            },
+
+            althistorial()
+            {
+                this.HistoRI = !this.HistoRI;
             }
         }));
     });
