@@ -1,0 +1,16 @@
+{
+  "name": "regi-music",
+  "version": "1.0.0",
+  "description": "Backend de Regi Music",
+  "license": "ISC",
+  "author": "Bastian, Claudio, Diago",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
