@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 // al programar esto defino estas reglas con moongose.Schema, y moongose las tiene que aplicar.
 
 const artistaSchema = new mongoose.Schema({
+    id: { type: String, required: true, unique: true, trim: true },
     nombre: { type: String, required: true,
         // Trim según un tipo que preguntó en Stack Overflow se usa para eliminar todo lo relacionado con espacios al inicio o final.
         trim: true },
