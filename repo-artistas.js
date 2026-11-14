@@ -80,4 +80,10 @@ class repoartistasls extends repobase
 
         localStorage.setItem(this.clave, JSON.stringify(actualizarart));
     }
+
+    async listar(){ // cree esto para que se pueda ver la lista de artistas del JSON y traerlos como un arreglo de ibjetos pal JS0
+        const LisTARtis = await fetch("https://jsonplaceholder.typicode.com/users");
+        const REsulTAr = await LisTARtis.json();
+        return REsulTAr;
+    }
 }
