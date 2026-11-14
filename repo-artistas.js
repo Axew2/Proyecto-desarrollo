@@ -81,9 +81,22 @@ class repoartistasls extends repobase
         localStorage.setItem(this.clave, JSON.stringify(actualizarart));
     }
 
-    async listar(){ // cree esto para que se pueda ver la lista de artistas del JSON y traerlos como un arreglo de ibjetos pal JS0
-        const LisTARtis = await fetch("https://jsonplaceholder.typicode.com/users");
-        const REsulTAr = await LisTARtis.json();
-        return REsulTAr;
+    async listar(){ // cree esto para que se pueda ver la lista de artistas del JSON y traerlos como un arreglo de ibjetos pal JS <-- basti
+            
+        try{            
+            const LisTARtis = await fetch("https://jsonplaceholder.typicode.com/users");
+            
+            if(!LisTARtis.ok){ //la peticion fallo 
+                throw new Error("Error en la solicitud de los artistas ");
+            }
+
+            const REsulTAr = await LisTARtis.json();
+            return REsulTAr;
+        }
+        catch(error){
+            console.error("Error en la consulta de artistas:", error);
+            throw error;
+        }
+        
     }
 }
