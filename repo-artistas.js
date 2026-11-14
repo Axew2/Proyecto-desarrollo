@@ -81,6 +81,10 @@ class repoartistasls extends repobase
         localStorage.setItem(this.clave, JSON.stringify(actualizarart));
     }
 
+}
+
+class repoartistasAPIIltsg extends repobase
+{
     async listar(){ // cree esto para que se pueda ver la lista de artistas del JSON y traerlos como un arreglo de ibjetos pal JS <-- basti
             
         try{            
