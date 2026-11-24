@@ -1,6 +1,5 @@
-/*
-Falta el modelo del artistas y eso se hace con la base de datos
-*/
+const Artista = require("../modelos/artista.js");
+
 class RepositorioART{
     async listar() {
         const lista =await Artista.find();
