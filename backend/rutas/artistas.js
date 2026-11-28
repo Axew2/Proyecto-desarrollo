@@ -6,9 +6,15 @@ const router = express.Router();
         res.json(lista)
 
     });
-    router.get("/:id", async(req, res )=>{
+    router.get("/:id", async(req, res, next )=>{
+        try{
         const buscado = await servicio.buscar(req.params.id);
         res.json(buscado);
+        }catch(error){
+            next (error);
+        }
+
+
     });
     router.post("/", async(req, res,next)=>{
         try{

@@ -8,6 +8,11 @@ class ServerArt{
     }
     async buscar(id){
         const buscado = await this.repositorio.buscar(id)
+        if (!buscado){
+            const error = new Error("El artista no existe")
+            error.status = 404
+            throw error;
+        }
         return buscado;
     }
     async crear(artista){
