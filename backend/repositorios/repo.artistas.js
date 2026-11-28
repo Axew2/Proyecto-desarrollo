@@ -7,8 +7,15 @@ class RepositorioART{
     }
     async buscar(id){   
         console.log(id)
-        const artista = await Artista.findOne({id: id});
-        return artista;
+        const buscado = await Artista.findOne({id: id});
+        return buscado;
+    }
+    async crear(artista){
+        const nuevo = await Artista.create(artista);
+        return nuevo
+    }
+    async actualizar(){
+        
     }
 }
 
