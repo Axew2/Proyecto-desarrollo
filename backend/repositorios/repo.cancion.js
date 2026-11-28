@@ -57,7 +57,10 @@ class RepositorioCancion{
         const actualizarParcial = await Cancion.findByIdAndUpdate(id, datosPermitidos, {new: true, runValidators: true})
         return actualizarParcial;
     }
-
+    async eliminar(id){
+        const eliminar = await Cancion.findByIdandDelete( id );
+        return eliminar;
+    } 
 
 
 } 
