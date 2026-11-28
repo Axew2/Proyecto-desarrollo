@@ -1,9 +1,13 @@
 const express =require("express");
 function crearrouterart(servicio){
 const router = express.Router();
-    router.get("/",async(req, res) => {
+    router.get("/",async(req, res,next) => {
+        try{
         const lista = await servicio.listar(); 
         res.json(lista)
+        }catch(error){
+          next(error);
+        }
 
     });
     router.get("/:id", async(req, res, next )=>{
