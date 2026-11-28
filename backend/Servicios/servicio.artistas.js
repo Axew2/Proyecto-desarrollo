@@ -87,5 +87,14 @@ class ServerArt{
         }
         return actp_artista;
     } 
+    async eliminar(id){
+        const eliminar = await this.repositorio.eliminar(id)
+        if (!eliminar){
+            const error = new Error("La id no existe")
+            error.status = 404
+            throw error;
+        }
+        return eliminar
+    }
 }
 module.exports = ServerArt;

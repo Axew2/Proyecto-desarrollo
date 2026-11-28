@@ -23,6 +23,10 @@ class RepositorioART{
         const actualizadoParcial = await Artista.findOneAndUpdate({id: id}, datos,{new: true, runValidators: true});
         return actualizadoParcial;
     }
+    async eliminar(id){
+        const eliminar = await Artista.findOneAndDelete({id: id} )
+        return eliminar;
+    } 
 }
 
 module.exports = RepositorioART;

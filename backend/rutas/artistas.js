@@ -38,6 +38,15 @@ const router = express.Router();
             next(error);
         }
     });
+    router.delete("/:id", async(req,res,next)=>{
+        try{
+            await servicio.eliminar(req.params.id)
+            res.status(204);
+            res.send();
+        }catch(error){
+            next(error);
+        }
+    })
     return router;
 };
 module.exports = crearrouterart;
