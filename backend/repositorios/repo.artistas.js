@@ -15,12 +15,40 @@ class RepositorioART{
         return nuevo
     }
     async actualizar(id, datos){
-        const actualizado = await Artista.findOneAndUpdate({id: id}, datos, {new: true, runValidators: true});
+        const datosPermitidos = {};
+        if(Object.hasOwn(datos, "nombre")){
+            datosPermitidos.nombre = datos.nombre;
+        }if(Object.hasOwn(datos, "generos")){
+            datosPermitidos.generos= datos.generos;
+        }if(Object.hasOwn(datos, "imagen")){
+            datosPermitidos.imagen= datos.imagen;
+        }if(Object.hasOwn(datos, "biografia")){
+            datosPermitidos.biografia= datos.biografia;
+        }if(Object.hasOwn(datos, "activo")){
+            datosPermitidos.activo= datos.activo;
+        }if(Object.hasOwn(datos, "descripcion")){
+            datosPermitidos.descripcion= datos.descripcion;
+        }
+        const actualizado = await Artista.findOneAndUpdate({id: id}, datosPermitidos, {new: true, runValidators: true});
         return actualizado;
 
     }
     async actualizarParcial(id,datos){
-        const actualizadoParcial = await Artista.findOneAndUpdate({id: id}, datos,{new: true, runValidators: true});
+        const datosPermitidos = {};
+        if(Object.hasOwn(datos, "nombre")){
+            datosPermitidos.nombre = datos.nombre;
+        }if(Object.hasOwn(datos, "generos")){
+            datosPermitidos.generos= datos.generos;
+        }if(Object.hasOwn(datos, "imagen")){
+            datosPermitidos.imagen= datos.imagen;
+        }if(Object.hasOwn(datos, "biografia")){
+            datosPermitidos.biografia= datos.biografia;
+        }if(Object.hasOwn(datos, "activo")){
+            datosPermitidos.activo= datos.activo;
+        }if(Object.hasOwn(datos, "descripcion")){
+            datosPermitidos.descripcion= datos.descripcion;
+        }
+        const actualizadoParcial = await Artista.findOneAndUpdate({id: id}, datosPermitidos,{new: true, runValidators: true});
         return actualizadoParcial;
     }
     async eliminar(id){
