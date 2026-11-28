@@ -57,5 +57,35 @@ class ServerArt{
         }
         return act_artista;
     }
+    async actualizarParcial(id, datos){
+         if (!datos ||!Object.keys(datos).length ){
+            const error = new Error("Faltan los datos para modificar")
+            error.status = 400;
+            throw error;
+        }
+        if (Object.hasOwn(datos, "nombre")){
+        if (!datos || !datos.nombre){
+            const error =new Error("El artista necesita un nombre");
+            error.status = 400;
+            throw error;
+        }}
+        if (Object.hasOwn(datos, "generos")){
+        if(!datos || !Array.isArray(datos.generos)|| datos.generos.length === 0){
+            const error =new Error("El artista necesita al menos un genero");
+            error.status = 400;
+            throw error;
+        }}
+        if (Object.hasOwn(datos, "id")){
+            const error = new Error("La id no se puede modificar")
+            error.status = 400
+            throw error;
+        }const actp_artista =await this.repositorio.actualizarParcial(id, datos);
+        if(!actp_artista){
+             const error = new Error("Artista no encontrado");
+            error.status = 404;
+            throw error;
+        }
+        return actp_artista;
+    } 
 }
 module.exports = ServerArt;

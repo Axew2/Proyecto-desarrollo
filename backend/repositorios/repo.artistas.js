@@ -14,8 +14,14 @@ class RepositorioART{
         const nuevo = await Artista.create(artista);
         return nuevo
     }
-    async actualizar(){
-        
+    async actualizar(id, datos){
+        const actualizado = await Artista.findOneAndUpdate({id: id}, datos, {new: true, runValidators: true});
+        return actualizado;
+
+    }
+    async actualizarParcial(id,datos){
+        const actualizadoParcial = await Artista.findOneAndUpdate({id: id}, datos,{new: true, runValidators: true});
+        return actualizadoParcial;
     }
 }
 
